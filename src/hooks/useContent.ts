@@ -10,7 +10,10 @@ import type {
 
 async function fetchJson<T>(url: string, fallback: T): Promise<T> {
   try {
-    const res = await fetch(url);
+    // `cache: 'no-store'` tells both the browser and Next.js fetch cache
+    // to never serve a stale response. This guarantees the public site
+    // reflects edits made in the admin panel on the very next page load.
+    const res = await fetch(url, { cache: 'no-store' });
     if (!res.ok) return fallback;
     return (await res.json()) as T;
   } catch {

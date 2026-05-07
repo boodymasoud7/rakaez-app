@@ -8,7 +8,7 @@ export function useSiteSettings() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch('/api/public/settings')
+    fetch('/api/public/settings', { cache: 'no-store' })
       .then((res) => (res.ok ? res.json() : {}))
       .then((data: SiteSettings) => {
         if (data && typeof data === 'object') setSettings(data);
