@@ -9,8 +9,22 @@ export async function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname;
   const isAdminRoute = pathname.includes('/admin');
   const isLoginPage = pathname.includes('/admin/login');
+  const isMaintenanceRoute = pathname === '/maintenance';
 
-  // For admin routes (except login), require an authenticated session.
+  // 1. Maintenance mode: when MAINTENANCE_MODE=true, rewrite every public
+  //    visitor request to /maintenance. The admin panel and the maintenance
+  //    page itself stay reachable so the team can keep working on content.
+  if (
+    process.env.MAINTENANCE_MODE === 'true' &&
+    !isAdminRoute &&
+    !isMaintenanceRoute
+  ) {
+    const url = request.nextUrl.clone();
+    url.pathname = '/maintenance';
+    return NextResponse.rewrite(url);
+  }
+
+  // 2. Admin routes (except login) require an authenticated session.
   if (isAdminRoute && !isLoginPage) {
     const response = NextResponse.next({ request });
     const session = await getRequestSession(request, response);
@@ -25,10 +39,11 @@ export async function middleware(request: NextRequest) {
     return response;
   }
 
-  // For all other routes (including the login page) just handle i18n.
+  // 3. Everything else: just handle i18n.
   return intlMiddleware(request);
 }
 
 export const config = {
-  matcher: ['/', '/(en|ar)/:path*'],
+  // Match all paths except Next internals, API routes, and static assets.
+  matcher: ['/((?!api|_next|.*\\..*).*)'],
 };
