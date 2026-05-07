@@ -37,7 +37,10 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: 'Invalid path' }, { status: 400 });
   }
 
-  const useGithub = !!(process.env.GITHUB_TOKEN && process.env.GITHUB_REPO);
+  const tokenAvailable = !!(process.env.GITHUB_TOKEN && process.env.GITHUB_REPO);
+  const isProd = process.env.NODE_ENV === 'production';
+  const forced = process.env.CONTENT_USE_GITHUB === 'true';
+  const useGithub = tokenAvailable && (isProd || forced);
 
   if (useGithub) {
     await deleteFromGithub(target);

@@ -22,7 +22,10 @@ const ROOT_REL = 'public/uploads';
  * the same data shape is returned in both modes.
  */
 export async function listMedia(): Promise<MediaFileEntry[]> {
-  const useGithub = !!(process.env.GITHUB_TOKEN && process.env.GITHUB_REPO);
+  const tokenAvailable = !!(process.env.GITHUB_TOKEN && process.env.GITHUB_REPO);
+  const isProd = process.env.NODE_ENV === 'production';
+  const forced = process.env.CONTENT_USE_GITHUB === 'true';
+  const useGithub = tokenAvailable && (isProd || forced);
   if (useGithub) return listMediaFromGithub();
   return listMediaFromLocal();
 }

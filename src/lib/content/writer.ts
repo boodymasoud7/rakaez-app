@@ -20,8 +20,10 @@ interface FileChange {
  *  - In **production** (when `GITHUB_TOKEN` + `GITHUB_REPO` are set), all
  *    changes are batched into a single commit on GitHub via the Git Data
  *    API. The auto-deploy (Vercel/Netlify) picks them up within ~30s.
- *  - In **development** (no GitHub token), files are written directly to
- *    the local filesystem so changes appear instantly.
+ *  - In **development**, files are written directly to the local filesystem
+ *    so changes appear instantly without spamming the repo with commits.
+ *  - To override (e.g. to test the GitHub flow locally), set
+ *    `CONTENT_USE_GITHUB=true` in `.env.local`.
  */
 export async function writeFiles(
   changes: FileChange[],
@@ -29,7 +31,10 @@ export async function writeFiles(
 ): Promise<void> {
   if (changes.length === 0) return;
 
-  const useGithub = !!(process.env.GITHUB_TOKEN && process.env.GITHUB_REPO);
+  const tokenAvailable = !!(process.env.GITHUB_TOKEN && process.env.GITHUB_REPO);
+  const isProd = process.env.NODE_ENV === 'production';
+  const forced = process.env.CONTENT_USE_GITHUB === 'true';
+  const useGithub = tokenAvailable && (isProd || forced);
 
   if (useGithub) {
     await commitToGithub(changes, commitMessage);
