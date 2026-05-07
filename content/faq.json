@@ -1,0 +1,42 @@
+[
+  {
+    "id": "faq-1",
+    "question_en": "Can foreigners buy property in Egypt?",
+    "question_ar": "هل يمكن للأجانب شراء عقارات في مصر؟",
+    "answer_en": "Yes, foreigners can purchase property in Egypt. Popular areas include New Cairo, the New Administrative Capital, 6th of October City, and the North Coast.",
+    "answer_ar": "نعم، يمكن للأجانب شراء عقارات في مصر. تشمل المناطق الشائعة القاهرة الجديدة والعاصمة الإدارية الجديدة ومدينة 6 أكتوبر والساحل الشمالي.",
+    "sort_order": 1
+  },
+  {
+    "id": "faq-2",
+    "question_en": "What payment plans are available?",
+    "question_ar": "ما هي خطط الدفع المتاحة؟",
+    "answer_en": "We offer flexible payment plans tailored to each project. Typically, our plans include down payment options starting from 10%.",
+    "answer_ar": "نقدم خطط دفع مرنة مصممة لكل مشروع. عادةً، تتضمن خططنا خيارات دفعة أولى تبدأ من 10%.",
+    "sort_order": 2
+  },
+  {
+    "id": "faq-3",
+    "question_en": "How can I schedule a property viewing?",
+    "question_ar": "كيف يمكنني حجز معاينة للعقار؟",
+    "answer_en": "You can schedule a viewing by calling us at 17074, filling out the contact form on our website, or visiting our sales office.",
+    "answer_ar": "يمكنك حجز معاينة بالاتصال بنا على 17074 أو ملء نموذج التواصل على موقعنا أو زيارة مكتب المبيعات.",
+    "sort_order": 3
+  },
+  {
+    "id": "faq-4",
+    "question_en": "What after-sales support do you provide?",
+    "question_ar": "ما هو دعم ما بعد البيع الذي تقدمونه؟",
+    "answer_en": "We provide comprehensive after-sales support including property management, maintenance services, warranty coverage, and dedicated customer service.",
+    "answer_ar": "نقدم دعمًا شاملًا لما بعد البيع يشمل إدارة العقارات وخدمات الصيانة وتغطية الضمان وخدمة عملاء مخصصة.",
+    "sort_order": 4
+  },
+  {
+    "id": "faq-5",
+    "question_en": "Are your properties eligible for residency permits?",
+    "question_ar": "هل عقاراتكم مؤهلة للحصول على تصاريح إقامة؟",
+    "answer_en": "Yes, property owners in Egypt may be eligible for residency permits, subject to meeting minimum property value requirements.",
+    "answer_ar": "نعم، قد يكون مالكو العقارات في مصر مؤهلين للحصول على تصاريح إقامة، بشرط استيفاء متطلبات الحد الأدنى لقيمة العقار.",
+    "sort_order": 5
+  }
+]

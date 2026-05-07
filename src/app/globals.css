@@ -1,26 +1,180 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+
+@theme {
+  --color-primary: #08383a;
+  --color-primary-light: #0a4a4d;
+  --color-primary-dark: #062c2e;
+  --color-secondary: #042021;
+  --color-secondary-dark: #021415;
+  --color-dark: #021011;
+  --color-gold: #C4A265;
+  --color-gold-light: #d4b87a;
+  --color-gold-dark: #b08d4a;
+
+  --font-inter: 'Inter', sans-serif;
+  --font-tajawal: 'Tajawal', sans-serif;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+/* ============================
+   Base Styles
+   ============================ */
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-inter);
+  background-color: #fafafa;
+  color: #1a1a1a;
+}
+
+[dir="rtl"] body {
+  font-family: var(--font-tajawal);
+}
+
+/* ============================
+   Scrollbar
+   ============================ */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-secondary-dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-gold);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-gold-light);
+}
+
+/* ============================
+   Selection
+   ============================ */
+::selection {
+  background-color: var(--color-gold);
+  color: white;
+}
+
+/* ============================
+   Custom Utilities
+   ============================ */
+.text-gradient {
+  background: linear-gradient(135deg, var(--color-gold) 0%, var(--color-gold-light) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.bg-gradient-primary {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+}
+
+.bg-gradient-dark {
+  background: linear-gradient(135deg, var(--color-secondary-dark) 0%, var(--color-dark) 100%);
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.glass-dark {
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* ============================
+   Hero Overlay
+   ============================ */
+.hero-overlay {
+  background: linear-gradient(
+    to bottom,
+    rgba(1, 6, 6, 0.7) 0%,
+    rgba(1, 6, 6, 0.4) 40%,
+    rgba(1, 6, 6, 0.6) 70%,
+    rgba(1, 6, 6, 0.9) 100%
+  );
+}
+
+/* ============================
+   Animations
+   ============================ */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.animate-shimmer {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(196, 162, 101, 0.1) 50%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 3s infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+@keyframes pulse-gold {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(196, 162, 101, 0.4); }
+  50% { box-shadow: 0 0 0 15px rgba(196, 162, 101, 0); }
+}
+
+.animate-pulse-gold {
+  animation: pulse-gold 2s infinite;
+}
+
+/* ============================
+   Swiper Custom
+   ============================ */
+.swiper-pagination-bullet {
+  background: var(--color-gold) !important;
+  opacity: 0.5;
+}
+
+.swiper-pagination-bullet-active {
+  opacity: 1 !important;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: var(--color-gold) !important;
+}
+
+/* ============================
+   Loading Screen
+   ============================ */
+.loading-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-dark);
+}
+
+/* ============================
+   Admin Sidebar
+   ============================ */
+.admin-sidebar {
+  background: linear-gradient(180deg, var(--color-primary) 0%, var(--color-secondary-dark) 100%);
 }

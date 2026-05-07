@@ -1,0 +1,38 @@
+[
+  {
+    "id": "svc-1",
+    "title_en": "Real Estate Development",
+    "title_ar": "التطوير العقاري",
+    "description_en": "From concept to completion, we develop premium residential and commercial properties that set new standards in quality, design, and sustainability.",
+    "description_ar": "من الفكرة إلى الإنجاز، نطور عقارات سكنية وتجارية فاخرة تضع معايير جديدة في الجودة والتصميم والاستدامة.",
+    "icon": "HiOfficeBuilding",
+    "sort_order": 1
+  },
+  {
+    "id": "svc-2",
+    "title_en": "Investment Consultation",
+    "title_ar": "الاستشارات الاستثمارية",
+    "description_en": "Expert guidance to help you make informed real estate investment decisions.",
+    "description_ar": "إرشاد خبير لمساعدتك في اتخاذ قرارات استثمارية عقارية مدروسة.",
+    "icon": "HiTrendingUp",
+    "sort_order": 2
+  },
+  {
+    "id": "svc-3",
+    "title_en": "Property Management",
+    "title_ar": "إدارة العقارات",
+    "description_en": "Professional management services to maintain and enhance your property value.",
+    "description_ar": "خدمات إدارة احترافية للحفاظ على قيمة عقارك وتعزيزها.",
+    "icon": "HiCog",
+    "sort_order": 3
+  },
+  {
+    "id": "svc-4",
+    "title_en": "Real Estate Advisory",
+    "title_ar": "الاستشارات العقارية",
+    "description_en": "Strategic advice on market trends, opportunities, and property portfolio optimization.",
+    "description_ar": "نصائح استراتيجية حول اتجاهات السوق والفرص وتحسين محفظتك العقارية.",
+    "icon": "HiLightBulb",
+    "sort_order": 4
+  }
+]

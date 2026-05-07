@@ -1,0 +1,51 @@
+{
+  "home": {
+    "title_en": "Rakaez Real Estate Development",
+    "title_ar": "ركائز للتطوير العقاري",
+    "description_en": "Premium real estate development in Egypt",
+    "description_ar": "التطوير العقاري الفاخر في مصر",
+    "og_image": null
+  },
+  "about": {
+    "title_en": "About Rakaez",
+    "title_ar": "عن ركائز",
+    "description_en": "Learn about Rakaez Real Estate",
+    "description_ar": "تعرف على ركائز",
+    "og_image": null
+  },
+  "projects": {
+    "title_en": "Our Projects",
+    "title_ar": "مشاريعنا",
+    "description_en": "Premium developments by Rakaez",
+    "description_ar": "مشاريع ركائز الفاخرة",
+    "og_image": null
+  },
+  "services": {
+    "title_en": "Our Services",
+    "title_ar": "خدماتنا",
+    "description_en": "Real estate services",
+    "description_ar": "خدماتنا العقارية",
+    "og_image": null
+  },
+  "blog": {
+    "title_en": "Blog & News",
+    "title_ar": "المدونة",
+    "description_en": "Latest news",
+    "description_ar": "آخر الأخبار",
+    "og_image": null
+  },
+  "contact": {
+    "title_en": "Contact Us",
+    "title_ar": "تواصل معنا",
+    "description_en": "Get in touch",
+    "description_ar": "تواصل معنا",
+    "og_image": null
+  },
+  "faq": {
+    "title_en": "FAQ",
+    "title_ar": "الأسئلة الشائعة",
+    "description_en": "Frequently asked questions",
+    "description_ar": "الأسئلة المتكررة",
+    "og_image": null
+  }
+}
