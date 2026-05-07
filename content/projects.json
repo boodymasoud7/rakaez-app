@@ -70,11 +70,11 @@
   },
   {
     "id": "proj-4",
-    "name_en": "Sunset Heights",
-    "name_ar": "مرتفعات الغروب",
+    "name_en": "دايموند مول",
+    "name_ar": "Diamond Mall",
     "slug": "sunset-heights",
-    "location_en": "North Coast, Egypt",
-    "location_ar": "الساحل الشمالي، مصر",
+    "location_en": "New Damietta",
+    "location_ar": "دمياط الجديدة، مصر",
     "description_en": "Premium beachfront apartments designed for those who appreciate the finer things in life. Featuring floor-to-ceiling windows, Italian marble finishes, and exclusive residents-only facilities.",
     "description_ar": "شقق فاخرة على شاطئ البحر مصممة لمن يقدرون أرقى الأشياء في الحياة. تتميز بنوافذ من الأرض للسقف، تشطيبات رخام إيطالي، ومرافق حصرية للسكان فقط.",
     "status": "ongoing",
@@ -89,7 +89,6 @@
     "payment_plans": [],
     "amenities": [],
     "created_at": "2024-05-01T00:00:00.000Z",
-    "updated_at": "2024-05-01T00:00:00.000Z"
+    "updated_at": "2026-05-07T14:47:37.202Z"
   }
 ]
-
