@@ -5,6 +5,7 @@ import type { Metadata } from 'next';
 import GoogleAnalytics from '@/components/GoogleAnalytics';
 import WhatsAppWidget from '@/components/ui/WhatsAppWidget';
 import ErrorBoundary from '@/components/ui/ErrorBoundary';
+import AdminPreviewBanner from '@/components/AdminPreviewBanner';
 
 export const metadata: Metadata = {
   title: 'Rakaez Real Estate Development | ركائز للتطوير العقاري',
@@ -59,6 +60,7 @@ export default async function LocaleLayout({ children, params }: Props) {
             {children}
           </ErrorBoundary>
           <WhatsAppWidget />
+          <AdminPreviewBanner locale={locale} />
         </NextIntlClientProvider>
       </body>
     </html>
