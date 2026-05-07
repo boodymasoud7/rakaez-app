@@ -14,12 +14,15 @@ export interface ProjectVideo {
   title_ar?: string;
 }
 
+export type UnitCategory = 'residential' | 'commercial' | 'administrative';
+
 export interface UnitType {
-  name_en: string;
-  name_ar: string;
-  bedrooms: number;
-  area: string;
-  price: string;
+  /** Category of unit — used to render a localized label and styling. */
+  category: UnitCategory;
+  /** Smallest available area in square metres. */
+  area_from: number;
+  /** Largest available area in square metres. */
+  area_to: number;
 }
 
 export interface PaymentPlan {

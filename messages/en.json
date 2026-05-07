@@ -73,13 +73,15 @@
     "masterPlan": "Master Plan",
     "unitTypes": "Unit Types",
     "paymentPlans": "Payment Plans",
-    "amenities": "Amenities",
     "downloadBrochure": "Download Brochure",
     "inquiryTitle": "Interested in this project?",
     "inquirySubtitle": "Send us your inquiry and our team will contact you",
-    "bedrooms": "Bedrooms",
     "area": "Area",
-    "price": "Price"
+    "areaFromTo": "Areas from {from} m² to {to} m²",
+    "areaSingle": "{area} m²",
+    "categoryResidential": "Residential",
+    "categoryCommercial": "Commercial",
+    "categoryAdministrative": "Administrative"
   },
   "services": {
     "title": "Our Services",

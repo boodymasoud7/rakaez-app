@@ -75,7 +75,7 @@ export interface ProjectPayload {
   lng?: number | null;
   gallery?: { url: string; sort_order?: number }[];
   videos?: { url: string; title_en?: string; title_ar?: string }[];
-  unit_types?: { name_en: string; name_ar: string; bedrooms: number; area: string; price: string }[];
+  unit_types?: { category: 'residential' | 'commercial' | 'administrative'; area_from: number; area_to: number }[];
   payment_plans?: { name_en: string; name_ar: string; details_en: string; details_ar: string }[];
   amenities?: { name_en: string; name_ar: string; icon: string }[];
 }

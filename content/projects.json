@@ -16,7 +16,9 @@
     "featured": true,
     "gallery": [],
     "videos": [],
-    "unit_types": [],
+    "unit_types": [
+      { "category": "residential", "area_from": 80, "area_to": 220 }
+    ],
     "payment_plans": [],
     "amenities": [],
     "created_at": "2024-01-15T00:00:00.000Z",
@@ -39,7 +41,9 @@
     "featured": true,
     "gallery": [],
     "videos": [],
-    "unit_types": [],
+    "unit_types": [
+      { "category": "residential", "area_from": 120, "area_to": 350 }
+    ],
     "payment_plans": [],
     "amenities": [],
     "created_at": "2024-03-01T00:00:00.000Z",
@@ -62,7 +66,10 @@
     "featured": true,
     "gallery": [],
     "videos": [],
-    "unit_types": [],
+    "unit_types": [
+      { "category": "administrative", "area_from": 100, "area_to": 400 },
+      { "category": "commercial", "area_from": 60, "area_to": 250 }
+    ],
     "payment_plans": [],
     "amenities": [],
     "created_at": "2023-06-15T00:00:00.000Z",
@@ -85,7 +92,9 @@
     "featured": false,
     "gallery": [],
     "videos": [],
-    "unit_types": [],
+    "unit_types": [
+      { "category": "residential", "area_from": 120, "area_to": 350 }
+    ],
     "payment_plans": [],
     "amenities": [],
     "created_at": "2024-05-01T00:00:00.000Z",

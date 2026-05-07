@@ -73,13 +73,15 @@
     "masterPlan": "المخطط الرئيسي",
     "unitTypes": "أنواع الوحدات",
     "paymentPlans": "خطط الدفع",
-    "amenities": "المرافق",
     "downloadBrochure": "تحميل الكتيب",
     "inquiryTitle": "مهتم بهذا المشروع؟",
     "inquirySubtitle": "أرسل استفسارك وسيتواصل معك فريقنا",
-    "bedrooms": "غرف النوم",
     "area": "المساحة",
-    "price": "السعر"
+    "areaFromTo": "مساحات تبدأ من {from} م² إلى {to} م²",
+    "areaSingle": "بمساحة {area} م²",
+    "categoryResidential": "سكني",
+    "categoryCommercial": "تجاري",
+    "categoryAdministrative": "إداري"
   },
   "services": {
     "title": "خدماتنا",

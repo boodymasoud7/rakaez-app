@@ -5,7 +5,7 @@ import { useParams } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { HiLocationMarker, HiCheckCircle } from 'react-icons/hi';
+import { HiLocationMarker, HiOfficeBuilding, HiShoppingBag, HiBriefcase } from 'react-icons/hi';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import AnimatedSection from '@/components/ui/AnimatedSection';
@@ -54,23 +54,31 @@ export default function ProjectDetailPage() {
       ? project.gallery.map((img) => img.url)
       : fallbackGallery;
 
-  const demoUnits = [
-    { name: locale === 'ar' ? 'استوديو' : 'Studio', beds: 0, area: '45 sqm', price: 'EGP 850,000' },
-    { name: locale === 'ar' ? 'غرفة واحدة' : '1 Bedroom', beds: 1, area: '75 sqm', price: 'EGP 1,500,000' },
-    { name: locale === 'ar' ? 'غرفتين' : '2 Bedrooms', beds: 2, area: '120 sqm', price: 'EGP 2,400,000' },
-    { name: locale === 'ar' ? 'ثلاث غرف' : '3 Bedrooms', beds: 3, area: '180 sqm', price: 'EGP 3,500,000' },
-  ];
+  const unitTypes = Array.isArray(project.unit_types) ? project.unit_types : [];
 
-  const demoAmenities = [
-    locale === 'ar' ? 'مسبح إنفينيتي' : 'Infinity Pool',
-    locale === 'ar' ? 'نادي صحي' : 'Fitness Center',
-    locale === 'ar' ? 'أمن 24/7' : '24/7 Security',
-    locale === 'ar' ? 'مواقف سيارات' : 'Covered Parking',
-    locale === 'ar' ? 'حدائق' : 'Landscaped Gardens',
-    locale === 'ar' ? 'ملاعب أطفال' : 'Kids Play Area',
-    locale === 'ar' ? 'صالة متعددة الأغراض' : 'Multi-purpose Hall',
-    locale === 'ar' ? 'منطقة شواء' : 'BBQ Area',
-  ];
+  const categoryConfig = {
+    residential: {
+      label: locale === 'ar' ? 'سكني' : 'Residential',
+      icon: HiOfficeBuilding,
+      color: 'from-emerald-500 to-teal-600',
+      bg: 'bg-emerald-50',
+      text: 'text-emerald-700',
+    },
+    commercial: {
+      label: locale === 'ar' ? 'تجاري' : 'Commercial',
+      icon: HiShoppingBag,
+      color: 'from-amber-500 to-orange-600',
+      bg: 'bg-amber-50',
+      text: 'text-amber-700',
+    },
+    administrative: {
+      label: locale === 'ar' ? 'إداري' : 'Administrative',
+      icon: HiBriefcase,
+      color: 'from-blue-500 to-indigo-600',
+      bg: 'bg-blue-50',
+      text: 'text-blue-700',
+    },
+  } as const;
 
   return (
     <>
@@ -125,55 +133,42 @@ export default function ProjectDetailPage() {
       </section>
 
       {/* Unit Types */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <AnimatedSection><SectionTitle title={t('unitTypes')} /></AnimatedSection>
-          <AnimatedSection>
-            <div className="overflow-x-auto">
-              <table className="w-full">
-                <thead>
-                  <tr className="bg-primary text-white">
-                    <th className="px-6 py-4 text-start font-semibold">{locale === 'ar' ? 'النوع' : 'Type'}</th>
-                    <th className="px-6 py-4 text-start font-semibold">{t('bedrooms')}</th>
-                    <th className="px-6 py-4 text-start font-semibold">{t('area')}</th>
-                    <th className="px-6 py-4 text-start font-semibold">{t('price')}</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {demoUnits.map((unit, i) => (
-                    <tr key={i} className="border-b border-gray-100 hover:bg-gray-50 transition-colors">
-                      <td className="px-6 py-4 font-medium text-secondary-dark">{unit.name}</td>
-                      <td className="px-6 py-4 text-gray-600">{unit.beds}</td>
-                      <td className="px-6 py-4 text-gray-600">{unit.area}</td>
-                      <td className="px-6 py-4 text-gold font-semibold">{unit.price}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
+      {unitTypes.length > 0 && (
+        <section className="py-20 bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <AnimatedSection><SectionTitle title={t('unitTypes')} /></AnimatedSection>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {unitTypes.map((unit, i) => {
+                const cfg = categoryConfig[unit.category] ?? categoryConfig.residential;
+                const Icon = cfg.icon;
+                const sameArea = unit.area_from === unit.area_to;
+                const areaText = sameArea
+                  ? (locale === 'ar' ? `بمساحة ${unit.area_from} م²` : `${unit.area_from} m²`)
+                  : (locale === 'ar'
+                      ? `مساحات تبدأ من ${unit.area_from} م² إلى ${unit.area_to} م²`
+                      : `Areas from ${unit.area_from} m² to ${unit.area_to} m²`);
+                return (
+                  <AnimatedSection key={i} delay={i * 0.08}>
+                    <div className="group relative bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden h-full">
+                      <div className={`absolute inset-x-0 top-0 h-1 bg-gradient-to-r ${cfg.color}`} />
+                      <div className="p-7">
+                        <div className={`inline-flex items-center justify-center w-14 h-14 rounded-xl ${cfg.bg} ${cfg.text} mb-5 group-hover:scale-110 transition-transform`}>
+                          <Icon className="w-7 h-7" />
+                        </div>
+                        <h3 className="text-xl font-bold text-secondary-dark mb-2">{cfg.label}</h3>
+                        <p className="text-gray-600 text-sm leading-relaxed">{areaText}</p>
+                      </div>
+                    </div>
+                  </AnimatedSection>
+                );
+              })}
             </div>
-          </AnimatedSection>
-        </div>
-      </section>
-
-      {/* Amenities */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <AnimatedSection><SectionTitle title={t('amenities')} /></AnimatedSection>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {demoAmenities.map((amenity, i) => (
-              <AnimatedSection key={i} delay={i * 0.05}>
-                <div className="bg-white rounded-xl p-6 text-center shadow-sm hover:shadow-md transition-shadow">
-                  <HiCheckCircle className="w-8 h-8 text-gold mx-auto mb-3" />
-                  <p className="font-medium text-secondary-dark text-sm">{amenity}</p>
-                </div>
-              </AnimatedSection>
-            ))}
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* Location Map */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection><SectionTitle title={t('location')} /></AnimatedSection>
           <AnimatedSection>
