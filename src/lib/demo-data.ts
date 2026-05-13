@@ -1,95 +1,9 @@
 import type { Project, BlogPost, Service, FaqItem } from '@/lib/content/types';
 
-const EMPTY_RELATIONS: Pick<
-  Project,
-  'gallery' | 'videos' | 'unit_types' | 'payment_plans' | 'amenities'
-> = {
-  gallery: [],
-  videos: [],
-  unit_types: [],
-  payment_plans: [],
-  amenities: [],
-};
-
-// Demo projects
-export const demoProjects: Project[] = [
-  {
-    id: '1',
-    name_en: 'Al Noor Residences',
-    name_ar: 'مساكن النور',
-    slug: 'al-noor-residences',
-    location_en: 'New Cairo, Egypt',
-    location_ar: 'القاهرة الجديدة، مصر',
-    description_en: 'A luxurious residential tower featuring 200 premium apartments with panoramic views, world-class amenities, and smart home technology. Al Noor Residences redefines modern living with its contemporary design and unparalleled comfort.',
-    description_ar: 'برج سكني فاخر يضم 200 شقة مميزة بإطلالات بانورامية، مرافق عالمية المستوى، وتقنية المنزل الذكي. مساكن النور تعيد تعريف الحياة العصرية بتصميمها المعاصر وراحتها التي لا مثيل لها.',
-    status: 'ongoing',
-    lat: 30.0291,
-    lng: 31.4932,
-    brochure_url: null,
-    cover_image: 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&q=80',
-    featured: true,
-    ...EMPTY_RELATIONS,
-    created_at: '2024-01-15T00:00:00Z',
-    updated_at: '2024-01-15T00:00:00Z',
-  },
-  {
-    id: '2',
-    name_en: 'The Pearl Gardens',
-    name_ar: 'حدائق اللؤلؤ',
-    slug: 'the-pearl-gardens',
-    location_en: '6th of October City, Egypt',
-    location_ar: 'مدينة 6 أكتوبر، مصر',
-    description_en: 'An exclusive gated community of 50 luxury villas surrounded by lush landscaped gardens. Each villa offers spacious living areas, private pools, and premium finishes that epitomize modern Arabian luxury.',
-    description_ar: 'مجتمع مسوّر حصري يضم 50 فيلا فاخرة محاطة بحدائق طبيعية خلابة. كل فيلا توفر مساحات معيشة واسعة، مسابح خاصة، وتشطيبات فاخرة تجسد الفخامة العربية الحديثة.',
-    status: 'upcoming',
-    lat: 29.9602,
-    lng: 30.9276,
-    brochure_url: null,
-    cover_image: 'https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=800&q=80',
-    featured: true,
-    ...EMPTY_RELATIONS,
-    created_at: '2024-03-01T00:00:00Z',
-    updated_at: '2024-03-01T00:00:00Z',
-  },
-  {
-    id: '3',
-    name_en: 'Marina Business Tower',
-    name_ar: 'برج مارينا للأعمال',
-    slug: 'marina-business-tower',
-    location_en: 'New Administrative Capital, Egypt',
-    location_ar: 'العاصمة الإدارية الجديدة، مصر',
-    description_en: 'A state-of-the-art commercial tower offering Grade A office spaces with cutting-edge infrastructure. The 40-story tower features flexible floor plans, smart building systems, and premium retail spaces.',
-    description_ar: 'برج تجاري حديث يقدم مكاتب من الدرجة الأولى مع بنية تحتية متطورة. البرج المكون من 40 طابقاً يتميز بتخطيطات مرنة وأنظمة ذكية ومساحات تجزئة فاخرة.',
-    status: 'completed',
-    lat: 30.0196,
-    lng: 31.7636,
-    brochure_url: null,
-    cover_image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80',
-    featured: true,
-    ...EMPTY_RELATIONS,
-    created_at: '2023-06-15T00:00:00Z',
-    updated_at: '2023-06-15T00:00:00Z',
-  },
-  {
-    id: '4',
-    name_en: 'Sunset Heights',
-    name_ar: 'مرتفعات الغروب',
-    slug: 'sunset-heights',
-    location_en: 'North Coast, Egypt',
-    location_ar: 'الساحل الشمالي، مصر',
-    description_en: 'Premium beachfront apartments designed for those who appreciate the finer things in life. Featuring floor-to-ceiling windows, Italian marble finishes, and exclusive residents-only facilities.',
-    description_ar: 'شقق فاخرة على شاطئ البحر مصممة لمن يقدرون أرقى الأشياء في الحياة. تتميز بنوافذ من الأرض للسقف، تشطيبات رخام إيطالي، ومرافق حصرية للسكان فقط.',
-    status: 'ongoing',
-    lat: 31.0409,
-    lng: 28.0572,
-    brochure_url: null,
-    cover_image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80',
-    featured: false,
-    ...EMPTY_RELATIONS,
-    created_at: '2024-05-01T00:00:00Z',
-    updated_at: '2024-05-01T00:00:00Z',
-  },
-];
+// Demo projects — intentionally empty. All real projects live in
+// `content/projects.json`. Keeping the export so that the pages that
+// fall back on it during the brief initial-load window still compile.
+export const demoProjects: Project[] = [];
 
 // Demo blog posts
 export const demoBlogPosts: BlogPost[] = [
