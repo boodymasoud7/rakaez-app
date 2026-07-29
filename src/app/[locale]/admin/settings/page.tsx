@@ -3,7 +3,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import { useLocale } from 'next-intl';
 import { HiSave, HiPhone, HiLocationMarker, HiLink, HiCog, HiShieldCheck } from 'react-icons/hi';
-import { FaFacebookF, FaInstagram, FaLinkedinIn, FaWhatsapp } from 'react-icons/fa';
+import { FaFacebookF, FaInstagram, FaWhatsapp } from 'react-icons/fa';
 import AdminLayout from '@/components/admin/AdminLayout';
 import { adminApi } from '@/lib/admin-api';
 import type { SiteSettings } from '@/lib/content/types';
@@ -138,24 +138,29 @@ export default function AdminSettingsPage() {
           </div>
         </div>
 
-        {/* Address */}
+        {/* Address & Google Maps */}
         <div className="bg-white rounded-2xl p-6 shadow-sm">
-          <h2 className="text-lg font-bold text-gray-900 mb-6 flex items-center gap-2"><HiLocationMarker className="w-5 h-5 text-gold" />{isAr ? 'العنوان' : 'Address'}</h2>
-          <div className="grid md:grid-cols-2 gap-6">
-            <div><label className="block text-sm font-medium text-gray-700 mb-2">Address (English)</label><textarea rows={2} value={get('address_en', 'en')} onChange={e => set('address_en', 'en', e.target.value)} className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-gold/50 focus:border-gold outline-none resize-none" /></div>
-            <div><label className="block text-sm font-medium text-gray-700 mb-2">{isAr ? 'العنوان (عربي)' : 'Address (Arabic)'}</label><textarea rows={2} dir="rtl" value={get('address_ar', 'ar')} onChange={e => set('address_ar', 'ar', e.target.value)} className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-gold/50 focus:border-gold outline-none resize-none" /></div>
+          <h2 className="text-lg font-bold text-gray-900 mb-6 flex items-center gap-2"><HiLocationMarker className="w-5 h-5 text-gold" />{isAr ? 'العنوان والخريطة' : 'Address & Map Link'}</h2>
+          <div className="space-y-6">
+            <div className="grid md:grid-cols-2 gap-6">
+              <div><label className="block text-sm font-medium text-gray-700 mb-2">Address (English)</label><textarea rows={2} value={get('address_en', 'en')} onChange={e => set('address_en', 'en', e.target.value)} className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-gold/50 focus:border-gold outline-none resize-none" /></div>
+              <div><label className="block text-sm font-medium text-gray-700 mb-2">{isAr ? 'العنوان (عربي)' : 'Address (Arabic)'}</label><textarea rows={2} dir="rtl" value={get('address_ar', 'ar')} onChange={e => set('address_ar', 'ar', e.target.value)} className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-gold/50 focus:border-gold outline-none resize-none" /></div>
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">{isAr ? 'رابط خريطة جوجل (Google Maps Link)' : 'Google Maps Link'}</label>
+              <input type="url" value={get('map_link', 'en')} onChange={e => set('map_link', 'en', e.target.value)} placeholder="https://maps.app.goo.gl/..." className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-gold/50 focus:border-gold outline-none text-sm" />
+            </div>
           </div>
         </div>
 
         {/* Social Media */}
         <div className="bg-white rounded-2xl p-6 shadow-sm">
-          <h2 className="text-lg font-bold text-gray-900 mb-6 flex items-center gap-2"><HiLink className="w-5 h-5 text-gold" />{isAr ? 'وسائل التواصل' : 'Social Media'}</h2>
+          <h2 className="text-lg font-bold text-gray-900 mb-6 flex items-center gap-2"><HiLink className="w-5 h-5 text-gold" />{isAr ? 'وسائل التواصل الاجتماعي' : 'Social Media Links'}</h2>
           <div className="space-y-4">
             {[
-              { key: 'facebook', label: 'Facebook', icon: FaFacebookF, placeholder: 'https://facebook.com/rakaez' },
-              { key: 'instagram', label: 'Instagram', icon: FaInstagram, placeholder: 'https://instagram.com/rakaez' },
-              { key: 'linkedin', label: 'LinkedIn', icon: FaLinkedinIn, placeholder: 'https://linkedin.com/company/rakaez' },
-              { key: 'whatsapp_link', label: 'WhatsApp Link', icon: FaWhatsapp, placeholder: 'https://wa.me/97317074' },
+              { key: 'facebook', label: 'Facebook', icon: FaFacebookF, placeholder: 'https://www.facebook.com/rakaezdevelopment' },
+              { key: 'instagram', label: 'Instagram', icon: FaInstagram, placeholder: 'https://www.instagram.com/rakaez_development/' },
+              { key: 'whatsapp_link', label: 'WhatsApp Link', icon: FaWhatsapp, placeholder: 'https://wa.me/201000444276' },
             ].map(s => (
               <div key={s.key} className="flex items-center gap-4">
                 <div className="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center flex-shrink-0"><s.icon className="w-4 h-4 text-gray-500" /></div>

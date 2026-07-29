@@ -5,7 +5,7 @@ import { useTranslations, useLocale } from 'next-intl';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { HiPhone, HiMail, HiLocationMarker } from 'react-icons/hi';
-import { FaFacebookF, FaInstagram, FaLinkedinIn, FaWhatsapp } from 'react-icons/fa';
+import { FaFacebookF, FaInstagram, FaWhatsapp } from 'react-icons/fa';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import AnimatedSection from '@/components/ui/AnimatedSection';
@@ -43,23 +43,25 @@ export default function ContactPage() {
     }
   };
 
-  // Dynamic from admin
+  // Dynamic from admin settings
   const phone = get('phone', locale) || '17074';
   const whatsapp = get('whatsapp', locale) || '01000444276';
   const email = get('email', locale) || 'info@rakaezdevelopment.com';
   const address = get('address', locale) || (locale === 'ar' ? 'دمياط الجديدة - تقاطع شارع البشبيشي مع شارع ابوالخير' : 'New Damietta - Al-Bishbishy & Abou Al-Kheir St.');
+  const mapLink = get('map_link', locale) || 'https://maps.app.goo.gl/Zt6qyKMRy89wxU786';
+  const fbLink = get('facebook', locale) || 'https://www.facebook.com/rakaezdevelopment';
+  const igLink = get('instagram', locale) || 'https://www.instagram.com/rakaez_development/';
 
   const contactInfo = [
     { icon: HiPhone, label: locale === 'ar' ? 'الخط الساخن' : 'Hotline', value: phone, href: `tel:${phone}` },
     { icon: FaWhatsapp, label: locale === 'ar' ? 'واتساب' : 'WhatsApp', value: whatsapp, href: `https://wa.me/2${whatsapp}` },
     { icon: HiMail, label: t('emailLabel'), value: email, href: `mailto:${email}` },
-    { icon: HiLocationMarker, label: t('addressLabel'), value: address, href: '#' },
+    { icon: HiLocationMarker, label: t('addressLabel'), value: address, href: mapLink },
   ];
 
   const socials = [
-    { icon: FaFacebookF, href: get('facebook', locale) || '#', label: 'Facebook' },
-    { icon: FaInstagram, href: get('instagram', locale) || '#', label: 'Instagram' },
-    { icon: FaLinkedinIn, href: get('linkedin', locale) || '#', label: 'LinkedIn' },
+    { icon: FaFacebookF, href: fbLink, label: 'Facebook' },
+    { icon: FaInstagram, href: igLink, label: 'Instagram' },
     { icon: FaWhatsapp, href: `https://wa.me/2${whatsapp}`, label: 'WhatsApp' },
   ];
 
@@ -120,7 +122,7 @@ export default function ContactPage() {
               <div className="bg-gray-50 rounded-2xl p-8">
                 <div className="space-y-6 mb-10">
                   {contactInfo.map((item, i) => (
-                    <a key={i} href={item.href} className="flex items-start gap-4 group">
+                    <a key={i} href={item.href} target={item.href.startsWith('http') ? '_blank' : undefined} rel="noopener noreferrer" className="flex items-start gap-4 group">
                       <div className="w-12 h-12 bg-gold/10 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-gold/20 transition-colors">
                         <item.icon className="w-5 h-5 text-gold" />
                       </div>
@@ -135,7 +137,7 @@ export default function ContactPage() {
                   <h3 className="font-semibold text-secondary-dark mb-4">{t('followUs')}</h3>
                   <div className="flex gap-3">
                     {socials.map((s) => (
-                      <a key={s.label} href={s.href} aria-label={s.label} className="w-10 h-10 rounded-full bg-white border border-gray-200 flex items-center justify-center text-gray-500 hover:text-gold hover:border-gold/50 transition-all">
+                      <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer" aria-label={s.label} className="w-10 h-10 rounded-full bg-white border border-gray-200 flex items-center justify-center text-gray-500 hover:text-gold hover:border-gold/50 transition-all">
                         <s.icon className="w-4 h-4" />
                       </a>
                     ))}
@@ -148,10 +150,23 @@ export default function ContactPage() {
       </section>
 
       {/* Map */}
-      <section className="h-96">
+      <section className="h-96 relative">
+        <a 
+          href={mapLink} 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          className="absolute inset-0 bg-primary/80 hover:bg-primary/70 transition-colors z-10 flex flex-col items-center justify-center text-white p-6 text-center group"
+        >
+          <HiLocationMarker className="w-12 h-12 text-gold mb-3 group-hover:scale-110 transition-transform" />
+          <h3 className="text-2xl font-bold mb-2">{locale === 'ar' ? 'موقعنا على خرائط جوجل' : 'Our Location on Google Maps'}</h3>
+          <p className="text-white/80 text-sm max-w-md mb-4">{address}</p>
+          <span className="px-6 py-2.5 bg-gold text-white font-semibold rounded-full group-hover:bg-gold-light transition-all shadow-lg">
+            {locale === 'ar' ? 'افتح الخريطة مباشرة' : 'Open Location in Maps'}
+          </span>
+        </a>
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d57600!2d31.4932!3d30.0291!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2seg"
-          width="100%" height="100%" style={{ border: 0 }} allowFullScreen loading="lazy" className="w-full h-full"
+          width="100%" height="100%" style={{ border: 0 }} allowFullScreen loading="lazy" className="w-full h-full filter blur-[2px]"
         />
       </section>
 

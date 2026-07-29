@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { useTranslations, useLocale } from 'next-intl';
-import { FaFacebookF, FaInstagram, FaLinkedinIn, FaWhatsapp } from 'react-icons/fa';
+import { FaFacebookF, FaInstagram, FaWhatsapp } from 'react-icons/fa';
 import { HiPhone, HiMail, HiLocationMarker } from 'react-icons/hi';
 import { useSiteSettings } from '@/hooks/useSiteSettings';
 
@@ -17,11 +17,11 @@ export default function Footer() {
   const whatsapp = get('whatsapp', locale) || '01000444276';
   const email = get('email', locale) || 'info@rakaezdevelopment.com';
   const address = get('address', locale) || (locale === 'ar' ? 'دمياط الجديدة - تقاطع شارع البشبيشي مع شارع ابوالخير' : 'New Damietta - Al-Bishbishy & Abou Al-Kheir St.');
+  const mapLink = get('map_link', locale) || 'https://maps.app.goo.gl/Zt6qyKMRy89wxU786';
 
   // Dynamic social links
-  const fbLink = get('facebook', locale) || '#';
-  const igLink = get('instagram', locale) || '#';
-  const liLink = get('linkedin', locale) || '#';
+  const fbLink = get('facebook', locale) || 'https://www.facebook.com/rakaezdevelopment';
+  const igLink = get('instagram', locale) || 'https://www.instagram.com/rakaez_development/';
 
   const navLinks = [
     { href: `/${locale}`, label: t('nav.home') },
@@ -36,7 +36,6 @@ export default function Footer() {
   const socialLinks = [
     { icon: FaFacebookF, href: fbLink, label: 'Facebook' },
     { icon: FaInstagram, href: igLink, label: 'Instagram' },
-    { icon: FaLinkedinIn, href: liLink, label: 'LinkedIn' },
     { icon: FaWhatsapp, href: `https://wa.me/2${whatsapp}`, label: 'WhatsApp' },
   ];
 
@@ -88,7 +87,7 @@ export default function Footer() {
               </li>
               <li className="flex items-center gap-3 text-white/60 text-sm">
                 <FaWhatsapp className="w-5 h-5 text-gold flex-shrink-0" />
-                <a href={`https://wa.me/2${whatsapp}`} className="hover:text-gold transition-colors">{whatsapp}</a>
+                <a href={`https://wa.me/2${whatsapp}`} target="_blank" rel="noopener noreferrer" className="hover:text-gold transition-colors">{whatsapp}</a>
               </li>
               <li className="flex items-center gap-3 text-white/60 text-sm">
                 <HiMail className="w-5 h-5 text-gold flex-shrink-0" />
@@ -96,7 +95,9 @@ export default function Footer() {
               </li>
               <li className="flex items-start gap-3 text-white/60 text-sm">
                 <HiLocationMarker className="w-5 h-5 text-gold flex-shrink-0 mt-0.5" />
-                <span>{address}</span>
+                <a href={mapLink} target="_blank" rel="noopener noreferrer" className="hover:text-gold transition-colors leading-relaxed">
+                  {address}
+                </a>
               </li>
             </ul>
           </div>
@@ -131,7 +132,7 @@ export default function Footer() {
             </p>
             <p className="text-white/40 text-sm flex items-center gap-3">
               <span className="flex items-center gap-1"><HiPhone className="w-4 h-4 text-gold" /><a href={`tel:${phone}`} className="hover:text-gold transition-colors font-medium">{phone}</a></span>
-              <span className="flex items-center gap-1"><FaWhatsapp className="w-4 h-4 text-gold" /><a href={`https://wa.me/2${whatsapp}`} className="hover:text-gold transition-colors font-medium">{whatsapp}</a></span>
+              <span className="flex items-center gap-1"><FaWhatsapp className="w-4 h-4 text-gold" /><a href={`https://wa.me/2${whatsapp}`} target="_blank" rel="noopener noreferrer" className="hover:text-gold transition-colors font-medium">{whatsapp}</a></span>
             </p>
           </div>
         </div>
