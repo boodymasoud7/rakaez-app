@@ -2,9 +2,10 @@ import Image from 'next/image';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Coming Soon — Rakaez Real Estate Development | قريباً — ركائز للتطوير العقاري',
-  description: 'Our website is under development. Stay tuned for the launch.',
-  robots: { index: false, follow: false },
+  title: 'ركائز للتطوير العقاري | Rakaez Developments',
+  description: 'شركة ركائز للتطوير العقاري (Rakaez Developments) - نطور أرقى المشاريع السكنية والتجارية في بيت الوطن والمنصورة ودمياط الجديدة. الخط الساخن 17074.',
+  keywords: ['ركائز', 'ركائز للتطوير العقاري', 'Rakaez', 'Rakaez Real Estate', 'Rakaez Developments', 'بيت الوطن', 'دمياط الجديدة'],
+  robots: { index: true, follow: true },
 };
 
 export default function MaintenancePage() {

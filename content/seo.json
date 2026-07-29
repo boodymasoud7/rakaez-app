@@ -1,51 +1,51 @@
 {
   "home": {
-    "title_en": "Rakaez Real Estate Development",
-    "title_ar": "ركائز للتطوير العقاري",
-    "description_en": "Premium real estate development in Egypt",
-    "description_ar": "التطوير العقاري الفاخر في مصر",
-    "og_image": null
+    "title_en": "Rakaez Real Estate Development | Leading Property Developer in Egypt",
+    "title_ar": "ركائز للتطوير العقاري | مشاريع بيت الوطن والتجمع والمنصورة ودمياط الجديدة",
+    "description_en": "Rakaez Developments offers luxury apartments, villas, and commercial units in Bayt Al Watan, New Cairo, and New Damietta with flexible payment plans.",
+    "description_ar": "ركائز للتطوير العقاري (Rakaez Developments) - الشركة الرائدة في تطوير أرقى المشاريع العقارية والوحدات السكنية والتجارية في بيت الوطن والمنصورة ودمياط الجديدة بأعلى جودة وأفضل أنظمة سداد.",
+    "og_image": "/images/logo.png"
   },
   "about": {
-    "title_en": "About Rakaez",
-    "title_ar": "عن ركائز",
-    "description_en": "Learn about Rakaez Real Estate",
-    "description_ar": "تعرف على ركائز",
-    "og_image": null
+    "title_en": "About Rakaez Developments | Premium Real Estate",
+    "title_ar": "عن شركة ركائز للتطوير العقاري | Rakaez Developments",
+    "description_en": "Learn about Rakaez Developments, our vision, mission, and achievements in residential and commercial real estate development in Egypt.",
+    "description_ar": "تعرف على شركة ركائز للتطوير العقاري، رؤيتنا ومهمتنا وسجل إنجازاتنا في تطوير المجمعات السكنية والتجارية الراقية بتصاميم معمارية فريدة.",
+    "og_image": "/images/logo.png"
   },
   "projects": {
-    "title_en": "Our Projects",
-    "title_ar": "مشاريعنا",
-    "description_en": "Premium developments by Rakaez",
-    "description_ar": "مشاريع ركائز الفاخرة",
-    "og_image": null
+    "title_en": "Rakaez Projects | Luxury Apartments & Properties in Egypt",
+    "title_ar": "مشاريع ركائز للتطوير العقاري | شقق ووحدات بيت الوطن والمنصورة",
+    "description_en": "Explore Rakaez projects in Bayt Al Watan and New Damietta. Modern architectural design, prime locations, and flexible payment plans.",
+    "description_ar": "استكشف كافة مشاريع ركائز للتطوير العقاري الحالية وسابقة الأعمال في بيت الوطن والمنصورة ودمياط الجديدة. شقق ومساحات متنوعة بتصاميم فاخرة.",
+    "og_image": "/images/logo.png"
   },
   "services": {
-    "title_en": "Our Services",
-    "title_ar": "خدماتنا",
-    "description_en": "Real estate services",
-    "description_ar": "خدماتنا العقارية",
-    "og_image": null
+    "title_en": "Real Estate Services | Rakaez Developments",
+    "title_ar": "خدمات ركائز للتطوير العقاري | تطوير واستثمار عقاري",
+    "description_en": "Integrated real estate development services, architectural engineering, project management, and property investment solutions by Rakaez.",
+    "description_ar": "خدمات التطوير والاستثمار العقاري والشراء المباشر وإدارة المشاريع والهندسة المعمارية المقدمة من شركة ركائز للتطوير العقاري.",
+    "og_image": "/images/logo.png"
   },
   "blog": {
-    "title_en": "Blog & News",
-    "title_ar": "المدونة",
-    "description_en": "Latest news",
-    "description_ar": "آخر الأخبار",
-    "og_image": null
+    "title_en": "Real Estate News & Articles | Rakaez Developments",
+    "title_ar": "مدونة ركائز | أخبار ونصائح الاستثمار والتطوير العقاري",
+    "description_en": "Latest insights, guides, and news on the Egyptian real estate market, investment opportunities, and urban development.",
+    "description_ar": "اقرأ أحدث المقالات والنصائح العقارية حول استثمار الشقق والوحدات في بيت الوطن ومصر من خبراء شركة ركائز للتطوير العقاري.",
+    "og_image": "/images/logo.png"
   },
   "contact": {
-    "title_en": "Contact Us",
-    "title_ar": "تواصل معنا",
-    "description_en": "Get in touch",
-    "description_ar": "تواصل معنا",
-    "og_image": null
+    "title_en": "Contact Rakaez Developments | Hotline 17074",
+    "title_ar": "تواصل مع ركائز للتطوير العقاري | الخط الساخن 17074",
+    "description_en": "Get in touch with Rakaez Real Estate Development. Call Hotline 17074 or visit our headquarters in New Damietta.",
+    "description_ar": "تواصل مباشرة مع ركائز للتطوير العقاري. اتصل بالخط الساخن 17074 أو عبر الواتساب للاستفسار عن أسعار ومساحات الشقق والوحدات المتاحة.",
+    "og_image": "/images/logo.png"
   },
   "faq": {
-    "title_en": "FAQ",
-    "title_ar": "الأسئلة الشائعة",
-    "description_en": "Frequently asked questions",
-    "description_ar": "الأسئلة المتكررة",
-    "og_image": null
+    "title_en": "Frequently Asked Questions | Rakaez Developments",
+    "title_ar": "الأسئلة الشائعة | شركة ركائز للتطوير العقاري",
+    "description_en": "Find answers to common questions about buying properties, payment plans, delivery specs, and projects by Rakaez.",
+    "description_ar": "إجابات الأسئلة الشائعة والمتكررة حول طريقة الحجز والسداد ومواعيد التسليم ومواصفات تشطيب مشاريع شركة ركائز للتطوير العقاري.",
+    "og_image": "/images/logo.png"
   }
 }
