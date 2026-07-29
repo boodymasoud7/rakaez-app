@@ -104,7 +104,7 @@
     "ar": "فرص استثمارية ذكية بعوائد قوية"
   },
   "maintenance_mode": {
-    "en": "true",
-    "ar": "true"
+    "en": "false",
+    "ar": "false"
   }
 }
