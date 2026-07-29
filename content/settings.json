@@ -24,5 +24,6 @@
   "why3_title": { "en": "Trusted Developer", "ar": "مطور موثوق" },
   "why3_desc": { "en": "Years of experience and successful deliveries", "ar": "سنوات من الخبرة والتسليمات الناجحة" },
   "why4_title": { "en": "Investment Returns", "ar": "عوائد استثمارية" },
-  "why4_desc": { "en": "Smart investment opportunities with strong ROI", "ar": "فرص استثمارية ذكية بعوائد قوية" }
+  "why4_desc": { "en": "Smart investment opportunities with strong ROI", "ar": "فرص استثمارية ذكية بعوائد قوية" },
+  "maintenance_mode": { "en": "false", "ar": "false" }
 }

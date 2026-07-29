@@ -1,340 +1,1767 @@
 [
   {
-    "id": "proj-109b",
-    "name_en": "109B",
-    "name_ar": "109B",
-    "slug": "109b",
-    "location_en": "",
-    "location_ar": "",
-    "description_en": "",
-    "description_ar": "",
-    "status": "completed",
-    "lat": null,
-    "lng": null,
+    "id": "proj-diamond-tower",
+    "name_en": "Diamond Tower Project",
+    "name_ar": "مشروع دايموند تاور - Diamond Tower",
+    "slug": "diamond-tower",
+    "location_en": "Bayt Al Watan, New Cairo / Mansoura",
+    "location_ar": "بيت الوطن - التجمع الخامس / المنصورة",
+    "description_en": "Luxury modern development featuring ultra-premium residential and commercial units with executive architectural design by Rakaez Developments.",
+    "description_ar": "مشروع عقاري سكني وتجاري فاخر بتصميم معماري فريد، يتضمن وحدات سكنية ومساحات تجارية متميزة بأعلى معايير الجودة والرفاهية من شركة ركائز للتطوير العقاري.",
+    "status": "ongoing",
+    "lat": 30.0254,
+    "lng": 31.4912,
     "brochure_url": null,
-    "cover_image": "https://lh3.googleusercontent.com/d/1yLl-F71_HoAkoMWOTFLrXnYaePW5gzjg=w1600",
+    "cover_image": "/uploads/projects/diamond-tower/diamond-tower-page-1.jpg",
     "featured": true,
-    "gallery": [],
+    "gallery": [
+      {
+        "url": "/uploads/projects/diamond-tower/diamond-tower-page-2.jpg",
+        "sort_order": 1
+      },
+      {
+        "url": "/uploads/projects/diamond-tower/diamond-tower-page-3.jpg",
+        "sort_order": 2
+      },
+      {
+        "url": "/uploads/projects/diamond-tower/diamond-tower-page-4.jpg",
+        "sort_order": 3
+      },
+      {
+        "url": "/uploads/projects/diamond-tower/diamond-tower-page-5.jpg",
+        "sort_order": 4
+      },
+      {
+        "url": "/uploads/projects/diamond-tower/diamond-tower-page-6.jpg",
+        "sort_order": 5
+      },
+      {
+        "url": "/uploads/projects/diamond-tower/diamond-tower-page-7.jpg",
+        "sort_order": 6
+      },
+      {
+        "url": "/uploads/projects/diamond-tower/diamond-tower-page-8.jpg",
+        "sort_order": 7
+      },
+      {
+        "url": "/uploads/projects/diamond-tower/diamond-tower-page-9.jpg",
+        "sort_order": 8
+      },
+      {
+        "url": "/uploads/projects/diamond-tower/diamond-tower-page-10.jpg",
+        "sort_order": 9
+      },
+      {
+        "url": "/uploads/projects/diamond-tower/diamond-tower-page-11.jpg",
+        "sort_order": 10
+      },
+      {
+        "url": "/uploads/projects/diamond-tower/diamond-tower-page-12.jpg",
+        "sort_order": 11
+      }
+    ],
     "videos": [],
-    "unit_types": [],
-    "payment_plans": [],
-    "amenities": [],
+    "unit_types": [
+      {
+        "category": "residential",
+        "area_from": 135,
+        "area_to": 240
+      }
+    ],
+    "payment_plans": [
+      {
+        "name_en": "Flexible Payment Plan",
+        "name_ar": "نظام السداد المرن",
+        "details_en": "Down payment with flexible installments over up to 48 months",
+        "details_ar": "مقدم حجز ميسر وأقساط حتى 48 شهر بدون فوائد"
+      }
+    ],
+    "amenities": [
+      {
+        "name_en": "Elevator",
+        "name_ar": "مصعد هيدروليكي",
+        "icon": "HiSparkles"
+      },
+      {
+        "name_en": "Underground Parking",
+        "name_ar": "جراج خاص مغطى",
+        "icon": "HiShieldCheck"
+      },
+      {
+        "name_en": "Surveillance Systems",
+        "name_ar": "كاميرات مراقبة وأمن",
+        "icon": "HiShieldCheck"
+      },
+      {
+        "name_en": "Luxury Entrance",
+        "name_ar": "مداخل رخام فاخرة",
+        "icon": "HiStar"
+      },
+      {
+        "name_en": "Intercom & Security",
+        "name_ar": "أنظمة انتركم مرئي",
+        "icon": "HiPhone"
+      },
+      {
+        "name_en": "Landscape & Greenery",
+        "name_ar": "مساحات خضراء ولاندسكيب",
+        "icon": "HiLocationMarker"
+      }
+    ],
+    "created_at": "2024-06-01T00:00:00.000Z",
+    "updated_at": "2026-07-29T00:00:00.000Z"
+  },
+  {
+    "id": "proj-valley-1-9i",
+    "name_en": "Valley 1 Project - Plot 9I (Bayt Al Watan)",
+    "name_ar": "مشروع فالي 1 - قطعة 9I (بيت الوطن)",
+    "slug": "valley-1-9i",
+    "location_en": "Bayt Al Watan, New Cairo / Mansoura",
+    "location_ar": "بيت الوطن - التجمع الخامس / المنصورة",
+    "description_en": "Luxury modern development featuring ultra-premium residential and commercial units with executive architectural design by Rakaez Developments.",
+    "description_ar": "مشروع عقاري سكني وتجاري فاخر بتصميم معماري فريد، يتضمن وحدات سكنية ومساحات تجارية متميزة بأعلى معايير الجودة والرفاهية من شركة ركائز للتطوير العقاري.",
+    "status": "ongoing",
+    "lat": 30.0254,
+    "lng": 31.4912,
+    "brochure_url": null,
+    "cover_image": "/uploads/projects/valley-1-9i/valley-1-9i-page-1.jpg",
+    "featured": true,
+    "gallery": [
+      {
+        "url": "/uploads/projects/valley-1-9i/valley-1-9i-page-2.jpg",
+        "sort_order": 1
+      },
+      {
+        "url": "/uploads/projects/valley-1-9i/valley-1-9i-page-3.jpg",
+        "sort_order": 2
+      },
+      {
+        "url": "/uploads/projects/valley-1-9i/valley-1-9i-page-4.jpg",
+        "sort_order": 3
+      },
+      {
+        "url": "/uploads/projects/valley-1-9i/valley-1-9i-page-5.jpg",
+        "sort_order": 4
+      },
+      {
+        "url": "/uploads/projects/valley-1-9i/valley-1-9i-page-6.jpg",
+        "sort_order": 5
+      },
+      {
+        "url": "/uploads/projects/valley-1-9i/valley-1-9i-page-7.jpg",
+        "sort_order": 6
+      },
+      {
+        "url": "/uploads/projects/valley-1-9i/valley-1-9i-page-8.jpg",
+        "sort_order": 7
+      },
+      {
+        "url": "/uploads/projects/valley-1-9i/valley-1-9i-page-9.jpg",
+        "sort_order": 8
+      },
+      {
+        "url": "/uploads/projects/valley-1-9i/valley-1-9i-page-10.jpg",
+        "sort_order": 9
+      },
+      {
+        "url": "/uploads/projects/valley-1-9i/valley-1-9i-page-1.jpg",
+        "sort_order": 10
+      },
+      {
+        "url": "/uploads/projects/valley-1-9i/valley-1-9i-page-2.jpg",
+        "sort_order": 11
+      },
+      {
+        "url": "/uploads/projects/valley-1-9i/valley-1-9i-page-3.jpg",
+        "sort_order": 12
+      },
+      {
+        "url": "/uploads/projects/valley-1-9i/valley-1-9i-page-4.jpg",
+        "sort_order": 13
+      },
+      {
+        "url": "/uploads/projects/valley-1-9i/valley-1-9i-page-5.jpg",
+        "sort_order": 14
+      },
+      {
+        "url": "/uploads/projects/valley-1-9i/valley-1-9i-page-6.jpg",
+        "sort_order": 15
+      },
+      {
+        "url": "/uploads/projects/valley-1-9i/valley-1-9i-page-7.jpg",
+        "sort_order": 16
+      },
+      {
+        "url": "/uploads/projects/valley-1-9i/valley-1-9i-page-8.jpg",
+        "sort_order": 17
+      },
+      {
+        "url": "/uploads/projects/valley-1-9i/valley-1-9i-page-9.jpg",
+        "sort_order": 18
+      },
+      {
+        "url": "/uploads/projects/valley-1-9i/valley-1-9i-page-10.jpg",
+        "sort_order": 19
+      },
+      {
+        "url": "/uploads/projects/valley-1-9i/valley-1-9i-page-11.jpg",
+        "sort_order": 20
+      }
+    ],
+    "videos": [],
+    "unit_types": [
+      {
+        "category": "residential",
+        "area_from": 135,
+        "area_to": 240
+      }
+    ],
+    "payment_plans": [
+      {
+        "name_en": "Flexible Payment Plan",
+        "name_ar": "نظام السداد المرن",
+        "details_en": "Down payment with flexible installments over up to 48 months",
+        "details_ar": "مقدم حجز ميسر وأقساط حتى 48 شهر بدون فوائد"
+      }
+    ],
+    "amenities": [
+      {
+        "name_en": "Elevator",
+        "name_ar": "مصعد هيدروليكي",
+        "icon": "HiSparkles"
+      },
+      {
+        "name_en": "Underground Parking",
+        "name_ar": "جراج خاص مغطى",
+        "icon": "HiShieldCheck"
+      },
+      {
+        "name_en": "Surveillance Systems",
+        "name_ar": "كاميرات مراقبة وأمن",
+        "icon": "HiShieldCheck"
+      },
+      {
+        "name_en": "Luxury Entrance",
+        "name_ar": "مداخل رخام فاخرة",
+        "icon": "HiStar"
+      },
+      {
+        "name_en": "Intercom & Security",
+        "name_ar": "أنظمة انتركم مرئي",
+        "icon": "HiPhone"
+      },
+      {
+        "name_en": "Landscape & Greenery",
+        "name_ar": "مساحات خضراء ولاندسكيب",
+        "icon": "HiLocationMarker"
+      }
+    ],
+    "created_at": "2024-06-01T00:00:00.000Z",
+    "updated_at": "2026-07-29T00:00:00.000Z"
+  },
+  {
+    "id": "proj-valley-2-138i",
+    "name_en": "Valley 2 Project - Plot 138I (Bayt Al Watan)",
+    "name_ar": "مشروع فالي 2 - قطعة 138I (بيت الوطن)",
+    "slug": "valley-2-138i",
+    "location_en": "Bayt Al Watan, New Cairo / Mansoura",
+    "location_ar": "بيت الوطن - التجمع الخامس / المنصورة",
+    "description_en": "Luxury modern development featuring ultra-premium residential and commercial units with executive architectural design by Rakaez Developments.",
+    "description_ar": "مشروع عقاري سكني وتجاري فاخر بتصميم معماري فريد، يتضمن وحدات سكنية ومساحات تجارية متميزة بأعلى معايير الجودة والرفاهية من شركة ركائز للتطوير العقاري.",
+    "status": "ongoing",
+    "lat": 30.0254,
+    "lng": 31.4912,
+    "brochure_url": null,
+    "cover_image": "/uploads/projects/valley-2-138i/valley-2-138i-page-1.jpg",
+    "featured": true,
+    "gallery": [
+      {
+        "url": "/uploads/projects/valley-2-138i/valley-2-138i-page-2.jpg",
+        "sort_order": 1
+      },
+      {
+        "url": "/uploads/projects/valley-2-138i/valley-2-138i-page-3.jpg",
+        "sort_order": 2
+      },
+      {
+        "url": "/uploads/projects/valley-2-138i/valley-2-138i-page-4.jpg",
+        "sort_order": 3
+      },
+      {
+        "url": "/uploads/projects/valley-2-138i/valley-2-138i-page-5.jpg",
+        "sort_order": 4
+      },
+      {
+        "url": "/uploads/projects/valley-2-138i/valley-2-138i-page-6.jpg",
+        "sort_order": 5
+      },
+      {
+        "url": "/uploads/projects/valley-2-138i/valley-2-138i-page-7.jpg",
+        "sort_order": 6
+      },
+      {
+        "url": "/uploads/projects/valley-2-138i/valley-2-138i-page-8.jpg",
+        "sort_order": 7
+      },
+      {
+        "url": "/uploads/projects/valley-2-138i/valley-2-138i-page-9.jpg",
+        "sort_order": 8
+      },
+      {
+        "url": "/uploads/projects/valley-2-138i/valley-2-138i-page-10.jpg",
+        "sort_order": 9
+      },
+      {
+        "url": "/uploads/projects/valley-2-138i/valley-2-138i-page-11.jpg",
+        "sort_order": 10
+      },
+      {
+        "url": "/uploads/projects/valley-2-138i/valley-2-138i-page-1.jpg",
+        "sort_order": 11
+      },
+      {
+        "url": "/uploads/projects/valley-2-138i/valley-2-138i-page-2.jpg",
+        "sort_order": 12
+      },
+      {
+        "url": "/uploads/projects/valley-2-138i/valley-2-138i-page-3.jpg",
+        "sort_order": 13
+      },
+      {
+        "url": "/uploads/projects/valley-2-138i/valley-2-138i-page-4.jpg",
+        "sort_order": 14
+      },
+      {
+        "url": "/uploads/projects/valley-2-138i/valley-2-138i-page-5.jpg",
+        "sort_order": 15
+      },
+      {
+        "url": "/uploads/projects/valley-2-138i/valley-2-138i-page-6.jpg",
+        "sort_order": 16
+      },
+      {
+        "url": "/uploads/projects/valley-2-138i/valley-2-138i-page-7.jpg",
+        "sort_order": 17
+      },
+      {
+        "url": "/uploads/projects/valley-2-138i/valley-2-138i-page-8.jpg",
+        "sort_order": 18
+      },
+      {
+        "url": "/uploads/projects/valley-2-138i/valley-2-138i-page-9.jpg",
+        "sort_order": 19
+      },
+      {
+        "url": "/uploads/projects/valley-2-138i/valley-2-138i-page-10.jpg",
+        "sort_order": 20
+      }
+    ],
+    "videos": [],
+    "unit_types": [
+      {
+        "category": "residential",
+        "area_from": 135,
+        "area_to": 240
+      }
+    ],
+    "payment_plans": [
+      {
+        "name_en": "Flexible Payment Plan",
+        "name_ar": "نظام السداد المرن",
+        "details_en": "Down payment with flexible installments over up to 48 months",
+        "details_ar": "مقدم حجز ميسر وأقساط حتى 48 شهر بدون فوائد"
+      }
+    ],
+    "amenities": [
+      {
+        "name_en": "Elevator",
+        "name_ar": "مصعد هيدروليكي",
+        "icon": "HiSparkles"
+      },
+      {
+        "name_en": "Underground Parking",
+        "name_ar": "جراج خاص مغطى",
+        "icon": "HiShieldCheck"
+      },
+      {
+        "name_en": "Surveillance Systems",
+        "name_ar": "كاميرات مراقبة وأمن",
+        "icon": "HiShieldCheck"
+      },
+      {
+        "name_en": "Luxury Entrance",
+        "name_ar": "مداخل رخام فاخرة",
+        "icon": "HiStar"
+      },
+      {
+        "name_en": "Intercom & Security",
+        "name_ar": "أنظمة انتركم مرئي",
+        "icon": "HiPhone"
+      },
+      {
+        "name_en": "Landscape & Greenery",
+        "name_ar": "مساحات خضراء ولاندسكيب",
+        "icon": "HiLocationMarker"
+      }
+    ],
+    "created_at": "2024-06-01T00:00:00.000Z",
+    "updated_at": "2026-07-29T00:00:00.000Z"
+  },
+  {
+    "id": "proj-109b",
+    "name_en": "Project 109B - Bayt Al Watan",
+    "name_ar": "مشروع 109B - بيت الوطن",
+    "slug": "109b",
+    "location_en": "Bayt Al Watan, New Cairo",
+    "location_ar": "بيت الوطن - القاهرة الجديدة",
+    "description_en": "Completed premium residential building in Bayt Al Watan with elegant architecture, private garages, hydraulic elevators, and prime urban location.",
+    "description_ar": "مشروع سكني مكتمل ومسلم بأعلى مواصفات التشطيب والجودة في حي بيت الوطن بالقاهرة الجديدة، ويتميز بواجهة كلاسيكية راقية ومداخل رخام ومصاعد هيدروليكية وجراجات خاصة.",
+    "status": "completed",
+    "lat": 30.024,
+    "lng": 31.493,
+    "brochure_url": null,
+    "cover_image": "/uploads/projects/109b/109b-img-1.jpg",
+    "featured": true,
+    "gallery": [
+      {
+        "url": "/uploads/projects/109b/109b-page-1.jpg",
+        "sort_order": 1
+      }
+    ],
+    "videos": [],
+    "unit_types": [
+      {
+        "category": "residential",
+        "area_from": 130,
+        "area_to": 235
+      }
+    ],
+    "payment_plans": [
+      {
+        "name_en": "Flexible Payment Plan",
+        "name_ar": "نظام السداد المرن",
+        "details_en": "Down payment with flexible installments over up to 48 months",
+        "details_ar": "مقدم حجز ميسر وأقساط حتى 48 شهر بدون فوائد"
+      }
+    ],
+    "amenities": [
+      {
+        "name_en": "Elevator",
+        "name_ar": "مصعد هيدروليكي",
+        "icon": "HiSparkles"
+      },
+      {
+        "name_en": "Underground Parking",
+        "name_ar": "جراج خاص مغطى",
+        "icon": "HiShieldCheck"
+      },
+      {
+        "name_en": "Surveillance Systems",
+        "name_ar": "كاميرات مراقبة وأمن",
+        "icon": "HiShieldCheck"
+      },
+      {
+        "name_en": "Luxury Entrance",
+        "name_ar": "مداخل رخام فاخرة",
+        "icon": "HiStar"
+      },
+      {
+        "name_en": "Intercom & Security",
+        "name_ar": "أنظمة انتركم مرئي",
+        "icon": "HiPhone"
+      },
+      {
+        "name_en": "Landscape & Greenery",
+        "name_ar": "مساحات خضراء ولاندسكيب",
+        "icon": "HiLocationMarker"
+      }
+    ],
     "created_at": "2024-01-01T00:00:00.000Z",
-    "updated_at": "2024-01-01T00:00:00.000Z"
+    "updated_at": "2026-07-29T00:00:00.000Z"
   },
   {
     "id": "proj-116b",
-    "name_en": "116B",
-    "name_ar": "116B",
+    "name_en": "Project 116B - Bayt Al Watan",
+    "name_ar": "مشروع 116B - بيت الوطن",
     "slug": "116b",
-    "location_en": "",
-    "location_ar": "",
-    "description_en": "",
-    "description_ar": "",
+    "location_en": "Bayt Al Watan, New Cairo",
+    "location_ar": "بيت الوطن - القاهرة الجديدة",
+    "description_en": "Completed premium residential building in Bayt Al Watan with elegant architecture, private garages, hydraulic elevators, and prime urban location.",
+    "description_ar": "مشروع سكني مكتمل ومسلم بأعلى مواصفات التشطيب والجودة في حي بيت الوطن بالقاهرة الجديدة، ويتميز بواجهة كلاسيكية راقية ومداخل رخام ومصاعد هيدروليكية وجراجات خاصة.",
     "status": "completed",
-    "lat": null,
-    "lng": null,
+    "lat": 30.024,
+    "lng": 31.493,
     "brochure_url": null,
-    "cover_image": "https://lh3.googleusercontent.com/d/155LIz854dXxmfX9FkdbZnomjAxGSOP3f=w1600",
+    "cover_image": "/uploads/projects/116b/116b-page-1.jpg",
     "featured": true,
-    "gallery": [],
+    "gallery": [
+      {
+        "url": "/uploads/projects/116b/116b-img-1.jpg",
+        "sort_order": 1
+      },
+      {
+        "url": "/uploads/projects/116b/116b-img-2.jpg",
+        "sort_order": 2
+      },
+      {
+        "url": "/uploads/projects/116b/116b-page-1.jpg",
+        "sort_order": 3
+      },
+      {
+        "url": "/uploads/projects/116b/116b-page-1.jpg",
+        "sort_order": 4
+      }
+    ],
     "videos": [],
-    "unit_types": [],
-    "payment_plans": [],
-    "amenities": [],
-    "created_at": "2024-01-02T00:00:00.000Z",
-    "updated_at": "2024-01-02T00:00:00.000Z"
+    "unit_types": [
+      {
+        "category": "residential",
+        "area_from": 195,
+        "area_to": 237
+      }
+    ],
+    "payment_plans": [
+      {
+        "name_en": "Flexible Payment Plan",
+        "name_ar": "نظام السداد المرن",
+        "details_en": "Down payment with flexible installments over up to 48 months",
+        "details_ar": "مقدم حجز ميسر وأقساط حتى 48 شهر بدون فوائد"
+      }
+    ],
+    "amenities": [
+      {
+        "name_en": "Elevator",
+        "name_ar": "مصعد هيدروليكي",
+        "icon": "HiSparkles"
+      },
+      {
+        "name_en": "Underground Parking",
+        "name_ar": "جراج خاص مغطى",
+        "icon": "HiShieldCheck"
+      },
+      {
+        "name_en": "Surveillance Systems",
+        "name_ar": "كاميرات مراقبة وأمن",
+        "icon": "HiShieldCheck"
+      },
+      {
+        "name_en": "Luxury Entrance",
+        "name_ar": "مداخل رخام فاخرة",
+        "icon": "HiStar"
+      },
+      {
+        "name_en": "Intercom & Security",
+        "name_ar": "أنظمة انتركم مرئي",
+        "icon": "HiPhone"
+      },
+      {
+        "name_en": "Landscape & Greenery",
+        "name_ar": "مساحات خضراء ولاندسكيب",
+        "icon": "HiLocationMarker"
+      }
+    ],
+    "created_at": "2024-01-01T00:00:00.000Z",
+    "updated_at": "2026-07-29T00:00:00.000Z"
   },
   {
     "id": "proj-133",
-    "name_en": "133",
-    "name_ar": "133",
+    "name_en": "Project 133 - Bayt Al Watan",
+    "name_ar": "مشروع 133 - بيت الوطن",
     "slug": "133",
-    "location_en": "",
-    "location_ar": "",
-    "description_en": "",
-    "description_ar": "",
+    "location_en": "Bayt Al Watan, New Cairo",
+    "location_ar": "بيت الوطن - القاهرة الجديدة",
+    "description_en": "Completed premium residential building in Bayt Al Watan with elegant architecture, private garages, hydraulic elevators, and prime urban location.",
+    "description_ar": "مشروع سكني مكتمل ومسلم بأعلى مواصفات التشطيب والجودة في حي بيت الوطن بالقاهرة الجديدة، ويتميز بواجهة كلاسيكية راقية ومداخل رخام ومصاعد هيدروليكية وجراجات خاصة.",
     "status": "completed",
-    "lat": null,
-    "lng": null,
+    "lat": 30.024,
+    "lng": 31.493,
     "brochure_url": null,
-    "cover_image": "https://lh3.googleusercontent.com/d/12l8ZAMqoSlyol28_0y4SExjhoXuQr7Wu=w1600",
-    "featured": true,
-    "gallery": [],
+    "cover_image": "/uploads/projects/133/133-page-1.jpg",
+    "featured": false,
+    "gallery": [
+      {
+        "url": "/uploads/projects/133/133-page-1.jpg",
+        "sort_order": 1
+      },
+      {
+        "url": "/uploads/projects/133/133-img-1.jpeg",
+        "sort_order": 2
+      }
+    ],
     "videos": [],
-    "unit_types": [],
-    "payment_plans": [],
-    "amenities": [],
-    "created_at": "2024-01-03T00:00:00.000Z",
-    "updated_at": "2024-01-03T00:00:00.000Z"
+    "unit_types": [
+      {
+        "category": "residential",
+        "area_from": 130,
+        "area_to": 235
+      }
+    ],
+    "payment_plans": [
+      {
+        "name_en": "Flexible Payment Plan",
+        "name_ar": "نظام السداد المرن",
+        "details_en": "Down payment with flexible installments over up to 48 months",
+        "details_ar": "مقدم حجز ميسر وأقساط حتى 48 شهر بدون فوائد"
+      }
+    ],
+    "amenities": [
+      {
+        "name_en": "Elevator",
+        "name_ar": "مصعد هيدروليكي",
+        "icon": "HiSparkles"
+      },
+      {
+        "name_en": "Underground Parking",
+        "name_ar": "جراج خاص مغطى",
+        "icon": "HiShieldCheck"
+      },
+      {
+        "name_en": "Surveillance Systems",
+        "name_ar": "كاميرات مراقبة وأمن",
+        "icon": "HiShieldCheck"
+      },
+      {
+        "name_en": "Luxury Entrance",
+        "name_ar": "مداخل رخام فاخرة",
+        "icon": "HiStar"
+      },
+      {
+        "name_en": "Intercom & Security",
+        "name_ar": "أنظمة انتركم مرئي",
+        "icon": "HiPhone"
+      },
+      {
+        "name_en": "Landscape & Greenery",
+        "name_ar": "مساحات خضراء ولاندسكيب",
+        "icon": "HiLocationMarker"
+      }
+    ],
+    "created_at": "2024-01-01T00:00:00.000Z",
+    "updated_at": "2026-07-29T00:00:00.000Z"
   },
   {
     "id": "proj-15",
-    "name_en": "15",
-    "name_ar": "15",
+    "name_en": "Project 15 - Bayt Al Watan",
+    "name_ar": "مشروع 15 - بيت الوطن",
     "slug": "15",
-    "location_en": "",
-    "location_ar": "",
-    "description_en": "",
-    "description_ar": "",
+    "location_en": "Bayt Al Watan, New Cairo",
+    "location_ar": "بيت الوطن - القاهرة الجديدة",
+    "description_en": "Completed premium residential building in Bayt Al Watan with elegant architecture, private garages, hydraulic elevators, and prime urban location.",
+    "description_ar": "مشروع سكني مكتمل ومسلم بأعلى مواصفات التشطيب والجودة في حي بيت الوطن بالقاهرة الجديدة، ويتميز بواجهة كلاسيكية راقية ومداخل رخام ومصاعد هيدروليكية وجراجات خاصة.",
     "status": "completed",
-    "lat": null,
-    "lng": null,
+    "lat": 30.024,
+    "lng": 31.493,
     "brochure_url": null,
-    "cover_image": null,
+    "cover_image": "/uploads/projects/15/15-page-1.jpg",
     "featured": false,
-    "gallery": [],
+    "gallery": [
+      {
+        "url": "/uploads/projects/15/15-page-2.jpg",
+        "sort_order": 1
+      },
+      {
+        "url": "/uploads/projects/15/15-page-3.jpg",
+        "sort_order": 2
+      },
+      {
+        "url": "/uploads/projects/15/15-page-4.jpg",
+        "sort_order": 3
+      },
+      {
+        "url": "/uploads/projects/15/15-page-5.jpg",
+        "sort_order": 4
+      },
+      {
+        "url": "/uploads/projects/15/15-page-6.jpg",
+        "sort_order": 5
+      },
+      {
+        "url": "/uploads/projects/15/15-page-7.jpg",
+        "sort_order": 6
+      },
+      {
+        "url": "/uploads/projects/15/15-page-8.jpg",
+        "sort_order": 7
+      },
+      {
+        "url": "/uploads/projects/15/15-page-9.jpg",
+        "sort_order": 8
+      },
+      {
+        "url": "/uploads/projects/15/15-page-1.jpg",
+        "sort_order": 9
+      },
+      {
+        "url": "/uploads/projects/15/15-page-2.jpg",
+        "sort_order": 10
+      },
+      {
+        "url": "/uploads/projects/15/15-page-3.jpg",
+        "sort_order": 11
+      }
+    ],
     "videos": [],
-    "unit_types": [],
-    "payment_plans": [],
-    "amenities": [],
-    "created_at": "2024-01-04T00:00:00.000Z",
-    "updated_at": "2024-01-04T00:00:00.000Z"
+    "unit_types": [
+      {
+        "category": "residential",
+        "area_from": 130,
+        "area_to": 235
+      }
+    ],
+    "payment_plans": [
+      {
+        "name_en": "Flexible Payment Plan",
+        "name_ar": "نظام السداد المرن",
+        "details_en": "Down payment with flexible installments over up to 48 months",
+        "details_ar": "مقدم حجز ميسر وأقساط حتى 48 شهر بدون فوائد"
+      }
+    ],
+    "amenities": [
+      {
+        "name_en": "Elevator",
+        "name_ar": "مصعد هيدروليكي",
+        "icon": "HiSparkles"
+      },
+      {
+        "name_en": "Underground Parking",
+        "name_ar": "جراج خاص مغطى",
+        "icon": "HiShieldCheck"
+      },
+      {
+        "name_en": "Surveillance Systems",
+        "name_ar": "كاميرات مراقبة وأمن",
+        "icon": "HiShieldCheck"
+      },
+      {
+        "name_en": "Luxury Entrance",
+        "name_ar": "مداخل رخام فاخرة",
+        "icon": "HiStar"
+      },
+      {
+        "name_en": "Intercom & Security",
+        "name_ar": "أنظمة انتركم مرئي",
+        "icon": "HiPhone"
+      },
+      {
+        "name_en": "Landscape & Greenery",
+        "name_ar": "مساحات خضراء ولاندسكيب",
+        "icon": "HiLocationMarker"
+      }
+    ],
+    "created_at": "2024-01-01T00:00:00.000Z",
+    "updated_at": "2026-07-29T00:00:00.000Z"
   },
   {
     "id": "proj-177a",
-    "name_en": "177A",
-    "name_ar": "177A",
+    "name_en": "Project 177A - Bayt Al Watan",
+    "name_ar": "مشروع 177A - بيت الوطن",
     "slug": "177a",
-    "location_en": "",
-    "location_ar": "",
-    "description_en": "",
-    "description_ar": "",
+    "location_en": "Bayt Al Watan, New Cairo",
+    "location_ar": "بيت الوطن - القاهرة الجديدة",
+    "description_en": "Completed premium residential building in Bayt Al Watan with elegant architecture, private garages, hydraulic elevators, and prime urban location.",
+    "description_ar": "مشروع سكني مكتمل ومسلم بأعلى مواصفات التشطيب والجودة في حي بيت الوطن بالقاهرة الجديدة، ويتميز بواجهة كلاسيكية راقية ومداخل رخام ومصاعد هيدروليكية وجراجات خاصة.",
     "status": "completed",
-    "lat": null,
-    "lng": null,
+    "lat": 30.024,
+    "lng": 31.493,
     "brochure_url": null,
-    "cover_image": "https://lh3.googleusercontent.com/d/1i83qil5A4unWh7qSZjqR9rp8eHgaoLFu=w1600",
+    "cover_image": "/uploads/projects/177a/177a-page-1.jpg",
     "featured": true,
     "gallery": [
-      { "url": "https://lh3.googleusercontent.com/d/1U0tulcTbQNB67gvvf1EAu1kY4dI76giK=w1600" },
-      { "url": "https://lh3.googleusercontent.com/d/11Lrg2h0DswVZn6iIjMbUBlpCEL1zOvDH=w1600" }
+      {
+        "url": "/uploads/projects/177a/177a-page-1.jpg",
+        "sort_order": 1
+      },
+      {
+        "url": "/uploads/projects/177a/177a-img-1.jpeg",
+        "sort_order": 2
+      },
+      {
+        "url": "/uploads/projects/177a/177a-img-2.jpeg",
+        "sort_order": 3
+      },
+      {
+        "url": "/uploads/projects/177a/177a-img-3.jpeg",
+        "sort_order": 4
+      }
     ],
     "videos": [],
-    "unit_types": [],
-    "payment_plans": [],
-    "amenities": [],
-    "created_at": "2024-01-05T00:00:00.000Z",
-    "updated_at": "2024-01-05T00:00:00.000Z"
+    "unit_types": [
+      {
+        "category": "residential",
+        "area_from": 166,
+        "area_to": 189
+      }
+    ],
+    "payment_plans": [
+      {
+        "name_en": "Flexible Payment Plan",
+        "name_ar": "نظام السداد المرن",
+        "details_en": "Down payment with flexible installments over up to 48 months",
+        "details_ar": "مقدم حجز ميسر وأقساط حتى 48 شهر بدون فوائد"
+      }
+    ],
+    "amenities": [
+      {
+        "name_en": "Elevator",
+        "name_ar": "مصعد هيدروليكي",
+        "icon": "HiSparkles"
+      },
+      {
+        "name_en": "Underground Parking",
+        "name_ar": "جراج خاص مغطى",
+        "icon": "HiShieldCheck"
+      },
+      {
+        "name_en": "Surveillance Systems",
+        "name_ar": "كاميرات مراقبة وأمن",
+        "icon": "HiShieldCheck"
+      },
+      {
+        "name_en": "Luxury Entrance",
+        "name_ar": "مداخل رخام فاخرة",
+        "icon": "HiStar"
+      },
+      {
+        "name_en": "Intercom & Security",
+        "name_ar": "أنظمة انتركم مرئي",
+        "icon": "HiPhone"
+      },
+      {
+        "name_en": "Landscape & Greenery",
+        "name_ar": "مساحات خضراء ولاندسكيب",
+        "icon": "HiLocationMarker"
+      }
+    ],
+    "created_at": "2024-01-01T00:00:00.000Z",
+    "updated_at": "2026-07-29T00:00:00.000Z"
   },
   {
     "id": "proj-198b",
-    "name_en": "198B",
-    "name_ar": "198B",
+    "name_en": "Project 198B - Bayt Al Watan",
+    "name_ar": "مشروع 198B - بيت الوطن",
     "slug": "198b",
-    "location_en": "",
-    "location_ar": "",
-    "description_en": "",
-    "description_ar": "",
+    "location_en": "Bayt Al Watan, New Cairo",
+    "location_ar": "بيت الوطن - القاهرة الجديدة",
+    "description_en": "Completed premium residential building in Bayt Al Watan with elegant architecture, private garages, hydraulic elevators, and prime urban location.",
+    "description_ar": "مشروع سكني مكتمل ومسلم بأعلى مواصفات التشطيب والجودة في حي بيت الوطن بالقاهرة الجديدة، ويتميز بواجهة كلاسيكية راقية ومداخل رخام ومصاعد هيدروليكية وجراجات خاصة.",
     "status": "completed",
-    "lat": null,
-    "lng": null,
+    "lat": 30.024,
+    "lng": 31.493,
     "brochure_url": null,
-    "cover_image": "https://lh3.googleusercontent.com/d/1s_2FoKKsAenyZOYPfm92jeTvRiFG2gzt=w1600",
+    "cover_image": "/uploads/projects/198b/198b-page-1.jpg",
     "featured": true,
-    "gallery": [],
+    "gallery": [
+      {
+        "url": "/uploads/projects/198b/198b-page-1.jpg",
+        "sort_order": 1
+      },
+      {
+        "url": "/uploads/projects/198b/198b-img-1.jpeg",
+        "sort_order": 2
+      }
+    ],
     "videos": [],
-    "unit_types": [],
-    "payment_plans": [],
-    "amenities": [],
-    "created_at": "2024-01-06T00:00:00.000Z",
-    "updated_at": "2024-01-06T00:00:00.000Z"
+    "unit_types": [
+      {
+        "category": "residential",
+        "area_from": 52,
+        "area_to": 52
+      }
+    ],
+    "payment_plans": [
+      {
+        "name_en": "Flexible Payment Plan",
+        "name_ar": "نظام السداد المرن",
+        "details_en": "Down payment with flexible installments over up to 48 months",
+        "details_ar": "مقدم حجز ميسر وأقساط حتى 48 شهر بدون فوائد"
+      }
+    ],
+    "amenities": [
+      {
+        "name_en": "Elevator",
+        "name_ar": "مصعد هيدروليكي",
+        "icon": "HiSparkles"
+      },
+      {
+        "name_en": "Underground Parking",
+        "name_ar": "جراج خاص مغطى",
+        "icon": "HiShieldCheck"
+      },
+      {
+        "name_en": "Surveillance Systems",
+        "name_ar": "كاميرات مراقبة وأمن",
+        "icon": "HiShieldCheck"
+      },
+      {
+        "name_en": "Luxury Entrance",
+        "name_ar": "مداخل رخام فاخرة",
+        "icon": "HiStar"
+      },
+      {
+        "name_en": "Intercom & Security",
+        "name_ar": "أنظمة انتركم مرئي",
+        "icon": "HiPhone"
+      },
+      {
+        "name_en": "Landscape & Greenery",
+        "name_ar": "مساحات خضراء ولاندسكيب",
+        "icon": "HiLocationMarker"
+      }
+    ],
+    "created_at": "2024-01-01T00:00:00.000Z",
+    "updated_at": "2026-07-29T00:00:00.000Z"
   },
   {
     "id": "proj-25a",
-    "name_en": "25A",
-    "name_ar": "25A",
+    "name_en": "Project 25A - Bayt Al Watan",
+    "name_ar": "مشروع 25A - بيت الوطن",
     "slug": "25a",
-    "location_en": "",
-    "location_ar": "",
-    "description_en": "",
-    "description_ar": "",
+    "location_en": "Bayt Al Watan, New Cairo",
+    "location_ar": "بيت الوطن - القاهرة الجديدة",
+    "description_en": "Completed premium residential building in Bayt Al Watan with elegant architecture, private garages, hydraulic elevators, and prime urban location.",
+    "description_ar": "مشروع سكني مكتمل ومسلم بأعلى مواصفات التشطيب والجودة في حي بيت الوطن بالقاهرة الجديدة، ويتميز بواجهة كلاسيكية راقية ومداخل رخام ومصاعد هيدروليكية وجراجات خاصة.",
     "status": "completed",
-    "lat": null,
-    "lng": null,
+    "lat": 30.024,
+    "lng": 31.493,
     "brochure_url": null,
-    "cover_image": null,
-    "featured": false,
-    "gallery": [],
+    "cover_image": "/uploads/projects/25a/25a-page-1.jpg",
+    "featured": true,
+    "gallery": [
+      {
+        "url": "/uploads/projects/25a/25a-page-1.jpg",
+        "sort_order": 1
+      }
+    ],
     "videos": [],
-    "unit_types": [],
-    "payment_plans": [],
-    "amenities": [],
-    "created_at": "2024-01-07T00:00:00.000Z",
-    "updated_at": "2024-01-07T00:00:00.000Z"
+    "unit_types": [
+      {
+        "category": "residential",
+        "area_from": 150,
+        "area_to": 236
+      }
+    ],
+    "payment_plans": [
+      {
+        "name_en": "Flexible Payment Plan",
+        "name_ar": "نظام السداد المرن",
+        "details_en": "Down payment with flexible installments over up to 48 months",
+        "details_ar": "مقدم حجز ميسر وأقساط حتى 48 شهر بدون فوائد"
+      }
+    ],
+    "amenities": [
+      {
+        "name_en": "Elevator",
+        "name_ar": "مصعد هيدروليكي",
+        "icon": "HiSparkles"
+      },
+      {
+        "name_en": "Underground Parking",
+        "name_ar": "جراج خاص مغطى",
+        "icon": "HiShieldCheck"
+      },
+      {
+        "name_en": "Surveillance Systems",
+        "name_ar": "كاميرات مراقبة وأمن",
+        "icon": "HiShieldCheck"
+      },
+      {
+        "name_en": "Luxury Entrance",
+        "name_ar": "مداخل رخام فاخرة",
+        "icon": "HiStar"
+      },
+      {
+        "name_en": "Intercom & Security",
+        "name_ar": "أنظمة انتركم مرئي",
+        "icon": "HiPhone"
+      },
+      {
+        "name_en": "Landscape & Greenery",
+        "name_ar": "مساحات خضراء ولاندسكيب",
+        "icon": "HiLocationMarker"
+      }
+    ],
+    "created_at": "2024-01-01T00:00:00.000Z",
+    "updated_at": "2026-07-29T00:00:00.000Z"
   },
   {
     "id": "proj-29b",
-    "name_en": "29B",
-    "name_ar": "29B",
+    "name_en": "Project 29B - Bayt Al Watan",
+    "name_ar": "مشروع 29B - بيت الوطن",
     "slug": "29b",
-    "location_en": "",
-    "location_ar": "",
-    "description_en": "",
-    "description_ar": "",
+    "location_en": "Bayt Al Watan, New Cairo",
+    "location_ar": "بيت الوطن - القاهرة الجديدة",
+    "description_en": "Completed premium residential building in Bayt Al Watan with elegant architecture, private garages, hydraulic elevators, and prime urban location.",
+    "description_ar": "مشروع سكني مكتمل ومسلم بأعلى مواصفات التشطيب والجودة في حي بيت الوطن بالقاهرة الجديدة، ويتميز بواجهة كلاسيكية راقية ومداخل رخام ومصاعد هيدروليكية وجراجات خاصة.",
     "status": "completed",
-    "lat": null,
-    "lng": null,
+    "lat": 30.024,
+    "lng": 31.493,
     "brochure_url": null,
-    "cover_image": "https://lh3.googleusercontent.com/d/10kc4stUse0IN1vuk2UMLgPyCl3OVr1nZ=w1600",
-    "featured": true,
+    "cover_image": "/uploads/projects/29b/29b-img-1.jpeg",
+    "featured": false,
     "gallery": [
-      { "url": "https://lh3.googleusercontent.com/d/1lQVc0kFSnJD8VN6uAXzrB6FP-fqCbl6F=w1600" }
+      {
+        "url": "/uploads/projects/29b/29b-img-2.jpeg",
+        "sort_order": 1
+      }
     ],
     "videos": [],
-    "unit_types": [],
-    "payment_plans": [],
-    "amenities": [],
-    "created_at": "2024-01-08T00:00:00.000Z",
-    "updated_at": "2024-01-08T00:00:00.000Z"
+    "unit_types": [
+      {
+        "category": "residential",
+        "area_from": 130,
+        "area_to": 235
+      }
+    ],
+    "payment_plans": [
+      {
+        "name_en": "Flexible Payment Plan",
+        "name_ar": "نظام السداد المرن",
+        "details_en": "Down payment with flexible installments over up to 48 months",
+        "details_ar": "مقدم حجز ميسر وأقساط حتى 48 شهر بدون فوائد"
+      }
+    ],
+    "amenities": [
+      {
+        "name_en": "Elevator",
+        "name_ar": "مصعد هيدروليكي",
+        "icon": "HiSparkles"
+      },
+      {
+        "name_en": "Underground Parking",
+        "name_ar": "جراج خاص مغطى",
+        "icon": "HiShieldCheck"
+      },
+      {
+        "name_en": "Surveillance Systems",
+        "name_ar": "كاميرات مراقبة وأمن",
+        "icon": "HiShieldCheck"
+      },
+      {
+        "name_en": "Luxury Entrance",
+        "name_ar": "مداخل رخام فاخرة",
+        "icon": "HiStar"
+      },
+      {
+        "name_en": "Intercom & Security",
+        "name_ar": "أنظمة انتركم مرئي",
+        "icon": "HiPhone"
+      },
+      {
+        "name_en": "Landscape & Greenery",
+        "name_ar": "مساحات خضراء ولاندسكيب",
+        "icon": "HiLocationMarker"
+      }
+    ],
+    "created_at": "2024-01-01T00:00:00.000Z",
+    "updated_at": "2026-07-29T00:00:00.000Z"
   },
   {
     "id": "proj-432-11",
-    "name_en": "432-11",
-    "name_ar": "432-11",
+    "name_en": "Project 432-11 - Bayt Al Watan",
+    "name_ar": "مشروع 432-11 - بيت الوطن",
     "slug": "432-11",
-    "location_en": "",
-    "location_ar": "",
-    "description_en": "",
-    "description_ar": "",
+    "location_en": "Bayt Al Watan, New Cairo",
+    "location_ar": "بيت الوطن - القاهرة الجديدة",
+    "description_en": "Completed premium residential building in Bayt Al Watan with elegant architecture, private garages, hydraulic elevators, and prime urban location.",
+    "description_ar": "مشروع سكني مكتمل ومسلم بأعلى مواصفات التشطيب والجودة في حي بيت الوطن بالقاهرة الجديدة، ويتميز بواجهة كلاسيكية راقية ومداخل رخام ومصاعد هيدروليكية وجراجات خاصة.",
     "status": "completed",
-    "lat": null,
-    "lng": null,
+    "lat": 30.024,
+    "lng": 31.493,
     "brochure_url": null,
-    "cover_image": "https://lh3.googleusercontent.com/d/1M2q4aVk9yBHCLKA9sJTtDCfqGyqOOg4j=w1600",
-    "featured": true,
+    "cover_image": "/uploads/projects/432-11/432-11-img-1.jpg",
+    "featured": false,
     "gallery": [],
     "videos": [],
-    "unit_types": [],
-    "payment_plans": [],
-    "amenities": [],
-    "created_at": "2024-01-09T00:00:00.000Z",
-    "updated_at": "2024-01-09T00:00:00.000Z"
+    "unit_types": [
+      {
+        "category": "residential",
+        "area_from": 130,
+        "area_to": 235
+      }
+    ],
+    "payment_plans": [
+      {
+        "name_en": "Flexible Payment Plan",
+        "name_ar": "نظام السداد المرن",
+        "details_en": "Down payment with flexible installments over up to 48 months",
+        "details_ar": "مقدم حجز ميسر وأقساط حتى 48 شهر بدون فوائد"
+      }
+    ],
+    "amenities": [
+      {
+        "name_en": "Elevator",
+        "name_ar": "مصعد هيدروليكي",
+        "icon": "HiSparkles"
+      },
+      {
+        "name_en": "Underground Parking",
+        "name_ar": "جراج خاص مغطى",
+        "icon": "HiShieldCheck"
+      },
+      {
+        "name_en": "Surveillance Systems",
+        "name_ar": "كاميرات مراقبة وأمن",
+        "icon": "HiShieldCheck"
+      },
+      {
+        "name_en": "Luxury Entrance",
+        "name_ar": "مداخل رخام فاخرة",
+        "icon": "HiStar"
+      },
+      {
+        "name_en": "Intercom & Security",
+        "name_ar": "أنظمة انتركم مرئي",
+        "icon": "HiPhone"
+      },
+      {
+        "name_en": "Landscape & Greenery",
+        "name_ar": "مساحات خضراء ولاندسكيب",
+        "icon": "HiLocationMarker"
+      }
+    ],
+    "created_at": "2024-01-01T00:00:00.000Z",
+    "updated_at": "2026-07-29T00:00:00.000Z"
+  },
+  {
+    "id": "proj-48",
+    "name_en": "Project 48 - Bayt Al Watan",
+    "name_ar": "مشروع 48 - بيت الوطن",
+    "slug": "48",
+    "location_en": "Bayt Al Watan, New Cairo",
+    "location_ar": "بيت الوطن - القاهرة الجديدة",
+    "description_en": "High-end luxury residential building in Bayt Al Watan engineered with neoclassical facade and premium facilities.",
+    "description_ar": "مشروع فاخر بتصميم معماري رائع ومواصفات هندسية دقيقة في بيت الوطن، يوفر بيئة سكنية هادئة وممتازة بالقرب من كافة الخدمات الرئيسية.",
+    "status": "completed",
+    "lat": 30.0245,
+    "lng": 31.4925,
+    "brochure_url": null,
+    "cover_image": "/uploads/projects/48/48-page-1.jpg",
+    "featured": true,
+    "gallery": [
+      {
+        "url": "/uploads/projects/48/48-page-2.jpg",
+        "sort_order": 1
+      },
+      {
+        "url": "/uploads/projects/48/48-page-3.jpg",
+        "sort_order": 2
+      },
+      {
+        "url": "/uploads/projects/48/48-page-4.jpg",
+        "sort_order": 3
+      },
+      {
+        "url": "/uploads/projects/48/48-page-5.jpg",
+        "sort_order": 4
+      },
+      {
+        "url": "/uploads/projects/48/48-page-6.jpg",
+        "sort_order": 5
+      },
+      {
+        "url": "/uploads/projects/48/48-page-7.jpg",
+        "sort_order": 6
+      },
+      {
+        "url": "/uploads/projects/48/48-page-8.jpg",
+        "sort_order": 7
+      },
+      {
+        "url": "/uploads/projects/48/48-page-9.jpg",
+        "sort_order": 8
+      },
+      {
+        "url": "/uploads/projects/48/48-page-10.jpg",
+        "sort_order": 9
+      },
+      {
+        "url": "/uploads/projects/48/48-page-11.jpg",
+        "sort_order": 10
+      },
+      {
+        "url": "/uploads/projects/48/48-page-12.jpg",
+        "sort_order": 11
+      }
+    ],
+    "videos": [],
+    "unit_types": [
+      {
+        "category": "residential",
+        "area_from": 140,
+        "area_to": 220
+      }
+    ],
+    "payment_plans": [
+      {
+        "name_en": "Flexible Payment Plan",
+        "name_ar": "نظام السداد المرن",
+        "details_en": "Down payment with flexible installments over up to 48 months",
+        "details_ar": "مقدم حجز ميسر وأقساط حتى 48 شهر بدون فوائد"
+      }
+    ],
+    "amenities": [
+      {
+        "name_en": "Elevator",
+        "name_ar": "مصعد هيدروليكي",
+        "icon": "HiSparkles"
+      },
+      {
+        "name_en": "Underground Parking",
+        "name_ar": "جراج خاص مغطى",
+        "icon": "HiShieldCheck"
+      },
+      {
+        "name_en": "Surveillance Systems",
+        "name_ar": "كاميرات مراقبة وأمن",
+        "icon": "HiShieldCheck"
+      },
+      {
+        "name_en": "Luxury Entrance",
+        "name_ar": "مداخل رخام فاخرة",
+        "icon": "HiStar"
+      },
+      {
+        "name_en": "Intercom & Security",
+        "name_ar": "أنظمة انتركم مرئي",
+        "icon": "HiPhone"
+      },
+      {
+        "name_en": "Landscape & Greenery",
+        "name_ar": "مساحات خضراء ولاندسكيب",
+        "icon": "HiLocationMarker"
+      }
+    ],
+    "created_at": "2024-02-01T00:00:00.000Z",
+    "updated_at": "2026-07-29T00:00:00.000Z"
   },
   {
     "id": "proj-532-42",
-    "name_en": "532-42",
-    "name_ar": "532-42",
+    "name_en": "Project 532-42 - Bayt Al Watan",
+    "name_ar": "مشروع 532-42 - بيت الوطن",
     "slug": "532-42",
-    "location_en": "",
-    "location_ar": "",
-    "description_en": "",
-    "description_ar": "",
+    "location_en": "Bayt Al Watan, New Cairo",
+    "location_ar": "بيت الوطن - القاهرة الجديدة",
+    "description_en": "Completed premium residential building in Bayt Al Watan with elegant architecture, private garages, hydraulic elevators, and prime urban location.",
+    "description_ar": "مشروع سكني مكتمل ومسلم بأعلى مواصفات التشطيب والجودة في حي بيت الوطن بالقاهرة الجديدة، ويتميز بواجهة كلاسيكية راقية ومداخل رخام ومصاعد هيدروليكية وجراجات خاصة.",
     "status": "completed",
-    "lat": null,
-    "lng": null,
+    "lat": 30.024,
+    "lng": 31.493,
     "brochure_url": null,
-    "cover_image": "https://lh3.googleusercontent.com/d/1jxRd-i1tplBFP8oYWaS5KPs-dzlfbHXn=w1600",
+    "cover_image": "/uploads/projects/532-42/532-42-img-1.jpeg",
     "featured": false,
-    "gallery": [],
+    "gallery": [
+      {
+        "url": "/uploads/projects/532-42/532-42-img-2.jpeg",
+        "sort_order": 1
+      },
+      {
+        "url": "/uploads/projects/532-42/532-42-page-1.jpg",
+        "sort_order": 2
+      },
+      {
+        "url": "/uploads/projects/532-42/532-42-page-1.jpg",
+        "sort_order": 3
+      },
+      {
+        "url": "/uploads/projects/532-42/532-42-page-1.jpg",
+        "sort_order": 4
+      },
+      {
+        "url": "/uploads/projects/532-42/532-42-page-1.jpg",
+        "sort_order": 5
+      },
+      {
+        "url": "/uploads/projects/532-42/532-42-page-1.jpg",
+        "sort_order": 6
+      }
+    ],
     "videos": [],
-    "unit_types": [],
-    "payment_plans": [],
-    "amenities": [],
-    "created_at": "2024-01-10T00:00:00.000Z",
-    "updated_at": "2024-01-10T00:00:00.000Z"
+    "unit_types": [
+      {
+        "category": "residential",
+        "area_from": 130,
+        "area_to": 235
+      }
+    ],
+    "payment_plans": [
+      {
+        "name_en": "Flexible Payment Plan",
+        "name_ar": "نظام السداد المرن",
+        "details_en": "Down payment with flexible installments over up to 48 months",
+        "details_ar": "مقدم حجز ميسر وأقساط حتى 48 شهر بدون فوائد"
+      }
+    ],
+    "amenities": [
+      {
+        "name_en": "Elevator",
+        "name_ar": "مصعد هيدروليكي",
+        "icon": "HiSparkles"
+      },
+      {
+        "name_en": "Underground Parking",
+        "name_ar": "جراج خاص مغطى",
+        "icon": "HiShieldCheck"
+      },
+      {
+        "name_en": "Surveillance Systems",
+        "name_ar": "كاميرات مراقبة وأمن",
+        "icon": "HiShieldCheck"
+      },
+      {
+        "name_en": "Luxury Entrance",
+        "name_ar": "مداخل رخام فاخرة",
+        "icon": "HiStar"
+      },
+      {
+        "name_en": "Intercom & Security",
+        "name_ar": "أنظمة انتركم مرئي",
+        "icon": "HiPhone"
+      },
+      {
+        "name_en": "Landscape & Greenery",
+        "name_ar": "مساحات خضراء ولاندسكيب",
+        "icon": "HiLocationMarker"
+      }
+    ],
+    "created_at": "2024-01-01T00:00:00.000Z",
+    "updated_at": "2026-07-29T00:00:00.000Z"
   },
   {
     "id": "proj-532-82",
-    "name_en": "532-82",
-    "name_ar": "532-82",
+    "name_en": "Project 532-82 - Bayt Al Watan",
+    "name_ar": "مشروع 532-82 - بيت الوطن",
     "slug": "532-82",
-    "location_en": "",
-    "location_ar": "",
-    "description_en": "",
-    "description_ar": "",
+    "location_en": "Bayt Al Watan, New Cairo",
+    "location_ar": "بيت الوطن - القاهرة الجديدة",
+    "description_en": "Completed premium residential building in Bayt Al Watan with elegant architecture, private garages, hydraulic elevators, and prime urban location.",
+    "description_ar": "مشروع سكني مكتمل ومسلم بأعلى مواصفات التشطيب والجودة في حي بيت الوطن بالقاهرة الجديدة، ويتميز بواجهة كلاسيكية راقية ومداخل رخام ومصاعد هيدروليكية وجراجات خاصة.",
     "status": "completed",
-    "lat": null,
-    "lng": null,
+    "lat": 30.024,
+    "lng": 31.493,
     "brochure_url": null,
-    "cover_image": null,
+    "cover_image": "/uploads/projects/532-82/532-82-page-1.jpg",
     "featured": false,
-    "gallery": [],
+    "gallery": [
+      {
+        "url": "/uploads/projects/532-82/532-82-page-1.jpg",
+        "sort_order": 1
+      }
+    ],
     "videos": [],
-    "unit_types": [],
-    "payment_plans": [],
-    "amenities": [],
-    "created_at": "2024-01-11T00:00:00.000Z",
-    "updated_at": "2024-01-11T00:00:00.000Z"
+    "unit_types": [
+      {
+        "category": "residential",
+        "area_from": 156,
+        "area_to": 209
+      }
+    ],
+    "payment_plans": [
+      {
+        "name_en": "Flexible Payment Plan",
+        "name_ar": "نظام السداد المرن",
+        "details_en": "Down payment with flexible installments over up to 48 months",
+        "details_ar": "مقدم حجز ميسر وأقساط حتى 48 شهر بدون فوائد"
+      }
+    ],
+    "amenities": [
+      {
+        "name_en": "Elevator",
+        "name_ar": "مصعد هيدروليكي",
+        "icon": "HiSparkles"
+      },
+      {
+        "name_en": "Underground Parking",
+        "name_ar": "جراج خاص مغطى",
+        "icon": "HiShieldCheck"
+      },
+      {
+        "name_en": "Surveillance Systems",
+        "name_ar": "كاميرات مراقبة وأمن",
+        "icon": "HiShieldCheck"
+      },
+      {
+        "name_en": "Luxury Entrance",
+        "name_ar": "مداخل رخام فاخرة",
+        "icon": "HiStar"
+      },
+      {
+        "name_en": "Intercom & Security",
+        "name_ar": "أنظمة انتركم مرئي",
+        "icon": "HiPhone"
+      },
+      {
+        "name_en": "Landscape & Greenery",
+        "name_ar": "مساحات خضراء ولاندسكيب",
+        "icon": "HiLocationMarker"
+      }
+    ],
+    "created_at": "2024-01-01T00:00:00.000Z",
+    "updated_at": "2026-07-29T00:00:00.000Z"
   },
   {
     "id": "proj-532-97",
-    "name_en": "532-97",
-    "name_ar": "532-97",
+    "name_en": "Project 532-97 - Bayt Al Watan",
+    "name_ar": "مشروع 532-97 - بيت الوطن",
     "slug": "532-97",
-    "location_en": "",
-    "location_ar": "",
-    "description_en": "",
-    "description_ar": "",
+    "location_en": "Bayt Al Watan, New Cairo",
+    "location_ar": "بيت الوطن - القاهرة الجديدة",
+    "description_en": "Completed premium residential building in Bayt Al Watan with elegant architecture, private garages, hydraulic elevators, and prime urban location.",
+    "description_ar": "مشروع سكني مكتمل ومسلم بأعلى مواصفات التشطيب والجودة في حي بيت الوطن بالقاهرة الجديدة، ويتميز بواجهة كلاسيكية راقية ومداخل رخام ومصاعد هيدروليكية وجراجات خاصة.",
     "status": "completed",
-    "lat": null,
-    "lng": null,
+    "lat": 30.024,
+    "lng": 31.493,
     "brochure_url": null,
-    "cover_image": "https://lh3.googleusercontent.com/d/1XcCWnWlobQmZiLDFe8RoMYulT1ZjYdTE=w1600",
+    "cover_image": "/uploads/projects/532-97/532-97-page-1.jpg",
     "featured": true,
     "gallery": [
-      { "url": "https://lh3.googleusercontent.com/d/1c4lGBTM6fO1t9ulHkhCFRAivei81v_1h=w1600" },
-      { "url": "https://lh3.googleusercontent.com/d/1Cd9rzUO3Q_qmXK1WCZuttXnBjTMLanGP=w1600" },
-      { "url": "https://lh3.googleusercontent.com/d/1W1Qa8qi1zAltwXvvqS448GhOAnyXCcQJ=w1600" },
-      { "url": "https://lh3.googleusercontent.com/d/1ZdzqPximWpIw6-MPM1SwlrXuogMdf9QQ=w1600" },
-      { "url": "https://lh3.googleusercontent.com/d/1Aq-r7a3bdoBwSL5wIQrGwpMWRpWRlt0q=w1600" },
-      { "url": "https://lh3.googleusercontent.com/d/1zBm9YFbccO4febV8WZuGiBABsLtXOuYk=w1600" },
-      { "url": "https://lh3.googleusercontent.com/d/1pxbTb7E51pUd4-b4GXl2g03hDZae3XF3=w1600" },
-      { "url": "https://lh3.googleusercontent.com/d/1JsJRX9zwnVUcV7-9ctliTJFpMowOBIE0=w1600" },
-      { "url": "https://lh3.googleusercontent.com/d/1koqeg9Wd56DgT7AFiM_5_upr7dskSl-2=w1600" }
+      {
+        "url": "/uploads/projects/532-97/532-97-page-2.jpg",
+        "sort_order": 1
+      },
+      {
+        "url": "/uploads/projects/532-97/532-97-img-1.jpeg",
+        "sort_order": 2
+      },
+      {
+        "url": "/uploads/projects/532-97/532-97-img-2.jpeg",
+        "sort_order": 3
+      },
+      {
+        "url": "/uploads/projects/532-97/532-97-img-3.jpeg",
+        "sort_order": 4
+      },
+      {
+        "url": "/uploads/projects/532-97/532-97-img-4.jpeg",
+        "sort_order": 5
+      },
+      {
+        "url": "/uploads/projects/532-97/532-97-img-5.jpeg",
+        "sort_order": 6
+      },
+      {
+        "url": "/uploads/projects/532-97/532-97-img-6.jpeg",
+        "sort_order": 7
+      },
+      {
+        "url": "/uploads/projects/532-97/532-97-img-7.jpeg",
+        "sort_order": 8
+      },
+      {
+        "url": "/uploads/projects/532-97/532-97-img-8.jpeg",
+        "sort_order": 9
+      },
+      {
+        "url": "/uploads/projects/532-97/532-97-img-9.jpeg",
+        "sort_order": 10
+      },
+      {
+        "url": "/uploads/projects/532-97/532-97-img-10.jpeg",
+        "sort_order": 11
+      }
     ],
     "videos": [],
-    "unit_types": [],
-    "payment_plans": [],
-    "amenities": [],
-    "created_at": "2024-01-12T00:00:00.000Z",
-    "updated_at": "2024-01-12T00:00:00.000Z"
+    "unit_types": [
+      {
+        "category": "residential",
+        "area_from": 138,
+        "area_to": 176
+      }
+    ],
+    "payment_plans": [
+      {
+        "name_en": "Flexible Payment Plan",
+        "name_ar": "نظام السداد المرن",
+        "details_en": "Down payment with flexible installments over up to 48 months",
+        "details_ar": "مقدم حجز ميسر وأقساط حتى 48 شهر بدون فوائد"
+      }
+    ],
+    "amenities": [
+      {
+        "name_en": "Elevator",
+        "name_ar": "مصعد هيدروليكي",
+        "icon": "HiSparkles"
+      },
+      {
+        "name_en": "Underground Parking",
+        "name_ar": "جراج خاص مغطى",
+        "icon": "HiShieldCheck"
+      },
+      {
+        "name_en": "Surveillance Systems",
+        "name_ar": "كاميرات مراقبة وأمن",
+        "icon": "HiShieldCheck"
+      },
+      {
+        "name_en": "Luxury Entrance",
+        "name_ar": "مداخل رخام فاخرة",
+        "icon": "HiStar"
+      },
+      {
+        "name_en": "Intercom & Security",
+        "name_ar": "أنظمة انتركم مرئي",
+        "icon": "HiPhone"
+      },
+      {
+        "name_en": "Landscape & Greenery",
+        "name_ar": "مساحات خضراء ولاندسكيب",
+        "icon": "HiLocationMarker"
+      }
+    ],
+    "created_at": "2024-01-01T00:00:00.000Z",
+    "updated_at": "2026-07-29T00:00:00.000Z"
   },
   {
     "id": "proj-61b",
-    "name_en": "61B",
-    "name_ar": "61B",
+    "name_en": "Project 61B - Bayt Al Watan",
+    "name_ar": "مشروع 61B - بيت الوطن",
     "slug": "61b",
-    "location_en": "",
-    "location_ar": "",
-    "description_en": "",
-    "description_ar": "",
+    "location_en": "Bayt Al Watan, New Cairo",
+    "location_ar": "بيت الوطن - القاهرة الجديدة",
+    "description_en": "Completed premium residential building in Bayt Al Watan with elegant architecture, private garages, hydraulic elevators, and prime urban location.",
+    "description_ar": "مشروع سكني مكتمل ومسلم بأعلى مواصفات التشطيب والجودة في حي بيت الوطن بالقاهرة الجديدة، ويتميز بواجهة كلاسيكية راقية ومداخل رخام ومصاعد هيدروليكية وجراجات خاصة.",
     "status": "completed",
-    "lat": null,
-    "lng": null,
+    "lat": 30.024,
+    "lng": 31.493,
     "brochure_url": null,
     "cover_image": null,
-    "featured": false,
+    "featured": true,
     "gallery": [],
     "videos": [],
-    "unit_types": [],
-    "payment_plans": [],
-    "amenities": [],
-    "created_at": "2024-01-13T00:00:00.000Z",
-    "updated_at": "2024-01-13T00:00:00.000Z"
+    "unit_types": [
+      {
+        "category": "residential",
+        "area_from": 130,
+        "area_to": 235
+      }
+    ],
+    "payment_plans": [
+      {
+        "name_en": "Flexible Payment Plan",
+        "name_ar": "نظام السداد المرن",
+        "details_en": "Down payment with flexible installments over up to 48 months",
+        "details_ar": "مقدم حجز ميسر وأقساط حتى 48 شهر بدون فوائد"
+      }
+    ],
+    "amenities": [
+      {
+        "name_en": "Elevator",
+        "name_ar": "مصعد هيدروليكي",
+        "icon": "HiSparkles"
+      },
+      {
+        "name_en": "Underground Parking",
+        "name_ar": "جراج خاص مغطى",
+        "icon": "HiShieldCheck"
+      },
+      {
+        "name_en": "Surveillance Systems",
+        "name_ar": "كاميرات مراقبة وأمن",
+        "icon": "HiShieldCheck"
+      },
+      {
+        "name_en": "Luxury Entrance",
+        "name_ar": "مداخل رخام فاخرة",
+        "icon": "HiStar"
+      },
+      {
+        "name_en": "Intercom & Security",
+        "name_ar": "أنظمة انتركم مرئي",
+        "icon": "HiPhone"
+      },
+      {
+        "name_en": "Landscape & Greenery",
+        "name_ar": "مساحات خضراء ولاندسكيب",
+        "icon": "HiLocationMarker"
+      }
+    ],
+    "created_at": "2024-01-01T00:00:00.000Z",
+    "updated_at": "2026-07-29T00:00:00.000Z"
   },
   {
     "id": "proj-78",
-    "name_en": "78",
-    "name_ar": "78",
+    "name_en": "Project 78 - Bayt Al Watan",
+    "name_ar": "مشروع 78 - بيت الوطن",
     "slug": "78",
-    "location_en": "",
-    "location_ar": "",
-    "description_en": "",
-    "description_ar": "",
+    "location_en": "Bayt Al Watan, New Cairo",
+    "location_ar": "بيت الوطن - القاهرة الجديدة",
+    "description_en": "Completed premium residential building in Bayt Al Watan with elegant architecture, private garages, hydraulic elevators, and prime urban location.",
+    "description_ar": "مشروع سكني مكتمل ومسلم بأعلى مواصفات التشطيب والجودة في حي بيت الوطن بالقاهرة الجديدة، ويتميز بواجهة كلاسيكية راقية ومداخل رخام ومصاعد هيدروليكية وجراجات خاصة.",
     "status": "completed",
-    "lat": null,
-    "lng": null,
+    "lat": 30.024,
+    "lng": 31.493,
     "brochure_url": null,
-    "cover_image": null,
+    "cover_image": "/uploads/projects/78/78-page-1.jpg",
     "featured": false,
     "gallery": [],
     "videos": [],
-    "unit_types": [],
-    "payment_plans": [],
-    "amenities": [],
-    "created_at": "2024-01-14T00:00:00.000Z",
-    "updated_at": "2024-01-14T00:00:00.000Z"
+    "unit_types": [
+      {
+        "category": "residential",
+        "area_from": 130,
+        "area_to": 235
+      }
+    ],
+    "payment_plans": [
+      {
+        "name_en": "Flexible Payment Plan",
+        "name_ar": "نظام السداد المرن",
+        "details_en": "Down payment with flexible installments over up to 48 months",
+        "details_ar": "مقدم حجز ميسر وأقساط حتى 48 شهر بدون فوائد"
+      }
+    ],
+    "amenities": [
+      {
+        "name_en": "Elevator",
+        "name_ar": "مصعد هيدروليكي",
+        "icon": "HiSparkles"
+      },
+      {
+        "name_en": "Underground Parking",
+        "name_ar": "جراج خاص مغطى",
+        "icon": "HiShieldCheck"
+      },
+      {
+        "name_en": "Surveillance Systems",
+        "name_ar": "كاميرات مراقبة وأمن",
+        "icon": "HiShieldCheck"
+      },
+      {
+        "name_en": "Luxury Entrance",
+        "name_ar": "مداخل رخام فاخرة",
+        "icon": "HiStar"
+      },
+      {
+        "name_en": "Intercom & Security",
+        "name_ar": "أنظمة انتركم مرئي",
+        "icon": "HiPhone"
+      },
+      {
+        "name_en": "Landscape & Greenery",
+        "name_ar": "مساحات خضراء ولاندسكيب",
+        "icon": "HiLocationMarker"
+      }
+    ],
+    "created_at": "2024-01-01T00:00:00.000Z",
+    "updated_at": "2026-07-29T00:00:00.000Z"
+  },
+  {
+    "id": "proj-rakaez-31-1",
+    "name_en": "Project rakaez 31-1 - Bayt Al Watan",
+    "name_ar": "مشروع rakaez 31-1 - بيت الوطن",
+    "slug": "rakaez-31-1",
+    "location_en": "Bayt Al Watan, New Cairo",
+    "location_ar": "بيت الوطن - القاهرة الجديدة",
+    "description_en": "High-end luxury residential building in Bayt Al Watan engineered with neoclassical facade and premium facilities.",
+    "description_ar": "مشروع فاخر بتصميم معماري رائع ومواصفات هندسية دقيقة في بيت الوطن، يوفر بيئة سكنية هادئة وممتازة بالقرب من كافة الخدمات الرئيسية.",
+    "status": "completed",
+    "lat": 30.0245,
+    "lng": 31.4925,
+    "brochure_url": null,
+    "cover_image": "/uploads/projects/rakaez-31-1/rakaez-31-1-page-1.jpg",
+    "featured": true,
+    "gallery": [
+      {
+        "url": "/uploads/projects/rakaez-31-1/rakaez-31-1-page-2.jpg",
+        "sort_order": 1
+      },
+      {
+        "url": "/uploads/projects/rakaez-31-1/rakaez-31-1-page-3.jpg",
+        "sort_order": 2
+      },
+      {
+        "url": "/uploads/projects/rakaez-31-1/rakaez-31-1-page-4.jpg",
+        "sort_order": 3
+      },
+      {
+        "url": "/uploads/projects/rakaez-31-1/rakaez-31-1-page-5.jpg",
+        "sort_order": 4
+      },
+      {
+        "url": "/uploads/projects/rakaez-31-1/rakaez-31-1-page-6.jpg",
+        "sort_order": 5
+      },
+      {
+        "url": "/uploads/projects/rakaez-31-1/rakaez-31-1-page-7.jpg",
+        "sort_order": 6
+      },
+      {
+        "url": "/uploads/projects/rakaez-31-1/rakaez-31-1-page-8.jpg",
+        "sort_order": 7
+      },
+      {
+        "url": "/uploads/projects/rakaez-31-1/rakaez-31-1-page-9.jpg",
+        "sort_order": 8
+      },
+      {
+        "url": "/uploads/projects/rakaez-31-1/rakaez-31-1-page-10.jpg",
+        "sort_order": 9
+      },
+      {
+        "url": "/uploads/projects/rakaez-31-1/rakaez-31-1-page-11.jpg",
+        "sort_order": 10
+      },
+      {
+        "url": "/uploads/projects/rakaez-31-1/rakaez-31-1-page-12.jpg",
+        "sort_order": 11
+      },
+      {
+        "url": "/uploads/projects/rakaez-31-1/rakaez-31-1-page-13.jpg",
+        "sort_order": 12
+      },
+      {
+        "url": "/uploads/projects/rakaez-31-1/rakaez-31-1-page-14.jpg",
+        "sort_order": 13
+      }
+    ],
+    "videos": [],
+    "unit_types": [
+      {
+        "category": "residential",
+        "area_from": 140,
+        "area_to": 220
+      }
+    ],
+    "payment_plans": [
+      {
+        "name_en": "Flexible Payment Plan",
+        "name_ar": "نظام السداد المرن",
+        "details_en": "Down payment with flexible installments over up to 48 months",
+        "details_ar": "مقدم حجز ميسر وأقساط حتى 48 شهر بدون فوائد"
+      }
+    ],
+    "amenities": [
+      {
+        "name_en": "Elevator",
+        "name_ar": "مصعد هيدروليكي",
+        "icon": "HiSparkles"
+      },
+      {
+        "name_en": "Underground Parking",
+        "name_ar": "جراج خاص مغطى",
+        "icon": "HiShieldCheck"
+      },
+      {
+        "name_en": "Surveillance Systems",
+        "name_ar": "كاميرات مراقبة وأمن",
+        "icon": "HiShieldCheck"
+      },
+      {
+        "name_en": "Luxury Entrance",
+        "name_ar": "مداخل رخام فاخرة",
+        "icon": "HiStar"
+      },
+      {
+        "name_en": "Intercom & Security",
+        "name_ar": "أنظمة انتركم مرئي",
+        "icon": "HiPhone"
+      },
+      {
+        "name_en": "Landscape & Greenery",
+        "name_ar": "مساحات خضراء ولاندسكيب",
+        "icon": "HiLocationMarker"
+      }
+    ],
+    "created_at": "2024-02-01T00:00:00.000Z",
+    "updated_at": "2026-07-29T00:00:00.000Z"
   }
 ]
-

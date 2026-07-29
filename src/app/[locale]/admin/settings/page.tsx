@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useCallback } from 'react';
 import { useLocale } from 'next-intl';
-import { HiSave, HiPhone, HiLocationMarker, HiLink } from 'react-icons/hi';
+import { HiSave, HiPhone, HiLocationMarker, HiLink, HiCog, HiShieldCheck } from 'react-icons/hi';
 import { FaFacebookF, FaInstagram, FaLinkedinIn, FaWhatsapp } from 'react-icons/fa';
 import AdminLayout from '@/components/admin/AdminLayout';
 import { adminApi } from '@/lib/admin-api';
@@ -37,7 +37,17 @@ export default function AdminSettingsPage() {
   const set = (key: string, lang: 'en' | 'ar', value: string) => {
     setSettings((prev) => ({
       ...prev,
-      [key]: { en: prev[key]?.en || '', ar: prev[key]?.ar || '', [lang]: value },
+      [key]: { en: lang === 'en' ? value : (prev[key]?.en || value), ar: lang === 'ar' ? value : (prev[key]?.ar || value) },
+    }));
+  };
+
+  const isMaintenanceOn = get('maintenance_mode', 'ar') === 'true' || get('maintenance_mode', 'en') === 'true';
+
+  const toggleMaintenance = (enabled: boolean) => {
+    const val = enabled ? 'true' : 'false';
+    setSettings((prev) => ({
+      ...prev,
+      maintenance_mode: { en: val, ar: val },
     }));
   };
 
@@ -60,14 +70,64 @@ export default function AdminSettingsPage() {
   return (
     <AdminLayout>
       <div className="flex items-center justify-between mb-8">
-        <div><h1 className="text-2xl font-bold text-gray-900">{isAr ? 'إعدادات الموقع' : 'Site Settings'}</h1><p className="text-gray-500 text-sm mt-1">{isAr ? 'إدارة معلومات الموقع' : 'Manage site information'}</p></div>
+        <div>
+          <h1 className="text-2xl font-bold text-gray-900">{isAr ? 'إعدادات الموقع' : 'Site Settings'}</h1>
+          <p className="text-gray-500 text-sm mt-1">{isAr ? 'إدارة معلومات وحالة الموقع' : 'Manage site information & status'}</p>
+        </div>
         <button onClick={handleSave} disabled={saving} className="flex items-center gap-2 px-5 py-2.5 bg-gold text-white font-semibold rounded-xl hover:bg-gold-light transition-all disabled:opacity-50">
-          <HiSave className="w-5 h-5" />{saving ? (isAr ? 'جاري الحفظ...' : 'Saving...') : (isAr ? 'حفظ' : 'Save')}
+          <HiSave className="w-5 h-5" />{saving ? (isAr ? 'جاري الحفظ...' : 'Saving...') : (isAr ? 'حفظ التغييرات' : 'Save Changes')}
         </button>
       </div>
-      {saved && <div className="mb-6 p-4 bg-green-50 text-green-700 rounded-xl font-medium">{isAr ? 'تم الحفظ!' : 'Saved successfully!'}</div>}
+      {saved && <div className="mb-6 p-4 bg-green-50 text-green-700 rounded-xl font-medium">{isAr ? 'تم حفظ الإعدادات بنجاح!' : 'Settings saved successfully!'}</div>}
 
       <div className="space-y-8">
+        {/* Maintenance Mode Control Switch */}
+        <div className={`bg-white rounded-2xl p-6 shadow-sm border-2 transition-colors ${isMaintenanceOn ? 'border-amber-400 bg-amber-50/20' : 'border-emerald-500/30'}`}>
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div className="flex items-start gap-4">
+              <div className={`w-12 h-12 rounded-xl flex items-center justify-center text-white flex-shrink-0 ${isMaintenanceOn ? 'bg-amber-500' : 'bg-emerald-600'}`}>
+                {isMaintenanceOn ? <HiCog className="w-6 h-6 animate-spin" /> : <HiShieldCheck className="w-6 h-6" />}
+              </div>
+              <div>
+                <h2 className="text-lg font-bold text-gray-900 flex items-center gap-2">
+                  {isAr ? 'وضع الصيانة (موقعنا تحت التطوير)' : 'Maintenance Mode (Under Development)'}
+                </h2>
+                <p className="text-sm text-gray-500 mt-1 max-w-xl">
+                  {isAr 
+                    ? 'عند تفعيل هذا الخيار، سيظهر للزوار صفحة "الموقع تحت الصيانة والتطوير"، بينما يمكنك كأدمن معاينة الموقع والتعديل عليه مباشرة.'
+                    : 'When enabled, public visitors will see the "Site Under Maintenance" page, while logged-in admins can preview the live site.'}
+                </p>
+                <div className="mt-2">
+                  <span className={`inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1 rounded-full ${isMaintenanceOn ? 'bg-amber-100 text-amber-800' : 'bg-emerald-100 text-emerald-800'}`}>
+                    <span className={`w-2 h-2 rounded-full ${isMaintenanceOn ? 'bg-amber-500 animate-pulse' : 'bg-emerald-500'}`} />
+                    {isAr 
+                      ? (isMaintenanceOn ? 'وضع الصيانة مُفعل حالياً (الموقع مغلق أمام الزوار)' : 'الموقع متاح للجمهور (لايف)')
+                      : (isMaintenanceOn ? 'Maintenance Mode Active' : 'Site Live to Public')}
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-3 bg-gray-50 p-2.5 rounded-2xl border border-gray-200 self-start sm:self-center">
+              <span className={`text-sm font-medium ${!isMaintenanceOn ? 'text-emerald-700 font-bold' : 'text-gray-500'}`}>
+                {isAr ? 'الموقع لايف' : 'Live'}
+              </span>
+              <button
+                type="button"
+                onClick={() => toggleMaintenance(!isMaintenanceOn)}
+                className={`relative inline-flex h-7 w-14 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none ${isMaintenanceOn ? 'bg-amber-500' : 'bg-gray-300'}`}
+              >
+                <span
+                  className={`pointer-events-none inline-block h-6 w-6 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out ${isMaintenanceOn ? (isAr ? '-translate-x-7' : 'translate-x-7') : 'translate-x-0'}`}
+                />
+              </button>
+              <span className={`text-sm font-medium ${isMaintenanceOn ? 'text-amber-700 font-bold' : 'text-gray-500'}`}>
+                {isAr ? 'تحت التطوير' : 'Maintenance'}
+              </span>
+            </div>
+          </div>
+        </div>
+
         {/* Contact Info */}
         <div className="bg-white rounded-2xl p-6 shadow-sm">
           <h2 className="text-lg font-bold text-gray-900 mb-6 flex items-center gap-2"><HiPhone className="w-5 h-5 text-gold" />{isAr ? 'معلومات التواصل' : 'Contact Information'}</h2>
