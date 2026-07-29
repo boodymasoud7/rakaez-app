@@ -4,7 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useLocale } from 'next-intl';
 import { motion } from 'framer-motion';
-import { HiLocationMarker, HiArrowRight, HiArrowLeft } from 'react-icons/hi';
+import { HiArrowRight, HiArrowLeft } from 'react-icons/hi';
 import type { Project, Locale } from '@/lib/content/types';
 import { getLocalized } from '@/lib/content/types';
 
@@ -27,9 +27,9 @@ export default function ProjectCard({ project, index = 0 }: ProjectCardProps) {
       className="group"
     >
       <Link href={`/${locale}/projects/${project.slug}`}>
-        <div className="relative bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
+        <div className="relative bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 flex flex-col h-full">
           {/* Image */}
-          <div className="relative h-64 overflow-hidden">
+          <div className="relative h-64 overflow-hidden flex-shrink-0">
             <Image
               src={project.cover_image || 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800'}
               alt={getLocalized(project, 'name', locale)}
@@ -40,30 +40,28 @@ export default function ProjectCard({ project, index = 0 }: ProjectCardProps) {
 
             {/* Status Badge */}
             <div className="absolute top-4 left-4 rtl:left-auto rtl:right-4">
-              <span className={`px-3 py-1 rounded-full text-xs font-semibold text-white backdrop-blur-md ${
-                project.status === 'completed' ? 'bg-green-500/80' :
-                project.status === 'ongoing' ? 'bg-gold/80' : 'bg-primary/80'
+              <span className={`px-3.5 py-1 rounded-full text-xs font-bold text-white backdrop-blur-md shadow-md ${
+                project.status === 'completed' ? 'bg-emerald-600/90' :
+                project.status === 'ongoing' ? 'bg-amber-600/90' : 'bg-primary/90'
               }`}>
-                {project.status === 'completed' ? (locale === 'ar' ? 'مكتمل' : 'Completed') :
-                 project.status === 'ongoing' ? (locale === 'ar' ? 'قيد التنفيذ' : 'Ongoing') :
-                 (locale === 'ar' ? 'قادم' : 'Upcoming')}
+                {project.status === 'completed' ? (locale === 'ar' ? 'تم التسليم' : 'Delivered') :
+                 project.status === 'ongoing' ? (locale === 'ar' ? 'تحت الإنشاء' : 'Under Construction') :
+                 (locale === 'ar' ? 'قريباً' : 'Upcoming')}
               </span>
             </div>
           </div>
 
           {/* Content */}
-          <div className="p-6">
-            <h3 className="text-xl font-bold text-secondary-dark mb-2 group-hover:text-primary transition-colors">
-              {getLocalized(project, 'name', locale)}
-            </h3>
-            <div className="flex items-center gap-1.5 text-gray-500 text-sm mb-3">
-              <HiLocationMarker className="w-4 h-4 text-gold" />
-              <span>{getLocalized(project, 'location', locale)}</span>
+          <div className="p-6 flex flex-col flex-grow justify-between">
+            <div>
+              <h3 className="text-xl font-bold text-secondary-dark mb-3 group-hover:text-primary transition-colors">
+                {getLocalized(project, 'name', locale)}
+              </h3>
+              <p className="text-gray-600 text-sm line-clamp-3 mb-6 leading-relaxed">
+                {getLocalized(project, 'description', locale)}
+              </p>
             </div>
-            <p className="text-gray-600 text-sm line-clamp-2 mb-4">
-              {getLocalized(project, 'description', locale)}
-            </p>
-            <div className="flex items-center gap-2 text-gold font-semibold text-sm group-hover:gap-3 transition-all">
+            <div className="flex items-center gap-2 text-gold font-semibold text-sm group-hover:gap-3 transition-all pt-2 border-t border-gray-100">
               <span>{locale === 'ar' ? 'عرض التفاصيل' : 'View Details'}</span>
               <Arrow className="w-4 h-4" />
             </div>

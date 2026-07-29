@@ -90,17 +90,13 @@ export default function ProjectDetailPage() {
         <div className="hero-overlay absolute inset-0" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pb-16">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
-            <span className={`inline-block px-4 py-1.5 rounded-full text-sm font-semibold text-white mb-4 ${
-              project.status === 'completed' ? 'bg-green-500/80' : project.status === 'ongoing' ? 'bg-gold/80' : 'bg-primary/80'
+            <span className={`inline-block px-4 py-1.5 rounded-full text-sm font-bold text-white mb-4 shadow-md ${
+              project.status === 'completed' ? 'bg-emerald-600/90' : project.status === 'ongoing' ? 'bg-amber-600/90' : 'bg-primary/90'
             }`}>
-              {project.status === 'completed' ? (locale === 'ar' ? 'مكتمل' : 'Completed') :
-               project.status === 'ongoing' ? (locale === 'ar' ? 'قيد التنفيذ' : 'Ongoing') : (locale === 'ar' ? 'قادم' : 'Upcoming')}
+              {project.status === 'completed' ? (locale === 'ar' ? 'تم التسليم' : 'Delivered') :
+               project.status === 'ongoing' ? (locale === 'ar' ? 'تحت الإنشاء' : 'Under Construction') : (locale === 'ar' ? 'قريباً' : 'Upcoming')}
             </span>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4">{getLocalized(project, 'name', locale)}</h1>
-            <div className="flex items-center gap-2 text-white/70 text-lg">
-              <HiLocationMarker className="w-5 h-5 text-gold" />
-              <span>{getLocalized(project, 'location', locale)}</span>
-            </div>
           </motion.div>
         </div>
       </section>
