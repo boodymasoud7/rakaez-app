@@ -59,8 +59,6 @@ export async function middleware(request: NextRequest) {
       url.pathname = `/${locale}/admin/login`;
       return NextResponse.redirect(url);
     }
-
-    return response;
   }
 
   // 3. i18n handling
