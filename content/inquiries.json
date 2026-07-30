@@ -1,1 +1,12 @@
-[]
+[
+  {
+    "id": "inq_ms7gv1gd-bccd1a23",
+    "name": "تجربة",
+    "email": "test@test.com",
+    "phone": "01011222333",
+    "type": "contact",
+    "message": "تجربة",
+    "status": "new",
+    "created_at": "2026-07-30T12:05:00.829Z"
+  }
+]
