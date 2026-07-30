@@ -69,6 +69,7 @@ export interface ProjectPayload {
   description_ar?: string;
   status?: 'upcoming' | 'ongoing' | 'completed';
   featured?: boolean;
+  published?: boolean;
   cover_image?: string | null;
   brochure_url?: string | null;
   lat?: number | null;

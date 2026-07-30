@@ -50,6 +50,7 @@ function normalizeProject(input: Record<string, unknown>, base?: Project): Proje
         ? input.cover_image
         : base?.cover_image ?? null,
     featured: typeof input.featured === 'boolean' ? input.featured : base?.featured ?? false,
+    published: typeof input.published === 'boolean' ? input.published : base?.published ?? true,
     gallery: Array.isArray(input.gallery)
       ? (input.gallery as Project['gallery'])
       : base?.gallery || [],

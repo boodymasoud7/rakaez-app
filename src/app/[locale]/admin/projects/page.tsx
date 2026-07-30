@@ -4,7 +4,7 @@ import { useState, useEffect, useCallback } from 'react';
 import { useLocale } from 'next-intl';
 import Link from 'next/link';
 import Image from 'next/image';
-import { HiPlus, HiPencil, HiTrash, HiEye, HiX } from 'react-icons/hi';
+import { HiPlus, HiPencil, HiTrash, HiEye, HiEyeOff, HiX } from 'react-icons/hi';
 import AdminLayout from '@/components/admin/AdminLayout';
 import { adminApi, uploadFile } from '@/lib/admin-api';
 import { optimizeImage, isImageFile } from '@/lib/image-utils';
@@ -12,7 +12,7 @@ import type { Project, UnitType, UnitCategory } from '@/lib/content/types';
 
 const emptyForm = {
   name_en: '', name_ar: '', slug: '', location_en: '', location_ar: '',
-  description_en: '', description_ar: '', status: 'upcoming' as Project['status'], featured: false,
+  description_en: '', description_ar: '', status: 'upcoming' as Project['status'], featured: false, published: true,
   unit_types: [] as UnitType[],
 };
 
@@ -33,7 +33,7 @@ export default function AdminProjectsPage() {
   const loadProjects = useCallback(async () => {
     try {
       setLoading(true);
-      const res = await fetch('/api/public/projects');
+      const res = await fetch('/api/public/projects?all=true');
       if (res.ok) {
         const data = (await res.json()) as Project[];
         setProjects(data);
@@ -56,7 +56,7 @@ export default function AdminProjectsPage() {
       name_en: p.name_en, name_ar: p.name_ar, slug: p.slug,
       location_en: p.location_en, location_ar: p.location_ar,
       description_en: p.description_en, description_ar: p.description_ar,
-      status: p.status, featured: p.featured,
+      status: p.status, featured: p.featured, published: p.published !== false,
       unit_types: Array.isArray(p.unit_types) ? p.unit_types : [],
     });
     setEditingId(p.id);
@@ -135,6 +135,17 @@ export default function AdminProjectsPage() {
     }
   };
 
+  const handleTogglePublish = async (project: Project) => {
+    const nextState = project.published === false ? true : false;
+    try {
+      const { project: updated } = await adminApi.updateProject(project.id, { published: nextState });
+      setProjects((prev) => prev.map((p) => (p.id === project.id ? updated : p)));
+    } catch (err) {
+      console.error(err);
+      alert(isAr ? 'فشل في تغيير حالة العرض' : 'Failed to toggle visibility');
+    }
+  };
+
   return (
     <AdminLayout>
       <div className="flex items-center justify-between mb-8">
@@ -191,8 +202,12 @@ export default function AdminProjectsPage() {
               <input type="file" accept="image/*" onChange={e => setImageFile(e.target.files?.[0] || null)} className="w-full px-4 py-2.5 border border-gray-200 rounded-xl text-sm" />
               <p className="text-xs text-gray-400 mt-1">{isAr ? 'سيتم ضغط الصورة تلقائياً' : 'Auto-compressed to WebP'}</p>
             </div>
-            <div>
-              <label className="flex items-center gap-3 cursor-pointer mt-6">
+            <div className="flex flex-col gap-3 justify-center">
+              <label className="flex items-center gap-3 cursor-pointer">
+                <input type="checkbox" checked={form.published} onChange={e => setForm({...form, published: e.target.checked})} className="w-5 h-5 text-gold rounded" />
+                <span className="text-sm font-medium text-gray-700">{isAr ? 'إظهار المشروع في الموقع (Publicly Visible)' : 'Visible on Website'}</span>
+              </label>
+              <label className="flex items-center gap-3 cursor-pointer">
                 <input type="checkbox" checked={form.featured} onChange={e => setForm({...form, featured: e.target.checked})} className="w-5 h-5 text-gold rounded" />
                 <span className="text-sm font-medium text-gray-700">{isAr ? 'مشروع مميز' : 'Featured Project'}</span>
               </label>
@@ -285,33 +300,67 @@ export default function AdminProjectsPage() {
                 <th className="px-6 py-4 font-medium">{isAr ? 'المشروع' : 'Project'}</th>
                 <th className="px-6 py-4 font-medium">{isAr ? 'الموقع' : 'Location'}</th>
                 <th className="px-6 py-4 font-medium">{isAr ? 'الحالة' : 'Status'}</th>
+                <th className="px-6 py-4 font-medium">{isAr ? 'عرض الموقع' : 'Visibility'}</th>
                 <th className="px-6 py-4 font-medium">{isAr ? 'الإجراءات' : 'Actions'}</th>
               </tr></thead>
               <tbody className="divide-y divide-gray-100">
-                {projects.map((project) => (
-                  <tr key={project.id} className="hover:bg-gray-50 transition-colors">
-                    <td className="px-6 py-4">
-                      <div className="flex items-center gap-3">
-                        {project.cover_image && <div className="relative w-12 h-12 rounded-lg overflow-hidden flex-shrink-0"><Image src={project.cover_image} alt="" fill className="object-cover" /></div>}
-                        <span className="font-medium text-gray-900">{isAr ? project.name_ar : project.name_en}</span>
-                      </div>
-                    </td>
-                    <td className="px-6 py-4 text-gray-600 text-sm">{isAr ? project.location_ar : project.location_en}</td>
-                    <td className="px-6 py-4">
-                      <span className={`px-3 py-1 rounded-full text-xs font-semibold ${
-                        project.status === 'completed' ? 'bg-green-100 text-green-700' :
-                        project.status === 'ongoing' ? 'bg-gold/10 text-gold-dark' : 'bg-blue-100 text-blue-700'
-                      }`}>{project.status}</span>
-                    </td>
-                    <td className="px-6 py-4">
-                      <div className="flex items-center gap-2">
-                        <Link href={`/${locale}/projects/${project.slug}`} className="p-2 text-gray-400 hover:text-primary rounded-lg hover:bg-primary/5 transition-all"><HiEye className="w-4 h-4" /></Link>
-                        <button onClick={() => openEdit(project)} className="p-2 text-gray-400 hover:text-gold rounded-lg hover:bg-gold/5 transition-all"><HiPencil className="w-4 h-4" /></button>
-                        <button onClick={() => handleDelete(project.id)} className="p-2 text-gray-400 hover:text-red-500 rounded-lg hover:bg-red-50 transition-all"><HiTrash className="w-4 h-4" /></button>
-                      </div>
-                    </td>
-                  </tr>
-                ))}
+                {projects.map((project) => {
+                  const isVisible = project.published !== false;
+                  return (
+                    <tr key={project.id} className={`hover:bg-gray-50 transition-colors ${!isVisible ? 'bg-gray-50/70 opacity-75' : ''}`}>
+                      <td className="px-6 py-4">
+                        <div className="flex items-center gap-3">
+                          {project.cover_image && <div className="relative w-12 h-12 rounded-lg overflow-hidden flex-shrink-0"><Image src={project.cover_image} alt="" fill className="object-cover" /></div>}
+                          <div>
+                            <span className="font-medium text-gray-900 block">{isAr ? project.name_ar : project.name_en}</span>
+                            {project.featured && <span className="text-[10px] font-bold text-gold bg-gold/10 px-2 py-0.5 rounded">{isAr ? 'مميز' : 'Featured'}</span>}
+                          </div>
+                        </div>
+                      </td>
+                      <td className="px-6 py-4 text-gray-600 text-sm">{isAr ? project.location_ar : project.location_en}</td>
+                      <td className="px-6 py-4">
+                        <span className={`px-3 py-1 rounded-full text-xs font-semibold ${
+                          project.status === 'completed' ? 'bg-green-100 text-green-700' :
+                          project.status === 'ongoing' ? 'bg-gold/10 text-gold-dark' : 'bg-blue-100 text-blue-700'
+                        }`}>{project.status}</span>
+                      </td>
+                      <td className="px-6 py-4">
+                        <button
+                          onClick={() => handleTogglePublish(project)}
+                          className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold transition-all ${
+                            isVisible
+                              ? 'bg-emerald-100 text-emerald-800 hover:bg-emerald-200'
+                              : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+                          }`}
+                          title={isVisible ? (isAr ? 'انقر لإخفاء المشروع من الموقع' : 'Click to hide') : (isAr ? 'انقر لإظهار المشروع في الموقع' : 'Click to show')}
+                        >
+                          {isVisible ? <HiEye className="w-3.5 h-3.5" /> : <HiEyeOff className="w-3.5 h-3.5" />}
+                          <span>{isVisible ? (isAr ? 'معروض' : 'Visible') : (isAr ? 'مخفي' : 'Hidden')}</span>
+                        </button>
+                      </td>
+                      <td className="px-6 py-4">
+                        <div className="flex items-center gap-2">
+                          <button
+                            onClick={() => handleTogglePublish(project)}
+                            className={`p-2 rounded-lg transition-all ${
+                              isVisible
+                                ? 'text-emerald-600 hover:bg-emerald-50'
+                                : 'text-gray-400 hover:text-emerald-600 hover:bg-emerald-50'
+                            }`}
+                            title={isVisible ? (isAr ? 'إخفاء المشروع من الموقع' : 'Hide from website') : (isAr ? 'إظهار المشروع في الموقع' : 'Show on website')}
+                          >
+                            {isVisible ? <HiEyeOff className="w-4 h-4" /> : <HiEye className="w-4 h-4" />}
+                          </button>
+                          <Link href={`/${locale}/projects/${project.slug}`} target="_blank" className="p-2 text-gray-400 hover:text-primary rounded-lg hover:bg-primary/5 transition-all" title={isAr ? 'معاينة في الموقع' : 'Preview'}>
+                            <HiEye className="w-4 h-4" />
+                          </Link>
+                          <button onClick={() => openEdit(project)} className="p-2 text-gray-400 hover:text-gold rounded-lg hover:bg-gold/5 transition-all" title={isAr ? 'تعديل' : 'Edit'}><HiPencil className="w-4 h-4" /></button>
+                          <button onClick={() => handleDelete(project.id)} className="p-2 text-gray-400 hover:text-red-500 rounded-lg hover:bg-red-50 transition-all" title={isAr ? 'حذف' : 'Delete'}><HiTrash className="w-4 h-4" /></button>
+                        </div>
+                      </td>
+                    </tr>
+                  );
+                })}
               </tbody>
             </table>
           </div>

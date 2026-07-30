@@ -53,6 +53,7 @@ export interface Project {
   brochure_url: string | null;
   cover_image: string | null;
   featured: boolean;
+  published?: boolean;
   gallery: ProjectImage[];
   videos: ProjectVideo[];
   unit_types: UnitType[];

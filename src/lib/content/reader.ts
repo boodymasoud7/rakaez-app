@@ -36,12 +36,17 @@ async function readJson<T>(fileName: string, fallback: T): Promise<T> {
 
 // ============ PROJECTS ============
 
-export const getProjects = cache(async (): Promise<Project[]> => {
+export const getAllProjects = cache(async (): Promise<Project[]> => {
   const projects = await readJson<Project[]>('projects.json', []);
   return [...projects].sort(
     (a, b) =>
       new Date(b.created_at).getTime() - new Date(a.created_at).getTime()
   );
+});
+
+export const getProjects = cache(async (): Promise<Project[]> => {
+  const projects = await getAllProjects();
+  return projects.filter((p) => p.published !== false);
 });
 
 export const getFeaturedProjects = cache(async (): Promise<Project[]> => {
@@ -51,8 +56,8 @@ export const getFeaturedProjects = cache(async (): Promise<Project[]> => {
 
 export const getProjectBySlug = cache(
   async (slug: string): Promise<Project | null> => {
-    const projects = await getProjects();
-    return projects.find((p) => p.slug === slug) || null;
+    const projects = await getAllProjects();
+    return projects.find((p) => p.slug === slug && p.published !== false) || null;
   }
 );
 
