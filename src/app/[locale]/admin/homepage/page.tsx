@@ -127,13 +127,52 @@ export default function AdminHomepagePage() {
         </div>
 
         {/* ===== STATS ===== */}
-        <div className="bg-white rounded-2xl p-6 shadow-sm">
-          <h2 className="text-lg font-bold text-gray-900 mb-6">{isAr ? 'الإحصائيات' : 'Statistics'}</h2>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            <div><label className="block text-sm font-medium text-gray-600 mb-1.5">{isAr ? 'عدد المشاريع' : 'Projects'}</label><input type="number" value={get('stat_projects', 'en')} onChange={e => setSame('stat_projects', e.target.value)} className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-gold/50 focus:border-gold outline-none text-sm" /></div>
-            <div><label className="block text-sm font-medium text-gray-600 mb-1.5">{isAr ? 'عدد الوحدات' : 'Units'}</label><input type="number" value={get('stat_units', 'en')} onChange={e => setSame('stat_units', e.target.value)} className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-gold/50 focus:border-gold outline-none text-sm" /></div>
-            <div><label className="block text-sm font-medium text-gray-600 mb-1.5">{isAr ? 'عدد العملاء' : 'Clients'}</label><input type="number" value={get('stat_clients', 'en')} onChange={e => setSame('stat_clients', e.target.value)} className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-gold/50 focus:border-gold outline-none text-sm" /></div>
-            <div><label className="block text-sm font-medium text-gray-600 mb-1.5">{isAr ? 'سنوات الخبرة' : 'Years'}</label><input type="number" value={get('stat_years', 'en')} onChange={e => setSame('stat_years', e.target.value)} className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-gold/50 focus:border-gold outline-none text-sm" /></div>
+        <div className="bg-white rounded-2xl p-6 shadow-sm space-y-6">
+          <div>
+            <h2 className="text-lg font-bold text-gray-900">{isAr ? 'إحصائيات وأرقام الشركة (العدادات)' : 'Company Statistics & Numbers'}</h2>
+            <p className="text-xs text-gray-500 mt-1">{isAr ? 'التحكم في الأرقام والمسميات التي تظهر في شريط الأرقام (الرئيسية وعن الشركة)' : 'Control numbers and labels displayed in the stats section (Home & About)'}</p>
+          </div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {/* Stat 1: Projects */}
+            <div className="p-4 bg-gray-50 rounded-2xl border border-gray-100 space-y-3">
+              <span className="block text-xs font-bold text-gold uppercase">{isAr ? 'العداد الأول (المشاريع)' : 'Stat 1 (Projects)'}</span>
+              <div>
+                <label className="block text-xs font-medium text-gray-600 mb-1">{isAr ? 'العدد' : 'Number'}</label>
+                <input type="number" value={get('stat_projects', 'en')} onChange={e => setSame('stat_projects', e.target.value)} placeholder="15" className="w-full px-3 py-2 bg-white border border-gray-200 rounded-xl text-sm outline-none focus:border-gold" />
+              </div>
+              <BiField label="Label (English)" labelAr="المسمى بالعربي" keyName="stat_projects_label" />
+            </div>
+
+            {/* Stat 2: Units */}
+            <div className="p-4 bg-gray-50 rounded-2xl border border-gray-100 space-y-3">
+              <span className="block text-xs font-bold text-gold uppercase">{isAr ? 'العداد الثاني (الوحدات)' : 'Stat 2 (Units)'}</span>
+              <div>
+                <label className="block text-xs font-medium text-gray-600 mb-1">{isAr ? 'العدد' : 'Number'}</label>
+                <input type="number" value={get('stat_units', 'en')} onChange={e => setSame('stat_units', e.target.value)} placeholder="2500" className="w-full px-3 py-2 bg-white border border-gray-200 rounded-xl text-sm outline-none focus:border-gold" />
+              </div>
+              <BiField label="Label (English)" labelAr="المسمى بالعربي" keyName="stat_units_label" />
+            </div>
+
+            {/* Stat 3: Clients */}
+            <div className="p-4 bg-gray-50 rounded-2xl border border-gray-100 space-y-3">
+              <span className="block text-xs font-bold text-gold uppercase">{isAr ? 'العداد الثالث (العملاء)' : 'Stat 3 (Clients)'}</span>
+              <div>
+                <label className="block text-xs font-medium text-gray-600 mb-1">{isAr ? 'العدد' : 'Number'}</label>
+                <input type="number" value={get('stat_clients', 'en')} onChange={e => setSame('stat_clients', e.target.value)} placeholder="1800" className="w-full px-3 py-2 bg-white border border-gray-200 rounded-xl text-sm outline-none focus:border-gold" />
+              </div>
+              <BiField label="Label (English)" labelAr="المسمى بالعربي" keyName="stat_clients_label" />
+            </div>
+
+            {/* Stat 4: Years */}
+            <div className="p-4 bg-gray-50 rounded-2xl border border-gray-100 space-y-3">
+              <span className="block text-xs font-bold text-gold uppercase">{isAr ? 'العداد الرابع (الخبرة)' : 'Stat 4 (Years)'}</span>
+              <div>
+                <label className="block text-xs font-medium text-gray-600 mb-1">{isAr ? 'العدد' : 'Number'}</label>
+                <input type="number" value={get('stat_years', 'en')} onChange={e => setSame('stat_years', e.target.value)} placeholder="12" className="w-full px-3 py-2 bg-white border border-gray-200 rounded-xl text-sm outline-none focus:border-gold" />
+              </div>
+              <BiField label="Label (English)" labelAr="المسمى بالعربي" keyName="stat_years_label" />
+            </div>
           </div>
         </div>
 

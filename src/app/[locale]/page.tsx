@@ -42,6 +42,11 @@ export default function HomePage() {
   const statClients = getNum('stat_clients') || 1800;
   const statYears = getNum('stat_years') || 12;
 
+  const labelProjects = get('stat_projects_label', locale) || t('home.statsProjects');
+  const labelUnits = get('stat_units_label', locale) || t('home.statsUnits');
+  const labelClients = get('stat_clients_label', locale) || t('home.statsClients');
+  const labelYears = get('stat_years_label', locale) || t('home.statsYears');
+
   // Dynamic Why Choose Us cards
   const why1Title = get('why1_title', locale) || t('home.why1Title');
   const why1Desc = get('why1_desc', locale) || t('home.why1Desc');
@@ -217,10 +222,10 @@ export default function HomePage() {
       <section className="py-20 bg-primary">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
-            <StatCounter end={statProjects} suffix="+" label={t('home.statsProjects')} />
-            <StatCounter end={statUnits} suffix="+" label={t('home.statsUnits')} />
-            <StatCounter end={statClients} suffix="+" label={t('home.statsClients')} />
-            <StatCounter end={statYears} suffix="+" label={t('home.statsYears')} />
+            <StatCounter end={statProjects} suffix="+" label={labelProjects} />
+            <StatCounter end={statUnits} suffix="+" label={labelUnits} />
+            <StatCounter end={statClients} suffix="+" label={labelClients} />
+            <StatCounter end={statYears} suffix="+" label={labelYears} />
           </div>
         </div>
       </section>

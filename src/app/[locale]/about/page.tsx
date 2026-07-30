@@ -10,11 +10,23 @@ import AnimatedSection from '@/components/ui/AnimatedSection';
 import SectionTitle from '@/components/ui/SectionTitle';
 import StatCounter from '@/components/ui/StatCounter';
 import type { Locale } from '@/lib/content/types';
+import { useSiteSettings } from '@/hooks/useSiteSettings';
 
 export default function AboutPage() {
   const t = useTranslations('about');
   const tHome = useTranslations('home');
   const locale = useLocale() as Locale;
+  const { get, getNum } = useSiteSettings();
+
+  const statProjects = getNum('stat_projects') || 15;
+  const statUnits = getNum('stat_units') || 2500;
+  const statClients = getNum('stat_clients') || 1800;
+  const statYears = getNum('stat_years') || 12;
+
+  const labelProjects = get('stat_projects_label', locale) || tHome('statsProjects');
+  const labelUnits = get('stat_units_label', locale) || tHome('statsUnits');
+  const labelClients = get('stat_clients_label', locale) || tHome('statsClients');
+  const labelYears = get('stat_years_label', locale) || tHome('statsYears');
 
   const values = [
     { icon: HiStar, title: t('value1'), desc: t('value1Desc'), color: 'from-gold/20 to-gold/5' },
@@ -130,10 +142,10 @@ export default function AboutPage() {
             <SectionTitle title={t('achievementsTitle')} light />
           </AnimatedSection>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
-            <StatCounter end={15} suffix="+" label={tHome('statsProjects')} />
-            <StatCounter end={2500} suffix="+" label={tHome('statsUnits')} />
-            <StatCounter end={1800} suffix="+" label={tHome('statsClients')} />
-            <StatCounter end={12} suffix="+" label={tHome('statsYears')} />
+            <StatCounter end={statProjects} suffix="+" label={labelProjects} />
+            <StatCounter end={statUnits} suffix="+" label={labelUnits} />
+            <StatCounter end={statClients} suffix="+" label={labelClients} />
+            <StatCounter end={statYears} suffix="+" label={labelYears} />
           </div>
         </div>
       </section>
