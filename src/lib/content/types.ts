@@ -118,6 +118,30 @@ export type SeoPages = Record<string, SeoPage>;
 
 export type Locale = 'en' | 'ar';
 
+export interface Inquiry {
+  id: string;
+  name: string;
+  email: string;
+  phone: string;
+  type: string;
+  message: string;
+  status: 'new' | 'contacted' | 'archived';
+  created_at: string;
+}
+
+export interface DailyVisitStat {
+  date: string;
+  visits: number;
+}
+
+export interface AnalyticsData {
+  totalVisits: number;
+  todayVisits: number;
+  todayDate: string;
+  dailyStats: DailyVisitStat[];
+  lastUpdated: string;
+}
+
 // Helper type to access localized fields with type safety
 export function getLocalized(
   item: object,

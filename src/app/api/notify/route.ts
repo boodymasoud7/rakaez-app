@@ -1,8 +1,11 @@
 import { NextResponse } from 'next/server';
 import { rateLimit, getClientIp } from '@/lib/rate-limit';
 import { sanitizeHtml } from '@/lib/sanitize';
+import { updateJson } from '@/lib/content/writer';
+import { generateId } from '@/lib/content/id';
+import type { Inquiry } from '@/lib/content/types';
 
-// Email notification API route
+// Email & Inquiry notification API route
 
 export async function POST(request: Request) {
   try {
@@ -23,14 +26,34 @@ export async function POST(request: Request) {
     const message = sanitizeHtml(body.message || '');
     const type = sanitizeHtml(body.type || 'contact');
 
+    // Save inquiry to content/inquiries.json
+    const newInquiry: Inquiry = {
+      id: `inq_${generateId()}`,
+      name,
+      email,
+      phone,
+      type,
+      message,
+      status: 'new',
+      created_at: new Date().toISOString(),
+    };
+
+    await updateJson<Inquiry[]>(
+      'inquiries.json',
+      (current) => [newInquiry, ...(current || [])],
+      [],
+      `feat: add new inquiry from ${name}`
+    );
+
     // Log the inquiry (always works, no external service needed)
-    console.log('=== NEW INQUIRY RECEIVED ===');
+    console.log('=== NEW INQUIRY RECEIVED & SAVED ===');
+    console.log(`ID: ${newInquiry.id}`);
     console.log(`Name: ${name}`);
     console.log(`Email: ${email}`);
     console.log(`Phone: ${phone || 'N/A'}`);
     console.log(`Type: ${type}`);
     console.log(`Message: ${message}`);
-    console.log('============================');
+    console.log('====================================');
 
     // If RESEND_API_KEY is configured, send email via Resend
     const resendKey = process.env.RESEND_API_KEY;

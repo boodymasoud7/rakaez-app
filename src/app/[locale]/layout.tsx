@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
 import type { Metadata } from 'next';
 import GoogleAnalytics from '@/components/GoogleAnalytics';
+import AnalyticsTracker from '@/components/AnalyticsTracker';
 import WhatsAppWidget from '@/components/ui/WhatsAppWidget';
 import ErrorBoundary from '@/components/ui/ErrorBoundary';
 import AdminPreviewBanner from '@/components/AdminPreviewBanner';
@@ -141,6 +142,7 @@ export default async function LocaleLayout({ children, params }: Props) {
       </head>
       <body className={`${locale === 'ar' ? 'font-tajawal' : 'font-inter'} antialiased`}>
         <GoogleAnalytics measurementId={process.env.NEXT_PUBLIC_GA_ID || ''} />
+        <AnalyticsTracker />
         <NextIntlClientProvider locale={locale} messages={messages}>
           <ErrorBoundary>
             {children}

@@ -11,6 +11,8 @@ import type {
   SeoPages,
   SeoPage,
   Locale,
+  Inquiry,
+  AnalyticsData,
 } from './types';
 
 const CONTENT_DIR = path.join(process.cwd(), 'content');
@@ -114,3 +116,23 @@ export async function getSeoPage(page: string): Promise<SeoPage | null> {
   const pages = await getSeoPages();
   return pages[page] || null;
 }
+
+// ============ INQUIRIES & ANALYTICS ============
+
+export const getInquiries = cache(async (): Promise<Inquiry[]> => {
+  const items = await readJson<Inquiry[]>('inquiries.json', []);
+  return [...items].sort(
+    (a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime()
+  );
+});
+
+export const getAnalytics = cache(async (): Promise<AnalyticsData> => {
+  return readJson<AnalyticsData>('analytics.json', {
+    totalVisits: 0,
+    todayVisits: 0,
+    todayDate: new Date().toISOString().split('T')[0],
+    dailyStats: [],
+    lastUpdated: new Date().toISOString(),
+  });
+});
+

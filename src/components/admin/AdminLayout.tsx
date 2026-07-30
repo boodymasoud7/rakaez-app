@@ -1,11 +1,11 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname, useRouter } from 'next/navigation';
 import { useLocale } from 'next-intl';
-import { HiHome, HiOfficeBuilding, HiNewspaper, HiPhotograph, HiCog, HiQuestionMarkCircle, HiGlobe, HiLogout, HiMenu, HiX, HiTemplate, HiExternalLink } from 'react-icons/hi';
+import { HiHome, HiOfficeBuilding, HiNewspaper, HiPhotograph, HiCog, HiQuestionMarkCircle, HiGlobe, HiLogout, HiMenu, HiX, HiTemplate, HiExternalLink, HiInbox } from 'react-icons/hi';
 
 interface AdminLayoutProps {
   children: React.ReactNode;
@@ -16,6 +16,19 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
   const pathname = usePathname();
   const router = useRouter();
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [newInquiriesCount, setNewInquiriesCount] = useState(0);
+
+  useEffect(() => {
+    fetch('/api/admin/inquiries')
+      .then((r) => (r.ok ? r.json() : []))
+      .then((items) => {
+        if (Array.isArray(items)) {
+          const unread = items.filter((i: { status?: string }) => i.status === 'new').length;
+          setNewInquiriesCount(unread);
+        }
+      })
+      .catch(() => {});
+  }, []);
 
   const handleLogout = async () => {
     await fetch('/api/auth/logout', { method: 'POST' }).catch(() => {});
@@ -25,6 +38,7 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
 
   const navItems = [
     { href: `/${locale}/admin`, label: locale === 'ar' ? 'لوحة التحكم' : 'Dashboard', icon: HiHome },
+    { href: `/${locale}/admin/inquiries`, label: locale === 'ar' ? 'طلبات التواصل' : 'Inquiries', icon: HiInbox, badge: newInquiriesCount },
     { href: `/${locale}/admin/homepage`, label: locale === 'ar' ? 'الصفحة الرئيسية' : 'Homepage', icon: HiTemplate },
     { href: `/${locale}/admin/projects`, label: locale === 'ar' ? 'المشاريع' : 'Projects', icon: HiOfficeBuilding },
     { href: `/${locale}/admin/blog`, label: locale === 'ar' ? 'المدونة' : 'Blog', icon: HiNewspaper },
@@ -58,11 +72,18 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
         <nav className="p-4 space-y-1 overflow-y-auto" style={{ maxHeight: 'calc(100vh - 200px)' }}>
           {navItems.map((item) => (
             <Link key={item.href} href={item.href}
-              className={`flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-all ${
+              className={`flex items-center justify-between px-4 py-3 rounded-xl text-sm font-medium transition-all ${
                 isActive(item.href) ? 'bg-gold text-white shadow-lg shadow-gold/20' : 'text-white/70 hover:text-white hover:bg-white/10'
               }`}>
-              <item.icon className="w-5 h-5" />
-              <span>{item.label}</span>
+              <div className="flex items-center gap-3">
+                <item.icon className="w-5 h-5" />
+                <span>{item.label}</span>
+              </div>
+              {!!item.badge && item.badge > 0 && (
+                <span className="bg-red-500 text-white text-xs font-bold px-2 py-0.5 rounded-full animate-pulse">
+                  {item.badge}
+                </span>
+              )}
             </Link>
           ))}
         </nav>
