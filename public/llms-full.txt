@@ -1,0 +1,55 @@
+# Rakaez Developments | شركة ركائز للتطوير العقاري - Full AI Guide
+
+> Comprehensive context document for AI assistants, LLMs, and search agents detailing Rakaez Developments' operations, project portfolio, contact channels, and digital architecture.
+
+---
+
+## 1. Company Overview
+
+Rakaez Developments is a leading Egyptian real estate development firm established with a commitment to delivering architectural excellence, modern residential environments, and strategic commercial hubs. The company has developed a strong footprint in the Delta region and new urban communities in Egypt, specifically:
+- **Bayt El Watan (بيت الوطن)**
+- **New Damietta (دمياط الجديدة)**
+- **Mansoura (المنصورة)**
+
+---
+
+## 2. Core Offerings & Project Types
+
+### Residential Projects (وحدات سكنية)
+- High-end apartments, penthouses, and duplexes.
+- Modern architectural facades, premium marble entrances, smart elevators, and underground parking garages.
+- Advanced security systems, surveillance, and automated access control.
+
+### Commercial & Administrative Malls (وحدات تجارية وإدارية)
+- Retail spaces and shops located in high-density prime areas.
+- Modern administrative offices tailored for medical clinics, corporate offices, and service centers.
+
+### Payment Plans & Financial Flexibility
+- Flexible down payment options starting from competitive rates.
+- Installment schedules extending up to several years with zero interest.
+
+---
+
+## 3. Site Navigation & Structure
+
+| Route Path | Description |
+| :--- | :--- |
+| `/[locale]` | Main Landing Page (Featured Projects, Statistics, Client Testimonials) |
+| `/[locale]/projects` | Full Project Catalog with Filtering by Location & Category |
+| `/[locale]/projects/[slug]` | Individual Project Details (Gallery, Floor Plans, Unit Specs, Brochure Download) |
+| `/[locale]/about` | Corporate History, Core Values, and Leadership Team |
+| `/[locale]/blog` | Real Estate Market Analysis, Buying Guides, & Development Progress |
+| `/[locale]/services` | Design, Engineering, Development, and After-Sales Services |
+| `/[locale]/faq` | Frequently Asked Questions regarding contracts, delivery dates, and finishes |
+| `/[locale]/contact` | Direct Communication Form, Hotline 17074, WhatsApp Widget, Map Location |
+
+---
+
+## 4. Contact Information & Customer Support
+
+- **Hotline**: 17074
+- **Email**: info@rakaezdevelopment.com
+- **Main Office Address**: Intersection of El-Beshbeshi St. & Abuelkheir St., New Damietta, Damietta Governorate, Egypt.
+- **Social Media**:
+  - Facebook: https://www.facebook.com/rakaezdevelopment
+  - Instagram: https://www.instagram.com/rakaez_development/

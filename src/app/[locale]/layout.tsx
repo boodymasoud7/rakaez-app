@@ -4,6 +4,7 @@ import { routing } from '@/i18n/routing';
 import type { Metadata } from 'next';
 import GoogleAnalytics from '@/components/GoogleAnalytics';
 import AnalyticsTracker from '@/components/AnalyticsTracker';
+import HeronSignalProvider from '@/components/HeronSignalProvider';
 import WhatsAppWidget from '@/components/ui/WhatsAppWidget';
 import ErrorBoundary from '@/components/ui/ErrorBoundary';
 import AdminPreviewBanner from '@/components/AdminPreviewBanner';
@@ -143,6 +144,7 @@ export default async function LocaleLayout({ children, params }: Props) {
       <body className={`${locale === 'ar' ? 'font-tajawal' : 'font-inter'} antialiased`}>
         <GoogleAnalytics measurementId={process.env.NEXT_PUBLIC_GA_ID || ''} />
         <AnalyticsTracker />
+        <HeronSignalProvider />
         <NextIntlClientProvider locale={locale} messages={messages}>
           <ErrorBoundary>
             {children}

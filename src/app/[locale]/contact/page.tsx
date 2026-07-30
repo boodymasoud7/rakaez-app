@@ -37,6 +37,15 @@ export default function ContactPage() {
       });
       if (!res.ok) throw new Error('Notify failed');
       setStatus('success');
+
+      // Send business event to HeronSignal
+      try {
+        const { trackHeronEvent } = await import('@/components/HeronSignalProvider');
+        trackHeronEvent('lead_submitted', { type: 'contact' });
+      } catch {
+        // ignore if analytics fails
+      }
+
       (e.target as HTMLFormElement).reset();
     } catch {
       setStatus('error');
