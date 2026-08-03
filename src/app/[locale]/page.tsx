@@ -75,7 +75,7 @@ export default function HomePage() {
       <Header />
 
       {/* ===== HERO ===== */}
-      <section className="relative w-full min-h-[450px] sm:min-h-[550px] lg:min-h-[650px] aspect-[2.4/1] flex items-center overflow-hidden bg-[#10141e]">
+      <section className="relative w-full min-h-[420px] sm:min-h-[550px] lg:min-h-[650px] aspect-auto sm:aspect-[2.4/1] flex items-center overflow-hidden bg-[#10141e]">
         <Image
           src={heroImage}
           alt="Hero"

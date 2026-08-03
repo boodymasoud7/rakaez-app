@@ -1,6 +1,6 @@
 {
-  "totalVisits": 23,
-  "todayVisits": 13,
+  "totalVisits": 18,
+  "todayVisits": 8,
   "todayDate": "2026-08-03",
   "dailyStats": [
     {
@@ -21,8 +21,8 @@
     },
     {
       "date": "2026-08-03",
-      "visits": 13
+      "visits": 8
     }
   ],
-  "lastUpdated": "2026-08-03T17:23:10.737Z"
+  "lastUpdated": "2026-08-03T17:34:00.000Z"
 }

@@ -40,7 +40,7 @@ export default function AboutPage() {
       <Header />
 
       {/* Hero */}
-      <section className="relative w-full min-h-[350px] sm:min-h-[450px] lg:min-h-[600px] aspect-[2.4/1] flex items-center overflow-hidden bg-[#10141e]">
+      <section className="relative w-full min-h-[350px] sm:min-h-[450px] lg:min-h-[600px] aspect-auto sm:aspect-[2.4/1] flex items-center overflow-hidden bg-[#10141e]">
         <Image
           src="/images/about-hero-v2.png"
           alt="About Rakaez"

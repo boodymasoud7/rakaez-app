@@ -6,8 +6,8 @@
     "slug": "diamond-tower",
     "location_en": "Bayt Al Watan, New Cairo / Mansoura",
     "location_ar": "بيت الوطن - التجمع الخامس / المنصورة",
-    "description_en": "Luxury modern development featuring ultra-premium residential and commercial units with executive architectural design by Rakaez Developments.",
-    "description_ar": "مشروع عقاري سكني وتجاري فاخر بتصميم معماري فريد، يتضمن وحدات سكنية ومساحات تجارية متميزة بأعلى معايير الجودة والرفاهية من شركة ركائز للتطوير العقاري.",
+    "description_en": "Luxury commercial, administrative, and medical development featuring ultra-premium units with executive architectural design by Rakaez Developments.",
+    "description_ar": "مشروع استثماري فاخر بتصميم معماري فريد، يتضمن محلات تجارية ومكاتب إدارية وعيادات طبية متميزة بأعلى معايير الجودة والرفاهية من شركة ركائز للتطوير العقاري.",
     "status": "ongoing",
     "lat": 30.0254,
     "lng": 31.4912,
@@ -63,9 +63,13 @@
     "videos": [],
     "unit_types": [
       {
-        "category": "residential",
-        "area_from": 135,
-        "area_to": 240
+        "category": "commercial"
+      },
+      {
+        "category": "administrative"
+      },
+      {
+        "category": "medical"
       }
     ],
     "payment_plans": [

@@ -5,6 +5,7 @@ import { useLocale } from 'next-intl';
 import { HiSave, HiPhotograph, HiPhone, HiGlobeAlt } from 'react-icons/hi';
 import { FaFacebookF, FaInstagram, FaLinkedinIn } from 'react-icons/fa';
 import AdminLayout from '@/components/admin/AdminLayout';
+import ImageUploader from '@/components/admin/ImageUploader';
 import { adminApi } from '@/lib/admin-api';
 import type { Project, SiteSettings } from '@/lib/content/types';
 
@@ -114,6 +115,13 @@ export default function AdminHomepagePage() {
           <div className="space-y-4">
             <BiField label="Hero Title" labelAr="عنوان الهيرو" keyName="hero_title" />
             <BiField label="Hero Subtitle" labelAr="النص الفرعي" keyName="hero_subtitle" />
+            <ImageUploader
+              label={isAr ? 'صورة الهيرو الرئيسية (Homepage Hero Banner Image)' : 'Homepage Hero Banner Image'}
+              value={get('hero_image', 'ar') || '/images/hero-banner-v2.png'}
+              onChange={(url) => setSame('hero_image', url)}
+              folder="banners"
+              description={isAr ? 'اختر صورة من جهازك ليتم رفعها فوراً وتعيينها كغلاف للهيدر الرئيسي' : 'Upload homepage hero banner image directly from your device'}
+            />
           </div>
         </div>
 

@@ -57,6 +57,8 @@ export async function uploadFile(file: File | Blob, options?: {
   return body as UploadResult;
 }
 
+import type { UnitCategory } from '@/lib/content/types';
+
 // ============ Projects ============
 
 export interface ProjectPayload {
@@ -76,7 +78,7 @@ export interface ProjectPayload {
   lng?: number | null;
   gallery?: { url: string; sort_order?: number }[];
   videos?: { url: string; title_en?: string; title_ar?: string }[];
-  unit_types?: { category: 'residential' | 'commercial' | 'administrative'; area_from: number; area_to: number }[];
+  unit_types?: { category: UnitCategory; area_from: number; area_to: number }[];
   payment_plans?: { name_en: string; name_ar: string; details_en: string; details_ar: string }[];
   amenities?: { name_en: string; name_ar: string; icon: string }[];
 }

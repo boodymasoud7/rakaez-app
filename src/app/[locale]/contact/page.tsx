@@ -77,7 +77,7 @@ export default function ContactPage() {
   return (
     <>
       <Header />
-      <section className="relative w-full min-h-[350px] sm:min-h-[450px] lg:min-h-[600px] aspect-[2.4/1] flex items-center overflow-hidden bg-[#10141e]">
+      <section className="relative w-full min-h-[350px] sm:min-h-[450px] lg:min-h-[600px] aspect-auto sm:aspect-[2.4/1] flex items-center overflow-hidden bg-[#10141e]">
         <Image src="/images/contact-hero-v1.jpg" alt="Contact Rakaez" fill unoptimized className="object-cover object-center" priority />
         <div className="hero-overlay absolute inset-0 bg-gradient-to-t from-secondary-dark/80 via-transparent to-transparent" />
         <div className="relative z-30 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">

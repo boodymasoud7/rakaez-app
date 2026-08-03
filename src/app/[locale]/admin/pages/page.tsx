@@ -4,6 +4,7 @@ import { useState, useEffect, useCallback } from 'react';
 import { useLocale } from 'next-intl';
 import { HiSave, HiPhotograph, HiTemplate, HiPhone, HiInformationCircle, HiCollection } from 'react-icons/hi';
 import AdminLayout from '@/components/admin/AdminLayout';
+import ImageUploader from '@/components/admin/ImageUploader';
 import { adminApi } from '@/lib/admin-api';
 import type { SiteSettings } from '@/lib/content/types';
 
@@ -121,31 +122,27 @@ export default function AdminPagesManagerPage() {
             <h2 className="text-xl font-bold text-gray-900 mb-4">{isAr ? 'تعديل صفحة من نحن (About Us)' : 'Edit About Us Page'}</h2>
             
             <div className="grid md:grid-cols-2 gap-6">
-              <div>
-                <label className="block text-xs font-semibold text-gray-700 mb-1">{isAr ? 'صورة الهيدر الرئيسية (Hero Banner Image Path)' : 'Hero Banner Image'}</label>
-                <input
-                  type="text"
-                  value={get('about_hero_image', 'ar') || '/images/about-hero-v2.png'}
-                  onChange={(e) => {
-                    set('about_hero_image', 'ar', e.target.value);
-                    set('about_hero_image', 'en', e.target.value);
-                  }}
-                  className="w-full px-4 py-2.5 border border-gray-200 rounded-xl focus:ring-2 focus:ring-gold/50 outline-none dir-ltr"
-                />
-              </div>
+              <ImageUploader
+                label={isAr ? 'صورة هيدر صفحة من نحن' : 'About Hero Banner Image'}
+                value={get('about_hero_image', 'ar') || '/images/about-hero-v2.png'}
+                onChange={(url) => {
+                  set('about_hero_image', 'ar', url);
+                  set('about_hero_image', 'en', url);
+                }}
+                folder="banners"
+                description={isAr ? 'اختر صورة من جهازك ليتم رفعها وتعيينها هيدر لصفحة من نحن' : 'Upload or change the hero banner image'}
+              />
 
-              <div>
-                <label className="block text-xs font-semibold text-gray-700 mb-1">{isAr ? 'صورة فريق العمل (Our Story Team Photo)' : 'Team Photo'}</label>
-                <input
-                  type="text"
-                  value={get('about_team_image', 'ar') || '/images/story-team.jpg'}
-                  onChange={(e) => {
-                    set('about_team_image', 'ar', e.target.value);
-                    set('about_team_image', 'en', e.target.value);
-                  }}
-                  className="w-full px-4 py-2.5 border border-gray-200 rounded-xl focus:ring-2 focus:ring-gold/50 outline-none dir-ltr"
-                />
-              </div>
+              <ImageUploader
+                label={isAr ? 'صورة فريق العمل (قصتنا)' : 'Our Story Team Photo'}
+                value={get('about_team_image', 'ar') || '/images/story-team.jpg'}
+                onChange={(url) => {
+                  set('about_team_image', 'ar', url);
+                  set('about_team_image', 'en', url);
+                }}
+                folder="team"
+                description={isAr ? 'رفع وتعديل صورة فريق عمل ركائز المعروضة في قصتنا' : 'Upload team photo for story section'}
+              />
 
               <div>
                 <label className="block text-xs font-semibold text-gray-700 mb-1">{isAr ? 'عنوان الهيدر (عربي)' : 'Header Title (AR)'}</label>
@@ -185,56 +182,56 @@ export default function AdminPagesManagerPage() {
             <h2 className="text-xl font-bold text-gray-900 mb-4">{isAr ? 'تعديل صفحة تواصل معنا (Contact Us)' : 'Edit Contact Us Page'}</h2>
             
             <div className="grid md:grid-cols-2 gap-6">
-              <div>
-                <label className="block text-xs font-semibold text-gray-700 mb-1">{isAr ? 'صورة الهيدر الرئيسية (Hero Banner Image Path)' : 'Hero Banner Image'}</label>
-                <input
-                  type="text"
-                  value={get('contact_hero_image', 'ar') || '/images/contact-hero-v1.jpg'}
-                  onChange={(e) => {
-                    set('contact_hero_image', 'ar', e.target.value);
-                    set('contact_hero_image', 'en', e.target.value);
-                  }}
-                  className="w-full px-4 py-2.5 border border-gray-200 rounded-xl focus:ring-2 focus:ring-gold/50 outline-none dir-ltr"
-                />
-              </div>
+              <ImageUploader
+                label={isAr ? 'صورة هيدر صفحة تواصل معنا' : 'Contact Hero Banner Image'}
+                value={get('contact_hero_image', 'ar') || '/images/contact-hero-v1.jpg'}
+                onChange={(url) => {
+                  set('contact_hero_image', 'ar', url);
+                  set('contact_hero_image', 'en', url);
+                }}
+                folder="banners"
+                description={isAr ? 'رفع وتعيين صورة الهيدر الرئيسية لصفحة تواصل معنا' : 'Upload or edit contact hero image'}
+              />
 
-              <div>
-                <label className="block text-xs font-semibold text-gray-700 mb-1">{isAr ? 'الخط الساخن (Hotline)' : 'Hotline Phone'}</label>
-                <input
-                  type="text"
-                  value={get('phone', 'ar') || '17074'}
-                  onChange={(e) => {
-                    set('phone', 'ar', e.target.value);
-                    set('phone', 'en', e.target.value);
-                  }}
-                  className="w-full px-4 py-2.5 border border-gray-200 rounded-xl focus:ring-2 focus:ring-gold/50 outline-none"
-                />
-              </div>
+              <div className="space-y-4">
+                <div>
+                  <label className="block text-xs font-semibold text-gray-700 mb-1">{isAr ? 'الخط الساخن (Hotline)' : 'Hotline Phone'}</label>
+                  <input
+                    type="text"
+                    value={get('phone', 'ar') || '17074'}
+                    onChange={(e) => {
+                      set('phone', 'ar', e.target.value);
+                      set('phone', 'en', e.target.value);
+                    }}
+                    className="w-full px-4 py-2.5 border border-gray-200 rounded-xl focus:ring-2 focus:ring-gold/50 outline-none"
+                  />
+                </div>
 
-              <div>
-                <label className="block text-xs font-semibold text-gray-700 mb-1">{isAr ? 'رقم الواتساب (WhatsApp)' : 'WhatsApp Number'}</label>
-                <input
-                  type="text"
-                  value={get('whatsapp', 'ar') || '01000444276'}
-                  onChange={(e) => {
-                    set('whatsapp', 'ar', e.target.value);
-                    set('whatsapp', 'en', e.target.value);
-                  }}
-                  className="w-full px-4 py-2.5 border border-gray-200 rounded-xl focus:ring-2 focus:ring-gold/50 outline-none"
-                />
-              </div>
+                <div>
+                  <label className="block text-xs font-semibold text-gray-700 mb-1">{isAr ? 'رقم الواتساب (WhatsApp)' : 'WhatsApp Number'}</label>
+                  <input
+                    type="text"
+                    value={get('whatsapp', 'ar') || '01000444276'}
+                    onChange={(e) => {
+                      set('whatsapp', 'ar', e.target.value);
+                      set('whatsapp', 'en', e.target.value);
+                    }}
+                    className="w-full px-4 py-2.5 border border-gray-200 rounded-xl focus:ring-2 focus:ring-gold/50 outline-none"
+                  />
+                </div>
 
-              <div>
-                <label className="block text-xs font-semibold text-gray-700 mb-1">{isAr ? 'البريد الإلكتروني (Email)' : 'Email'}</label>
-                <input
-                  type="text"
-                  value={get('email', 'ar') || 'info@rakaezdevelopment.com'}
-                  onChange={(e) => {
-                    set('email', 'ar', e.target.value);
-                    set('email', 'en', e.target.value);
-                  }}
-                  className="w-full px-4 py-2.5 border border-gray-200 rounded-xl focus:ring-2 focus:ring-gold/50 outline-none"
-                />
+                <div>
+                  <label className="block text-xs font-semibold text-gray-700 mb-1">{isAr ? 'البريد الإلكتروني (Email)' : 'Email'}</label>
+                  <input
+                    type="text"
+                    value={get('email', 'ar') || 'info@rakaezdevelopment.com'}
+                    onChange={(e) => {
+                      set('email', 'ar', e.target.value);
+                      set('email', 'en', e.target.value);
+                    }}
+                    className="w-full px-4 py-2.5 border border-gray-200 rounded-xl focus:ring-2 focus:ring-gold/50 outline-none"
+                  />
+                </div>
               </div>
 
               <div className="md:col-span-2">
@@ -255,18 +252,16 @@ export default function AdminPagesManagerPage() {
             <h2 className="text-xl font-bold text-gray-900 mb-4">{isAr ? 'تعديل هيدر صفحة الخدمات (Services Page Banner)' : 'Edit Services Banner'}</h2>
             
             <div className="grid md:grid-cols-2 gap-6">
-              <div>
-                <label className="block text-xs font-semibold text-gray-700 mb-1">{isAr ? 'صورة الهيدر الرئيسية (Hero Banner Image Path)' : 'Hero Banner Image'}</label>
-                <input
-                  type="text"
-                  value={get('services_hero_image', 'ar') || 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1920&q=80'}
-                  onChange={(e) => {
-                    set('services_hero_image', 'ar', e.target.value);
-                    set('services_hero_image', 'en', e.target.value);
-                  }}
-                  className="w-full px-4 py-2.5 border border-gray-200 rounded-xl focus:ring-2 focus:ring-gold/50 outline-none dir-ltr"
-                />
-              </div>
+              <ImageUploader
+                label={isAr ? 'صورة هيدر صفحة الخدمات' : 'Services Hero Banner Image'}
+                value={get('services_hero_image', 'ar') || 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1920&q=80'}
+                onChange={(url) => {
+                  set('services_hero_image', 'ar', url);
+                  set('services_hero_image', 'en', url);
+                }}
+                folder="banners"
+                description={isAr ? 'رفع وتعديل صورة هيدر صفحة الخدمات' : 'Upload services header banner'}
+              />
             </div>
           </>
         )}
@@ -276,18 +271,16 @@ export default function AdminPagesManagerPage() {
             <h2 className="text-xl font-bold text-gray-900 mb-4">{isAr ? 'تعديل هيدر صفحة المشاريع (Projects Page Banner)' : 'Edit Projects Banner'}</h2>
             
             <div className="grid md:grid-cols-2 gap-6">
-              <div>
-                <label className="block text-xs font-semibold text-gray-700 mb-1">{isAr ? 'صورة الهيدر الرئيسية (Hero Banner Image Path)' : 'Hero Banner Image'}</label>
-                <input
-                  type="text"
-                  value={get('projects_hero_image', 'ar') || '/images/hero-banner-v2.png'}
-                  onChange={(e) => {
-                    set('projects_hero_image', 'ar', e.target.value);
-                    set('projects_hero_image', 'en', e.target.value);
-                  }}
-                  className="w-full px-4 py-2.5 border border-gray-200 rounded-xl focus:ring-2 focus:ring-gold/50 outline-none dir-ltr"
-                />
-              </div>
+              <ImageUploader
+                label={isAr ? 'صورة هيدر صفحة المشاريع' : 'Projects Hero Banner Image'}
+                value={get('projects_hero_image', 'ar') || '/images/hero-banner-v2.png'}
+                onChange={(url) => {
+                  set('projects_hero_image', 'ar', url);
+                  set('projects_hero_image', 'en', url);
+                }}
+                folder="banners"
+                description={isAr ? 'رفع وتعديل صورة هيدر صفحة المشاريع الرئيسية' : 'Upload projects header banner'}
+              />
             </div>
           </>
         )}
@@ -297,18 +290,16 @@ export default function AdminPagesManagerPage() {
             <h2 className="text-xl font-bold text-gray-900 mb-4">{isAr ? 'تعديل هيدر صفحة المدونة (Blog Page Banner)' : 'Edit Blog Banner'}</h2>
             
             <div className="grid md:grid-cols-2 gap-6">
-              <div>
-                <label className="block text-xs font-semibold text-gray-700 mb-1">{isAr ? 'صورة الهيدر الرئيسية (Hero Banner Image Path)' : 'Hero Banner Image'}</label>
-                <input
-                  type="text"
-                  value={get('blog_hero_image', 'ar') || '/images/hero-banner-v2.png'}
-                  onChange={(e) => {
-                    set('blog_hero_image', 'ar', e.target.value);
-                    set('blog_hero_image', 'en', e.target.value);
-                  }}
-                  className="w-full px-4 py-2.5 border border-gray-200 rounded-xl focus:ring-2 focus:ring-gold/50 outline-none dir-ltr"
-                />
-              </div>
+              <ImageUploader
+                label={isAr ? 'صورة هيدر صفحة المدونة' : 'Blog Hero Banner Image'}
+                value={get('blog_hero_image', 'ar') || '/images/hero-banner-v2.png'}
+                onChange={(url) => {
+                  set('blog_hero_image', 'ar', url);
+                  set('blog_hero_image', 'en', url);
+                }}
+                folder="banners"
+                description={isAr ? 'رفع وتعديل صورة هيدر صفحة المدونة' : 'Upload blog header banner'}
+              />
             </div>
           </>
         )}

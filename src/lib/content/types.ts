@@ -14,7 +14,7 @@ export interface ProjectVideo {
   title_ar?: string;
 }
 
-export type UnitCategory = 'residential' | 'commercial' | 'administrative';
+export type UnitCategory = 'residential' | 'commercial' | 'administrative' | 'medical';
 
 export interface UnitType {
   /** Category of unit — used to render a localized label and styling. */

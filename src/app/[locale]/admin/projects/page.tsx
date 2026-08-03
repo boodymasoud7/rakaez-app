@@ -91,10 +91,8 @@ export default function AdminProjectsPage() {
       }
 
       const slug = form.slug || generateSlug(form.name_en);
-      // Drop empty unit_types rows so we don't persist placeholder data
-      const cleanedUnitTypes = form.unit_types.filter(
-        (u) => Number(u.area_from) > 0 || Number(u.area_to) > 0
-      ).map((u) => ({
+      // Preserve unit types even without area ranges
+      const cleanedUnitTypes = form.unit_types.map((u) => ({
         category: u.category,
         area_from: Number(u.area_from) || 0,
         area_to: Number(u.area_to) || Number(u.area_from) || 0,
@@ -248,6 +246,7 @@ export default function AdminProjectsPage() {
                         <option value="residential">{isAr ? 'سكني' : 'Residential'}</option>
                         <option value="commercial">{isAr ? 'تجاري' : 'Commercial'}</option>
                         <option value="administrative">{isAr ? 'إداري' : 'Administrative'}</option>
+                        <option value="medical">{isAr ? 'طبي' : 'Medical'}</option>
                       </select>
                     </div>
                     <div className="col-span-6 sm:col-span-3">

@@ -92,6 +92,13 @@ export default function ProjectDetailPage() {
       bg: 'bg-blue-50',
       text: 'text-blue-700',
     },
+    medical: {
+      label: locale === 'ar' ? 'طبي' : 'Medical',
+      icon: HiOfficeBuilding,
+      color: 'from-cyan-500 to-teal-600',
+      bg: 'bg-cyan-50',
+      text: 'text-cyan-700',
+    },
   } as const;
 
   return (
@@ -105,7 +112,7 @@ export default function ProjectDetailPage() {
           style={{ backgroundImage: `url(${project.cover_image})` }}
         />
         <Image src={project.cover_image || ''} alt={getLocalized(project, 'name', locale)} fill className="object-contain relative z-10 p-4 object-bottom" priority unoptimized />
-        <div className="hero-overlay absolute inset-0 bg-gradient-to-t from-secondary-dark/95 via-secondary-dark/40 to-transparent z-20 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#090d14] via-[#090d14]/40 to-black/20 z-20 pointer-events-none" />
         <div className="relative z-30 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pb-16">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
             <span className={`inline-block px-4 py-1.5 rounded-full text-sm font-bold text-white mb-4 shadow-md ${
@@ -114,7 +121,9 @@ export default function ProjectDetailPage() {
               {project.status === 'completed' ? (locale === 'ar' ? 'تم التسليم' : 'Delivered') :
                project.status === 'ongoing' ? (locale === 'ar' ? 'تحت الإنشاء' : 'Under Construction') : (locale === 'ar' ? 'قريباً' : 'Upcoming')}
             </span>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white drop-shadow-lg mb-4">{getLocalized(project, 'name', locale)}</h1>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-[#ffffff] drop-shadow-[0_4px_16px_rgba(0,0,0,0.95)] mb-4 leading-tight">
+              {getLocalized(project, 'name', locale)}
+            </h1>
           </motion.div>
         </div>
       </section>
@@ -162,12 +171,15 @@ export default function ProjectDetailPage() {
               {unitTypes.map((unit, i) => {
                 const cfg = categoryConfig[unit.category] ?? categoryConfig.residential;
                 const Icon = cfg.icon;
-                const sameArea = unit.area_from === unit.area_to;
-                const areaText = sameArea
-                  ? (locale === 'ar' ? `بمساحة ${unit.area_from} م²` : `${unit.area_from} m²`)
-                  : (locale === 'ar'
-                      ? `مساحات تبدأ من ${unit.area_from} م² إلى ${unit.area_to} م²`
-                      : `Areas from ${unit.area_from} m² to ${unit.area_to} m²`);
+                const hasArea = !!(unit.area_from && unit.area_to);
+                const sameArea = hasArea && unit.area_from === unit.area_to;
+                const areaText = hasArea
+                  ? (sameArea
+                      ? (locale === 'ar' ? `بمساحة ${unit.area_from} م²` : `${unit.area_from} m²`)
+                      : (locale === 'ar'
+                          ? `مساحات تبدأ من ${unit.area_from} م² إلى ${unit.area_to} م²`
+                          : `Areas from ${unit.area_from} m² to ${unit.area_to} m²`))
+                  : (locale === 'ar' ? 'وحدات متميزة بتصاميم استثمارية فاخرة' : 'Premium executive spaces with modern designs');
                 return (
                   <AnimatedSection key={i} delay={i * 0.08}>
                     <div className="group relative bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden h-full">
