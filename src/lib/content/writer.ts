@@ -38,13 +38,27 @@ export async function writeFiles(
 
   if (useGithub) {
     await commitToGithub(changes, commitMessage);
+  } else if (isProd) {
+    // In production environment (Vercel) without GITHUB_TOKEN configured:
+    // Writing to local filesystem will fail with EROFS because serverless environment is read-only.
+    // Try writing to local FS as best-effort, but throw friendly message if read-only.
+    try {
+      await writeToLocalFs(changes);
+    } catch (fsErr) {
+      console.error('Local FS write failed in production:', fsErr);
+      throw new Error(
+        'التخزين يلزمه ضبط متغيرات GitHub (GITHUB_TOKEN & GITHUB_REPO) في إعدادات البيئة على Vercel لتمكين الحفظ التلقائي.'
+      );
+    }
   } else {
     await writeToLocalFs(changes);
   }
 
-  // Invalidate Next.js page cache so the public site reflects the change
-  // on the next request (after the redeploy finishes in production).
-  revalidatePath('/', 'layout');
+  try {
+    revalidatePath('/', 'layout');
+  } catch (e) {
+    console.warn('revalidatePath ignored:', e);
+  }
 }
 
 /**

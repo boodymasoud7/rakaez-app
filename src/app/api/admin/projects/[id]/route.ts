@@ -25,29 +25,36 @@ export async function PUT(request: Request, { params }: Ctx) {
   }
 
   let updated: Project | null = null;
-  await updateJson<Project[]>(
-    'projects.json',
-    (current) => {
-      return current.map((p) => {
-        if (p.id !== id) return p;
-        const merged: Project = {
-          ...p,
-          ...patch,
-          // Preserve id; keep slug normalized; refresh timestamp
-          id: p.id,
-          slug:
-            typeof patch.slug === 'string' && patch.slug
-              ? slugify(patch.slug)
-              : p.slug,
-          updated_at: new Date().toISOString(),
-        };
-        updated = merged;
-        return merged;
-      });
-    },
-    [],
-    `chore(content): update project ${id}`
-  );
+  try {
+    await updateJson<Project[]>(
+      'projects.json',
+      (current) => {
+        return current.map((p) => {
+          if (p.id !== id) return p;
+          const merged: Project = {
+            ...p,
+            ...patch,
+            id: p.id,
+            slug:
+              typeof patch.slug === 'string' && patch.slug
+                ? slugify(patch.slug)
+                : p.slug,
+            updated_at: new Date().toISOString(),
+          };
+          updated = merged;
+          return merged;
+        });
+      },
+      [],
+      `chore(content): update project ${id}`
+    );
+  } catch (err) {
+    console.error('Failed to update project:', err);
+    return NextResponse.json(
+      { error: (err as Error)?.message || 'Failed to update project' },
+      { status: 500 }
+    );
+  }
 
   if (!updated) {
     return NextResponse.json({ error: 'Project not found' }, { status: 404 });
@@ -64,16 +71,24 @@ export async function DELETE(_request: Request, { params }: Ctx) {
 
   const { id } = await params;
   let deleted = false;
-  await updateJson<Project[]>(
-    'projects.json',
-    (current) => {
-      const next = current.filter((p) => p.id !== id);
-      deleted = next.length !== current.length;
-      return next;
-    },
-    [],
-    `chore(content): delete project ${id}`
-  );
+  try {
+    await updateJson<Project[]>(
+      'projects.json',
+      (current) => {
+        const next = current.filter((p) => p.id !== id);
+        deleted = next.length !== current.length;
+        return next;
+      },
+      [],
+      `chore(content): delete project ${id}`
+    );
+  } catch (err) {
+    console.error('Failed to delete project:', err);
+    return NextResponse.json(
+      { error: (err as Error)?.message || 'Failed to delete project' },
+      { status: 500 }
+    );
+  }
 
   if (!deleted) {
     return NextResponse.json({ error: 'Project not found' }, { status: 404 });

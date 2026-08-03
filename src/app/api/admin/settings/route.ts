@@ -39,12 +39,20 @@ export async function PUT(request: Request) {
     }
   }
 
-  await updateJson<SiteSettings>(
-    'settings.json',
-    () => next,
-    {},
-    `chore(content): update site settings`
-  );
+  try {
+    await updateJson<SiteSettings>(
+      'settings.json',
+      () => next,
+      {},
+      `chore(content): update site settings`
+    );
+  } catch (err) {
+    console.error('Failed to update settings:', err);
+    return NextResponse.json(
+      { error: (err as Error)?.message || 'Failed to update settings' },
+      { status: 500 }
+    );
+  }
 
   return NextResponse.json({ success: true, settings: next });
 }
