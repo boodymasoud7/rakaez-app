@@ -100,19 +100,26 @@ export async function POST(request: Request) {
   }
 
   let created = project;
-  await updateJson<Project[]>(
-    'projects.json',
-    (current) => {
-      // Ensure unique slug
-      if (current.some((p) => p.slug === created.slug)) {
-        const stamp = Date.now().toString(36).slice(-4);
-        created = { ...created, slug: `${created.slug}-${stamp}` };
-      }
-      return [created, ...current];
-    },
-    [],
-    `feat(content): add project ${project.slug}`
-  );
+  try {
+    await updateJson<Project[]>(
+      'projects.json',
+      (current) => {
+        if (current.some((p) => p.slug === created.slug)) {
+          const stamp = Date.now().toString(36).slice(-4);
+          created = { ...created, slug: `${created.slug}-${stamp}` };
+        }
+        return [created, ...current];
+      },
+      [],
+      `feat(content): add project ${project.slug}`
+    );
+  } catch (err) {
+    console.error('Failed to create project:', err);
+    return NextResponse.json(
+      { error: (err as Error)?.message || 'Failed to create project' },
+      { status: 500 }
+    );
+  }
 
   return NextResponse.json({ project: created });
 }

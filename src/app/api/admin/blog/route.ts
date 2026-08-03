@@ -67,18 +67,26 @@ export async function POST(request: Request) {
   }
 
   let created = post;
-  await updateJson<BlogPost[]>(
-    'blog.json',
-    (current) => {
-      if (current.some((p) => p.slug === created.slug)) {
-        const stamp = Date.now().toString(36).slice(-4);
-        created = { ...created, slug: `${created.slug}-${stamp}` };
-      }
-      return [created, ...current];
-    },
-    [],
-    `feat(content): add blog post ${post.slug}`
-  );
+  try {
+    await updateJson<BlogPost[]>(
+      'blog.json',
+      (current) => {
+        if (current.some((p) => p.slug === created.slug)) {
+          const stamp = Date.now().toString(36).slice(-4);
+          created = { ...created, slug: `${created.slug}-${stamp}` };
+        }
+        return [created, ...current];
+      },
+      [],
+      `feat(content): add blog post ${post.slug}`
+    );
+  } catch (err) {
+    console.error('Failed to create blog post:', err);
+    return NextResponse.json(
+      { error: (err as Error)?.message || 'Failed to create blog post' },
+      { status: 500 }
+    );
+  }
 
   return NextResponse.json({ post: created });
 }
