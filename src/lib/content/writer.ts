@@ -61,6 +61,44 @@ export async function writeFiles(
   }
 }
 
+async function readJsonContent<T>(fileName: string, fallback: T): Promise<T> {
+  const tokenAvailable = !!(process.env.GITHUB_TOKEN && process.env.GITHUB_REPO);
+  const isProd = process.env.NODE_ENV === 'production';
+  const forced = process.env.CONTENT_USE_GITHUB === 'true';
+  const useGithub = tokenAvailable && (isProd || forced);
+
+  if (useGithub) {
+    try {
+      const octokit = getOctokit();
+      const { owner, repo, branch } = getRepoInfo();
+      const res = await octokit.rest.repos.getContent({
+        owner,
+        repo,
+        path: `content/${fileName}`,
+        ref: branch,
+        headers: { 'Cache-Control': 'no-cache' },
+      });
+      if ('content' in res.data && typeof res.data.content === 'string') {
+        const decoded = Buffer.from(res.data.content, 'base64').toString('utf8');
+        return JSON.parse(decoded) as T;
+      }
+    } catch (githubErr) {
+      console.warn(`Failed to fetch latest content/${fileName} from GitHub, falling back to local fs:`, githubErr);
+    }
+  }
+
+  const filePath = path.join(CONTENT_DIR, fileName);
+  try {
+    const raw = await fs.readFile(filePath, 'utf8');
+    return JSON.parse(raw) as T;
+  } catch (err) {
+    if ((err as NodeJS.ErrnoException).code !== 'ENOENT') {
+      throw err;
+    }
+  }
+  return fallback;
+}
+
 /**
  * Convenience helper: read a JSON content file, run a transform, then write
  * it back. The full file is read+written so writes stay atomic.
@@ -71,17 +109,7 @@ export async function updateJson<T>(
   fallback: T,
   commitMessage: string
 ): Promise<T> {
-  const filePath = path.join(CONTENT_DIR, fileName);
-  let current: T = fallback;
-  try {
-    const raw = await fs.readFile(filePath, 'utf8');
-    current = JSON.parse(raw) as T;
-  } catch (err) {
-    if ((err as NodeJS.ErrnoException).code !== 'ENOENT') {
-      throw err;
-    }
-  }
-
+  const current = await readJsonContent<T>(fileName, fallback);
   const next = transform(current);
   const json = JSON.stringify(next, null, 2) + '\n';
 
