@@ -50,6 +50,7 @@ export interface Project {
   status: 'upcoming' | 'ongoing' | 'completed';
   lat: number | null;
   lng: number | null;
+  map_link?: string | null;
   brochure_url: string | null;
   cover_image: string | null;
   featured: boolean;

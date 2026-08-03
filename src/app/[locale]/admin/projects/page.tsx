@@ -11,7 +11,7 @@ import { optimizeImage, isImageFile } from '@/lib/image-utils';
 import type { Project, UnitType, UnitCategory } from '@/lib/content/types';
 
 const emptyForm = {
-  name_en: '', name_ar: '', slug: '', location_en: '', location_ar: '',
+  name_en: '', name_ar: '', slug: '', location_en: '', location_ar: '', map_link: '',
   description_en: '', description_ar: '', status: 'upcoming' as Project['status'], featured: false, published: true,
   unit_types: [] as UnitType[],
 };
@@ -54,7 +54,7 @@ export default function AdminProjectsPage() {
   const openEdit = (p: Project) => {
     setForm({
       name_en: p.name_en, name_ar: p.name_ar, slug: p.slug,
-      location_en: p.location_en, location_ar: p.location_ar,
+      location_en: p.location_en, location_ar: p.location_ar, map_link: p.map_link || '',
       description_en: p.description_en, description_ar: p.description_ar,
       status: p.status, featured: p.featured, published: p.published !== false,
       unit_types: Array.isArray(p.unit_types) ? p.unit_types : [],
@@ -117,7 +117,8 @@ export default function AdminProjectsPage() {
       setEditingId(null);
     } catch (err) {
       console.error(err);
-      alert(isAr ? 'فشل في الحفظ' : 'Save failed');
+      const msg = (err as Error)?.message;
+      alert(msg ? (isAr ? `فشل في الحفظ: ${msg}` : `Save failed: ${msg}`) : (isAr ? 'فشل في الحفظ' : 'Save failed'));
     } finally {
       setSaving(false);
     }
@@ -178,6 +179,16 @@ export default function AdminProjectsPage() {
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">{isAr ? 'الموقع (عربي)' : 'Location (Arabic)'}</label>
               <input type="text" dir="rtl" value={form.location_ar} onChange={e => setForm({...form, location_ar: e.target.value})} className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-gold/50 focus:border-gold outline-none" />
+            </div>
+            <div className="md:col-span-2">
+              <label className="block text-sm font-medium text-gray-700 mb-2">{isAr ? 'رابط الموقع على الخريطة (Google Maps Location Link)' : 'Google Maps Location Link'}</label>
+              <input
+                type="text"
+                value={form.map_link}
+                onChange={e => setForm({...form, map_link: e.target.value})}
+                placeholder="https://maps.app.goo.gl/... أو https://maps.google.com/?q=..."
+                className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-gold/50 focus:border-gold outline-none text-sm dir-ltr"
+              />
             </div>
             <div className="md:col-span-2">
               <label className="block text-sm font-medium text-gray-700 mb-2">{isAr ? 'الوصف (English)' : 'Description (English)'}</label>

@@ -76,6 +76,7 @@ export interface ProjectPayload {
   brochure_url?: string | null;
   lat?: number | null;
   lng?: number | null;
+  map_link?: string | null;
   gallery?: { url: string; sort_order?: number }[];
   videos?: { url: string; title_en?: string; title_ar?: string }[];
   unit_types?: { category: UnitCategory; area_from: number; area_to: number }[];

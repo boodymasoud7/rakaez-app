@@ -41,6 +41,10 @@ function normalizeProject(input: Record<string, unknown>, base?: Project): Proje
       typeof input.lng === 'number'
         ? input.lng
         : base?.lng ?? null,
+    map_link:
+      typeof input.map_link === 'string'
+        ? input.map_link
+        : base?.map_link ?? null,
     brochure_url:
       typeof input.brochure_url === 'string'
         ? input.brochure_url

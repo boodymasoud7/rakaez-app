@@ -205,10 +205,24 @@ export default function ProjectDetailPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection><SectionTitle title={t('location')} /></AnimatedSection>
           <AnimatedSection>
-            <div className="rounded-2xl overflow-hidden shadow-lg h-96">
+            <div className="rounded-2xl overflow-hidden shadow-lg h-96 relative group">
+              {project.map_link ? (
+                <a
+                  href={project.map_link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="absolute inset-0 z-20 bg-black/40 hover:bg-black/25 transition-all flex flex-col items-center justify-center text-white p-6 text-center"
+                >
+                  <HiLocationMarker className="w-12 h-12 text-gold mb-3 group-hover:scale-110 transition-transform" />
+                  <h3 className="text-2xl font-bold mb-2">{getLocalized(project, 'location', locale)}</h3>
+                  <span className="px-6 py-3 bg-gold text-white font-semibold rounded-full hover:bg-gold-light transition-all shadow-lg">
+                    {locale === 'ar' ? 'افتح موقع المشروع مباشرة على الخريطة' : 'Open Project Location on Google Maps'}
+                  </span>
+                </a>
+              ) : null}
               <iframe
                 src={`https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d14000!2d${project.lng || 31.4932}!3d${project.lat || 30.0291}!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2seg`}
-                width="100%" height="100%" style={{ border: 0 }} allowFullScreen loading="lazy" className="w-full h-full"
+                width="100%" height="100%" style={{ border: 0 }} allowFullScreen loading="lazy" className="w-full h-full filter blur-[1px]"
               />
             </div>
           </AnimatedSection>
