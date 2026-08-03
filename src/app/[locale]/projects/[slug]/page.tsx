@@ -106,7 +106,7 @@ export default function ProjectDetailPage() {
         />
         <Image src={project.cover_image || ''} alt={getLocalized(project, 'name', locale)} fill className="object-contain relative z-10 p-4 object-bottom" priority unoptimized />
         <div className="hero-overlay absolute inset-0 bg-gradient-to-t from-secondary-dark/95 via-secondary-dark/40 to-transparent z-20 pointer-events-none" />
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pb-16">
+        <div className="relative z-30 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pb-16">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
             <span className={`inline-block px-4 py-1.5 rounded-full text-sm font-bold text-white mb-4 shadow-md ${
               project.status === 'completed' ? 'bg-emerald-600/90' : project.status === 'ongoing' ? 'bg-amber-600/90' : 'bg-primary/90'
@@ -114,7 +114,7 @@ export default function ProjectDetailPage() {
               {project.status === 'completed' ? (locale === 'ar' ? 'تم التسليم' : 'Delivered') :
                project.status === 'ongoing' ? (locale === 'ar' ? 'تحت الإنشاء' : 'Under Construction') : (locale === 'ar' ? 'قريباً' : 'Upcoming')}
             </span>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4">{getLocalized(project, 'name', locale)}</h1>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white drop-shadow-lg mb-4">{getLocalized(project, 'name', locale)}</h1>
           </motion.div>
         </div>
       </section>

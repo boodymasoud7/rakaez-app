@@ -5,7 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname, useRouter } from 'next/navigation';
 import { useLocale } from 'next-intl';
-import { HiHome, HiOfficeBuilding, HiNewspaper, HiPhotograph, HiCog, HiQuestionMarkCircle, HiGlobe, HiLogout, HiMenu, HiX, HiTemplate, HiExternalLink, HiInbox } from 'react-icons/hi';
+import { HiHome, HiOfficeBuilding, HiNewspaper, HiPhotograph, HiCog, HiQuestionMarkCircle, HiGlobe, HiLogout, HiMenu, HiX, HiTemplate, HiExternalLink, HiInbox, HiSparkles } from 'react-icons/hi';
 
 interface AdminLayoutProps {
   children: React.ReactNode;
@@ -40,6 +40,8 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
     { href: `/${locale}/admin`, label: locale === 'ar' ? 'لوحة التحكم' : 'Dashboard', icon: HiHome },
     { href: `/${locale}/admin/inquiries`, label: locale === 'ar' ? 'طلبات التواصل' : 'Inquiries', icon: HiInbox, badge: newInquiriesCount },
     { href: `/${locale}/admin/homepage`, label: locale === 'ar' ? 'الصفحة الرئيسية' : 'Homepage', icon: HiTemplate },
+    { href: `/${locale}/admin/pages`, label: locale === 'ar' ? 'محتوى الصفحات الهيدر' : 'Pages Content', icon: HiPhotograph },
+    { href: `/${locale}/admin/services`, label: locale === 'ar' ? 'الخدمات' : 'Services', icon: HiSparkles },
     { href: `/${locale}/admin/projects`, label: locale === 'ar' ? 'المشاريع' : 'Projects', icon: HiOfficeBuilding },
     { href: `/${locale}/admin/blog`, label: locale === 'ar' ? 'المدونة' : 'Blog', icon: HiNewspaper },
     { href: `/${locale}/admin/faq`, label: locale === 'ar' ? 'الأسئلة الشائعة' : 'FAQ', icon: HiQuestionMarkCircle },

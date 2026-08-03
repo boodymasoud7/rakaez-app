@@ -77,14 +77,14 @@ export default function ContactPage() {
   return (
     <>
       <Header />
-      <section className="relative h-[50vh] min-h-[350px] flex items-center">
-        <Image src="https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=1920&q=80" alt="Contact" fill className="object-cover" priority />
-        <div className="hero-overlay absolute inset-0" />
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+      <section className="relative w-full min-h-[350px] sm:min-h-[450px] lg:min-h-[600px] aspect-[2.4/1] flex items-center overflow-hidden bg-[#10141e]">
+        <Image src="/images/contact-hero-v1.jpg" alt="Contact Rakaez" fill unoptimized className="object-cover object-center" priority />
+        <div className="hero-overlay absolute inset-0 bg-gradient-to-t from-secondary-dark/80 via-transparent to-transparent" />
+        <div className="relative z-30 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
             <div className="h-1 w-16 bg-gold mb-6" />
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4">{t('title')}</h1>
-            <p className="text-xl text-white/70">{t('subtitle')}</p>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white drop-shadow-lg mb-4">{t('title')}</h1>
+            <p className="text-xl text-white/90 drop-shadow-md">{t('subtitle')}</p>
           </motion.div>
         </div>
       </section>
