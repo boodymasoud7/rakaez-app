@@ -18,7 +18,7 @@ export default function AboutPage() {
   const locale = useLocale() as Locale;
   const { get, getNum } = useSiteSettings();
 
-  const statProjects = getNum('stat_projects') || 15;
+  const statProjects = getNum('stat_projects') || 23;
   const statUnits = getNum('stat_units') || 2500;
   const statClients = getNum('stat_clients') || 1800;
   const statYears = getNum('stat_years') || 12;

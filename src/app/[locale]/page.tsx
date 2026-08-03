@@ -33,11 +33,12 @@ export default function HomePage() {
   // Dynamic content with fallback to translations
   const heroTitle = get('hero_title', locale) || t('home.heroTitle');
   const heroSubtitle = get('hero_subtitle', locale) || t('home.heroSubtitle');
+  const heroImage = get('hero_image', locale) || '/images/hero-banner.png';
   const aboutPreview = get('about_preview', locale) || t('home.aboutPreview');
   const aboutHeading = get('about_heading', locale) || (locale === 'ar' ? 'نبني مجتمعات تدوم' : 'Building Communities That Last');
 
   // Dynamic stats with fallback
-  const statProjects = getNum('stat_projects') || 15;
+  const statProjects = getNum('stat_projects') || 23;
   const statUnits = getNum('stat_units') || 2500;
   const statClients = getNum('stat_clients') || 1800;
   const statYears = getNum('stat_years') || 12;
@@ -76,7 +77,7 @@ export default function HomePage() {
       {/* ===== HERO ===== */}
       <section className="relative h-screen min-h-[700px] flex items-center">
         <Image
-          src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1920&q=80"
+          src={heroImage}
           alt="Hero"
           fill
           className="object-cover"
