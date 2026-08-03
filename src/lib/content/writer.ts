@@ -149,67 +149,85 @@ async function commitToGithub(
   const octokit = getOctokit();
   const { owner, repo, branch } = getRepoInfo();
 
-  // 1. Get current branch HEAD
-  const ref = await octokit.rest.git.getRef({
-    owner,
-    repo,
-    ref: `heads/${branch}`,
-  });
-  const baseSha = ref.data.object.sha;
+  let attempts = 0;
+  const maxAttempts = 3;
 
-  // 2. Get base tree
-  const baseCommit = await octokit.rest.git.getCommit({
-    owner,
-    repo,
-    commit_sha: baseSha,
-  });
-  const baseTreeSha = baseCommit.data.tree.sha;
-
-  // 3. Create blobs for each file
-  const blobs = await Promise.all(
-    changes.map(async (change) => {
-      const isBuffer = Buffer.isBuffer(change.content);
-      const content = isBuffer
-        ? (change.content as Buffer).toString('base64')
-        : (change.content as string);
-      const encoding = isBuffer ? 'base64' : 'utf-8';
-      const blob = await octokit.rest.git.createBlob({
+  while (attempts < maxAttempts) {
+    attempts++;
+    try {
+      // 1. Get current branch HEAD
+      const ref = await octokit.rest.git.getRef({
         owner,
         repo,
-        content,
-        encoding,
+        ref: `heads/${branch}`,
       });
-      return { path: change.path, sha: blob.data.sha };
-    })
-  );
+      const baseSha = ref.data.object.sha;
 
-  // 4. Create new tree based on the base tree, with our blobs
-  const tree = await octokit.rest.git.createTree({
-    owner,
-    repo,
-    base_tree: baseTreeSha,
-    tree: blobs.map((b) => ({
-      path: b.path,
-      mode: '100644',
-      type: 'blob',
-      sha: b.sha,
-    })),
-  });
+      // 2. Get base tree
+      const baseCommit = await octokit.rest.git.getCommit({
+        owner,
+        repo,
+        commit_sha: baseSha,
+      });
+      const baseTreeSha = baseCommit.data.tree.sha;
 
-  // 5. Create commit pointing to the new tree
-  const commit = await octokit.rest.git.createCommit({
-    owner,
-    repo,
-    message,
-    tree: tree.data.sha,
-    parents: [baseSha],
-  });
+      // 3. Create blobs for each file
+      const blobs = await Promise.all(
+        changes.map(async (change) => {
+          const isBuffer = Buffer.isBuffer(change.content);
+          const content = isBuffer
+            ? (change.content as Buffer).toString('base64')
+            : (change.content as string);
+          const encoding = isBuffer ? 'base64' : 'utf-8';
+          const blob = await octokit.rest.git.createBlob({
+            owner,
+            repo,
+            content,
+            encoding,
+          });
+          return { path: change.path, sha: blob.data.sha };
+        })
+      );
 
-  // 6. Move branch ref forward
-  await octokit.rest.git.updateRef({
-    owner,
-    repo,
-    ref: `heads/${branch}`,
-    sha: commit.data.sha,
-  });
+      // 4. Create new tree based on the base tree, with our blobs
+      const tree = await octokit.rest.git.createTree({
+        owner,
+        repo,
+        base_tree: baseTreeSha,
+        tree: blobs.map((b) => ({
+          path: b.path,
+          mode: '100644',
+          type: 'blob',
+          sha: b.sha,
+        })),
+      });
+
+      // 5. Create commit pointing to the new tree
+      const commit = await octokit.rest.git.createCommit({
+        owner,
+        repo,
+        message,
+        tree: tree.data.sha,
+        parents: [baseSha],
+      });
+
+      // 6. Move branch ref forward with force: true
+      await octokit.rest.git.updateRef({
+        owner,
+        repo,
+        ref: `heads/${branch}`,
+        sha: commit.data.sha,
+        force: true,
+      });
+
+      // Success!
+      return;
+    } catch (err) {
+      if (attempts >= maxAttempts) {
+        throw err;
+      }
+      // Brief pause before retry
+      await new Promise((resolve) => setTimeout(resolve, 500));
+    }
+  }
 }
