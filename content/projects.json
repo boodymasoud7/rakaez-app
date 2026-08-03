@@ -498,7 +498,7 @@
     "lng": 31.493,
     "brochure_url": null,
     "cover_image": "/uploads/projects/116b/116b-page-1.jpg",
-    "featured": true,
+    "featured": false,
     "gallery": [
       {
         "url": "/uploads/projects/116b/116b-img-1.jpg",
@@ -618,7 +618,7 @@
       }
     ],
     "created_at": "2024-01-01T00:00:00.000Z",
-    "updated_at": "2026-07-29T00:00:00.000Z"
+    "updated_at": "2026-08-03T18:02:10.434Z"
   },
   {
     "id": "proj-133",
