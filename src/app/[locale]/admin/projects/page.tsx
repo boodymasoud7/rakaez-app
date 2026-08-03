@@ -159,6 +159,49 @@ export default function AdminProjectsPage() {
       alert(isAr ? 'فشل في تغيير حالة العرض' : 'Failed to toggle visibility');
     }
   };
+  const autoTranslateArabicToEnglish = (textAr: string) => {
+    let textEn = textAr;
+    const replacements: [RegExp, string][] = [
+      [/مشروع/gi, 'Project'],
+      [/دايموند تاور/gi, 'Diamond Tower'],
+      [/فالي/gi, 'Valley'],
+      [/بيت الوطن/gi, 'Bayt Al Watan'],
+      [/قطعة/gi, 'Plot'],
+      [/دمياط الجديدة/gi, 'New Damietta'],
+      [/القاهرة الجديدة/gi, 'New Cairo'],
+      [/المنصورة/gi, 'Mansoura'],
+      [/التجمع الخامس/gi, 'Fifth Settlement'],
+    ];
+
+    replacements.forEach(([rgx, rep]) => {
+      textEn = textEn.replace(rgx, rep);
+    });
+
+    const charMap: Record<string, string> = {
+      'أ': 'A', 'إ': 'I', 'آ': 'A', 'ا': 'A', 'ب': 'B', 'ت': 'T', 'ث': 'Th', 'ج': 'J',
+      'ح': 'H', 'خ': 'Kh', 'د': 'D', 'ذ': 'Z', 'ر': 'R', 'ز': 'Z', 'س': 'S', 'ش': 'Sh',
+      'ص': 'S', 'ض': 'D', 'ط': 'T', 'ظ': 'Z', 'ع': 'A', 'غ': 'Gh', 'ف': 'F', 'ق': 'Q',
+      'ك': 'K', 'ل': 'L', 'م': 'M', 'ن': 'N', 'ه': 'H', 'و': 'W', 'ي': 'Y', 'ى': 'Y',
+      'ة': 'ah', 'ء': '', 'ئ': 'Y', 'ؤ': 'W'
+    };
+
+    let result = '';
+    for (const char of textEn) {
+      result += charMap[char] || char;
+    }
+    return result.trim().replace(/\s+/g, ' ');
+  };
+
+  const handleArabicNameChange = (arabicVal: string) => {
+    const autoEn = autoTranslateArabicToEnglish(arabicVal);
+    const newSlug = generateSlug(autoEn || form.name_en || arabicVal);
+    setForm((prev) => ({
+      ...prev,
+      name_ar: arabicVal,
+      name_en: !prev.name_en || prev.name_en === autoTranslateArabicToEnglish(prev.name_ar) ? autoEn : prev.name_en,
+      slug: prev.slug || newSlug,
+    }));
+  };
 
   return (
     <AdminLayout>
@@ -180,12 +223,41 @@ export default function AdminProjectsPage() {
           </div>
           <div className="grid md:grid-cols-2 gap-6">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">{isAr ? 'اسم المشروع (English)' : 'Project Name (English)'}</label>
-              <input type="text" value={form.name_en} onChange={e => setForm({...form, name_en: e.target.value, slug: form.slug || generateSlug(e.target.value)})} className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-gold/50 focus:border-gold outline-none" />
+              <div className="flex items-center justify-between mb-2">
+                <label className="block text-sm font-medium text-gray-700">{isAr ? 'اسم المشروع (عربي)' : 'Project Name (Arabic)'}</label>
+              </div>
+              <input
+                type="text"
+                dir="rtl"
+                value={form.name_ar}
+                onChange={e => handleArabicNameChange(e.target.value)}
+                placeholder="مثال: مشروع 48 - بيت الوطن"
+                className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-gold/50 focus:border-gold outline-none"
+              />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">{isAr ? 'اسم المشروع (عربي)' : 'Project Name (Arabic)'}</label>
-              <input type="text" dir="rtl" value={form.name_ar} onChange={e => setForm({...form, name_ar: e.target.value})} className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-gold/50 focus:border-gold outline-none" />
+              <div className="flex items-center justify-between mb-2">
+                <label className="block text-sm font-medium text-gray-700">{isAr ? 'اسم المشروع (English)' : 'Project Name (English)'}</label>
+                {form.name_ar && (
+                  <button
+                    type="button"
+                    onClick={() => {
+                      const autoEn = autoTranslateArabicToEnglish(form.name_ar);
+                      setForm({...form, name_en: autoEn, slug: generateSlug(autoEn)});
+                    }}
+                    className="text-xs text-gold font-semibold hover:underline"
+                  >
+                    {isAr ? '✨ ترجمة تلقائية من العربي' : 'Auto-fill from Arabic'}
+                  </button>
+                )}
+              </div>
+              <input
+                type="text"
+                value={form.name_en}
+                onChange={e => setForm({...form, name_en: e.target.value, slug: form.slug || generateSlug(e.target.value)})}
+                placeholder="e.g. Project 48 - Bayt Al Watan"
+                className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-gold/50 focus:border-gold outline-none"
+              />
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">{isAr ? 'الموقع (English)' : 'Location (English)'}</label>
