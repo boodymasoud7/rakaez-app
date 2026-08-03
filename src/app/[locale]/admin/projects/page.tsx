@@ -49,20 +49,35 @@ export default function AdminProjectsPage() {
 
   const generateSlug = (name: string) => name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
 
-  const openAdd = () => { setForm(emptyForm); setEditingId(null); setImageFile(null); setBrochureFile(null); setShowForm(true); };
+  const openAdd = () => {
+    setForm(emptyForm);
+    setEditingId(null);
+    setImageFile(null);
+    setBrochureFile(null);
+    setShowForm(true);
+    if (typeof window !== 'undefined') window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   const openEdit = (p: Project) => {
     setForm({
-      name_en: p.name_en, name_ar: p.name_ar, slug: p.slug,
-      location_en: p.location_en, location_ar: p.location_ar, map_link: p.map_link || '',
-      description_en: p.description_en, description_ar: p.description_ar,
-      status: p.status, featured: p.featured, published: p.published !== false,
+      name_en: p.name_en || '',
+      name_ar: p.name_ar || '',
+      slug: p.slug || '',
+      location_en: p.location_en || '',
+      location_ar: p.location_ar || '',
+      map_link: p.map_link || '',
+      description_en: p.description_en || '',
+      description_ar: p.description_ar || '',
+      status: p.status || 'upcoming',
+      featured: p.featured || false,
+      published: p.published !== false,
       unit_types: Array.isArray(p.unit_types) ? p.unit_types : [],
     });
     setEditingId(p.id);
     setImageFile(null);
     setBrochureFile(null);
     setShowForm(true);
+    if (typeof window !== 'undefined') window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const addUnitType = () => setForm({ ...form, unit_types: [...form.unit_types, { ...emptyUnitType }] });
