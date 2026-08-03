@@ -49,26 +49,29 @@ export default function AdminHomepagePage() {
     setSettings((prev) => ({ ...prev, [key]: { en: value, ar: value } }));
   };
 
-  const toggleFeatured = async (id: string, featured: boolean) => {
+  const toggleFeatured = (id: string, featured: boolean) => {
     setProjects(projects.map((p) => (p.id === id ? { ...p, featured } : p)));
-    try {
-      await adminApi.updateProject(id, { featured });
-    } catch (err) {
-      console.error(err);
-      // Revert on failure
-      setProjects(projects.map((p) => (p.id === id ? { ...p, featured: !featured } : p)));
-    }
   };
 
   const handleSave = async () => {
     setSaving(true);
     try {
-      await adminApi.saveSettings(settings);
+      const featuredProjectIds = projects.filter((p) => p.featured).map((p) => p.id);
+      const res = await fetch('/api/admin/homepage', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ settings, featuredProjectIds }),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) {
+        throw new Error(data.error || 'Save failed');
+      }
       setSaved(true);
-      setTimeout(() => setSaved(false), 2000);
+      setTimeout(() => setSaved(false), 2500);
     } catch (err) {
       console.error(err);
-      alert(isAr ? 'فشل في الحفظ' : 'Save failed');
+      const msg = (err as Error)?.message;
+      alert(msg ? (isAr ? `فشل في الحفظ: ${msg}` : `Save failed: ${msg}`) : (isAr ? 'فشل في الحفظ' : 'Save failed'));
     } finally {
       setSaving(false);
     }
