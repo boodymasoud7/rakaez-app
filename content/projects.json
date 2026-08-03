@@ -535,7 +535,7 @@
     "lng": 31.493,
     "brochure_url": null,
     "cover_image": "/uploads/projects/109b/109b-img-1.jpg",
-    "featured": false,
+    "featured": true,
     "gallery": [
       {
         "url": "/uploads/projects/109b/109b-page-1.jpg",
@@ -2095,7 +2095,7 @@
     "lng": 31.4925,
     "brochure_url": null,
     "cover_image": "/uploads/projects/rakaez-31-1/rakaez-31-1-page-1.jpg",
-    "featured": true,
+    "featured": false,
     "gallery": [
       {
         "url": "/uploads/projects/rakaez-31-1/rakaez-31-1-page-2.jpg",
