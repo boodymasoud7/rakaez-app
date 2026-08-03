@@ -1905,8 +1905,8 @@
   },
   {
     "id": "proj-78",
-    "name_en": "Project 78 - Bayt Al Watan",
-    "name_ar": "مشروع 78 - بيت الوطن",
+    "name_en": "Project 78 - MNTQH JNWB ALQRY ALSYAHYH",
+    "name_ar": "مشروع 78 - منطقه جنوب القري السياحيه",
     "slug": "78",
     "location_en": "Bayt Al Watan, New Damietta",
     "location_ar": "بيت الوطن - دمياط الجديدة",
@@ -1968,7 +1968,9 @@
       }
     ],
     "created_at": "2024-01-01T00:00:00.000Z",
-    "updated_at": "2026-07-29T00:00:00.000Z"
+    "updated_at": "2026-08-03T18:21:42.923Z",
+    "map_link": "",
+    "published": true
   },
   {
     "id": "proj-rakaez-31-1",
