@@ -426,7 +426,7 @@
     "lng": 31.493,
     "brochure_url": null,
     "cover_image": "/uploads/projects/109b/109b-img-1.jpg",
-    "featured": true,
+    "featured": false,
     "gallery": [
       {
         "url": "/uploads/projects/109b/109b-page-1.jpg",
@@ -970,7 +970,7 @@
     "lng": 31.493,
     "brochure_url": null,
     "cover_image": "/uploads/projects/198b/198b-page-1.jpg",
-    "featured": true,
+    "featured": false,
     "gallery": [
       {
         "url": "/uploads/projects/198b/198b-page-1.jpg",
@@ -1102,7 +1102,7 @@
     "lng": 31.493,
     "brochure_url": null,
     "cover_image": "/uploads/projects/25a/25a-page-1.jpg",
-    "featured": true,
+    "featured": false,
     "gallery": [
       {
         "url": "/uploads/projects/25a/25a-page-1.jpg",
