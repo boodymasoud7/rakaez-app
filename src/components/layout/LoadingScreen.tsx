@@ -26,9 +26,9 @@ export default function LoadingScreen() {
               initial={{ scale: 0.5, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ duration: 0.8, ease: 'easeOut' }}
-              className="relative w-24 h-24 mb-8"
+              className="relative w-56 h-20 mb-8"
             >
-              <Image src="/images/logo.png" alt="Rakaez" fill className="object-contain" />
+              <Image src="/images/logo-v2.png" alt="Rakaez" fill className="object-contain" />
             </motion.div>
 
             {/* Animated Line */}

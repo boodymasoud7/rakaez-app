@@ -33,7 +33,7 @@ export default function HomePage() {
   // Dynamic content with fallback to translations
   const heroTitle = get('hero_title', locale) || t('home.heroTitle');
   const heroSubtitle = get('hero_subtitle', locale) || t('home.heroSubtitle');
-  const heroImage = get('hero_image', locale) || '/images/hero-banner.png';
+  const heroImage = get('hero_image', locale) || '/images/hero-banner-v2.png';
   const aboutPreview = get('about_preview', locale) || t('home.aboutPreview');
   const aboutHeading = get('about_heading', locale) || (locale === 'ar' ? 'نبني مجتمعات تدوم' : 'Building Communities That Last');
 
@@ -41,7 +41,7 @@ export default function HomePage() {
   const statProjects = getNum('stat_projects') || 23;
   const statUnits = getNum('stat_units') || 2500;
   const statClients = getNum('stat_clients') || 1800;
-  const statYears = getNum('stat_years') || 12;
+  const statYears = getNum('stat_years') || 6;
 
   const labelProjects = get('stat_projects_label', locale) || t('home.statsProjects');
   const labelUnits = get('stat_units_label', locale) || t('home.statsUnits');
@@ -75,15 +75,16 @@ export default function HomePage() {
       <Header />
 
       {/* ===== HERO ===== */}
-      <section className="relative h-screen min-h-[700px] flex items-center">
+      <section className="relative w-full min-h-[450px] sm:min-h-[550px] lg:min-h-[650px] aspect-[2.4/1] flex items-center overflow-hidden bg-[#10141e]">
         <Image
           src={heroImage}
           alt="Hero"
           fill
-          className="object-cover"
+          unoptimized
+          className="object-cover object-center"
           priority
         />
-        <div className="hero-overlay absolute inset-0" />
+        <div className="hero-overlay absolute inset-0 bg-gradient-to-t from-secondary-dark/90 via-secondary-dark/30 to-transparent" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
@@ -145,11 +146,12 @@ export default function HomePage() {
             <AnimatedSection direction={isRTL ? 'right' : 'left'}>
               <div className="relative">
                 <Image
-                  src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80"
+                  src="/images/story-team.jpg"
                   alt="About Rakaez"
-                  width={600}
-                  height={500}
-                  className="rounded-2xl shadow-2xl"
+                  width={819}
+                  height={1024}
+                  className="rounded-2xl shadow-2xl w-full h-auto object-contain block"
+                  unoptimized
                 />
                 <div className="absolute -bottom-6 -right-6 rtl:-left-6 rtl:right-auto w-40 h-40 bg-gold/10 rounded-2xl -z-10" />
               </div>

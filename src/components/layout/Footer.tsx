@@ -48,8 +48,8 @@ export default function Footer() {
           {/* Brand */}
           <div className="lg:col-span-1">
             <Link href={`/${locale}`} className="flex items-center gap-3 mb-4">
-              <div className="relative w-16 h-16">
-                <Image src="/images/logo.png" alt="Rakaez" fill className="object-contain" />
+              <div className="relative w-44 h-16">
+                <Image src="/images/logo-v2.png" alt="Rakaez" fill className="object-contain object-left rtl:object-right" />
               </div>
             </Link>
             <p className="text-gold font-bold text-lg mb-2">

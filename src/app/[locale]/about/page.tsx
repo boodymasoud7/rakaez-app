@@ -21,7 +21,7 @@ export default function AboutPage() {
   const statProjects = getNum('stat_projects') || 23;
   const statUnits = getNum('stat_units') || 2500;
   const statClients = getNum('stat_clients') || 1800;
-  const statYears = getNum('stat_years') || 12;
+  const statYears = getNum('stat_years') || 6;
 
   const labelProjects = get('stat_projects_label', locale) || tHome('statsProjects');
   const labelUnits = get('stat_units_label', locale) || tHome('statsUnits');
@@ -40,15 +40,16 @@ export default function AboutPage() {
       <Header />
 
       {/* Hero */}
-      <section className="relative h-[60vh] min-h-[400px] flex items-center">
+      <section className="relative w-full min-h-[350px] sm:min-h-[450px] lg:min-h-[600px] aspect-[2.4/1] flex items-center overflow-hidden bg-[#10141e]">
         <Image
-          src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1920&q=80"
-          alt="About"
+          src="/images/about-hero-v2.png"
+          alt="About Rakaez"
           fill
-          className="object-cover"
+          unoptimized
+          className="object-cover object-center"
           priority
         />
-        <div className="hero-overlay absolute inset-0" />
+        <div className="hero-overlay absolute inset-0 bg-gradient-to-t from-secondary-dark/80 via-transparent to-transparent" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -74,11 +75,12 @@ export default function AboutPage() {
             <AnimatedSection delay={0.2}>
               <div className="relative">
                 <Image
-                  src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800&q=80"
-                  alt="Our Story"
-                  width={600}
-                  height={450}
-                  className="rounded-2xl shadow-2xl"
+                  src="/images/story-team.jpg"
+                  alt="Rakaez Team"
+                  width={819}
+                  height={1024}
+                  className="rounded-2xl shadow-2xl w-full h-auto object-contain block"
+                  unoptimized
                 />
                 <div className="absolute -bottom-4 -left-4 rtl:-right-4 rtl:left-auto w-full h-full border-2 border-gold/20 rounded-2xl -z-10" />
               </div>

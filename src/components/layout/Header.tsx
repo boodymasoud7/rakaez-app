@@ -60,12 +60,12 @@ export default function Header() {
           <div className="flex items-center justify-between h-20">
             {/* Logo */}
             <Link href={`/${locale}`} className="flex items-center group">
-              <div className="relative w-28 h-28 transition-transform duration-300 group-hover:scale-110">
+              <div className="relative w-40 h-14 sm:w-44 sm:h-16 transition-transform duration-300 group-hover:scale-105">
                 <Image
-                  src="/images/logo.png"
+                  src="/images/logo-v2.png"
                   alt="Rakaez"
                   fill
-                  className="object-contain"
+                  className="object-contain object-left rtl:object-right"
                   priority
                 />
               </div>

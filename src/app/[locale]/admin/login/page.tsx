@@ -50,8 +50,8 @@ export default function AdminLoginPage() {
     <div className="min-h-screen bg-gradient-dark flex items-center justify-center p-4">
       <div className="w-full max-w-md">
         <div className="text-center mb-10">
-          <div className="relative w-20 h-20 mx-auto mb-6">
-            <Image src="/images/logo.png" alt="Rakaez" fill className="object-contain" />
+          <div className="relative w-48 h-16 mx-auto mb-6">
+            <Image src="/images/logo-v2.png" alt="Rakaez" fill className="object-contain" />
           </div>
           <h1 className="text-2xl font-bold text-white mb-2">
             {locale === 'ar' ? 'لوحة إدارة ركائز' : 'Rakaez Admin Panel'}

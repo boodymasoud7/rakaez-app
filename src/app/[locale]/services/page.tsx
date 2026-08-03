@@ -3,7 +3,7 @@
 import { useTranslations, useLocale } from 'next-intl';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { HiOfficeBuilding, HiTrendingUp, HiCog, HiLightBulb } from 'react-icons/hi';
+import { HiOfficeBuilding, HiTrendingUp, HiCog, HiLightBulb, HiSparkles } from 'react-icons/hi';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import AnimatedSection from '@/components/ui/AnimatedSection';
@@ -13,7 +13,7 @@ import { useServices } from '@/hooks/useContent';
 import { getLocalized } from '@/lib/content/types';
 
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
-  HiOfficeBuilding, HiTrendingUp, HiCog, HiLightBulb,
+  HiOfficeBuilding, HiTrendingUp, HiCog, HiLightBulb, HiSparkles,
 };
 
 export default function ServicesPage() {

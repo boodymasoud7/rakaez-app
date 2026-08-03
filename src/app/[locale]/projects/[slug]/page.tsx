@@ -1,11 +1,12 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import { useTranslations, useLocale } from 'next-intl';
 import { useParams } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
-import { motion } from 'framer-motion';
-import { HiLocationMarker, HiOfficeBuilding, HiShoppingBag, HiBriefcase } from 'react-icons/hi';
+import { motion, AnimatePresence } from 'framer-motion';
+import { HiLocationMarker, HiOfficeBuilding, HiShoppingBag, HiBriefcase, HiX, HiChevronLeft, HiChevronRight, HiZoomIn } from 'react-icons/hi';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import AnimatedSection from '@/components/ui/AnimatedSection';
@@ -22,6 +23,30 @@ export default function ProjectDetailPage() {
   const slug = params.slug as string;
   const { project: sbProject, loading } = useProjectBySlug(slug);
   const project = sbProject || demoProjects.find(p => p.slug === slug) || null;
+
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+
+  const fallbackGallery = [
+    project?.cover_image || 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800',
+    'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800',
+    'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800',
+    'https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=800',
+  ];
+  const galleryImages =
+    project && 'gallery' in project && Array.isArray(project.gallery) && project.gallery.length > 0
+      ? project.gallery.map((img) => img.url)
+      : fallbackGallery;
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (lightboxIndex === null) return;
+      if (e.key === 'Escape') setLightboxIndex(null);
+      if (e.key === 'ArrowRight') setLightboxIndex((prev) => (prev !== null ? (prev + 1) % galleryImages.length : null));
+      if (e.key === 'ArrowLeft') setLightboxIndex((prev) => (prev !== null ? (prev - 1 + galleryImages.length) % galleryImages.length : null));
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [lightboxIndex, galleryImages.length]);
 
   if (loading) return <><Header /><div className="min-h-screen flex items-center justify-center"><div className="w-8 h-8 border-2 border-gold border-t-transparent rounded-full animate-spin" /></div><Footer /></>;
 
@@ -42,17 +67,6 @@ export default function ProjectDetailPage() {
       </>
     );
   }
-
-  const fallbackGallery = [
-    project.cover_image || 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800',
-    'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800',
-    'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800',
-    'https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=800',
-  ];
-  const galleryImages =
-    'gallery' in project && Array.isArray(project.gallery) && project.gallery.length > 0
-      ? project.gallery.map((img) => img.url)
-      : fallbackGallery;
 
   const unitTypes = Array.isArray(project.unit_types) ? project.unit_types : [];
 
@@ -85,9 +99,13 @@ export default function ProjectDetailPage() {
       <Header />
 
       {/* Hero */}
-      <section className="relative h-[70vh] min-h-[500px] flex items-end">
-        <Image src={project.cover_image || ''} alt={getLocalized(project, 'name', locale)} fill className="object-cover" priority />
-        <div className="hero-overlay absolute inset-0" />
+      <section className="relative h-[75vh] min-h-[550px] flex items-end bg-slate-950 overflow-hidden">
+        <div
+          className="absolute inset-0 bg-cover bg-center blur-xl opacity-40 scale-110"
+          style={{ backgroundImage: `url(${project.cover_image})` }}
+        />
+        <Image src={project.cover_image || ''} alt={getLocalized(project, 'name', locale)} fill className="object-contain relative z-10 p-4 object-bottom" priority unoptimized />
+        <div className="hero-overlay absolute inset-0 bg-gradient-to-t from-secondary-dark/95 via-secondary-dark/40 to-transparent z-20 pointer-events-none" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pb-16">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
             <span className={`inline-block px-4 py-1.5 rounded-full text-sm font-bold text-white mb-4 shadow-md ${
@@ -118,9 +136,16 @@ export default function ProjectDetailPage() {
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
             {galleryImages.map((img, i) => (
               <AnimatedSection key={i} delay={i * 0.1}>
-                <div className="relative h-64 rounded-xl overflow-hidden group cursor-pointer">
-                  <Image src={img} alt={`Gallery ${i + 1}`} fill className="object-cover group-hover:scale-110 transition-transform duration-500" />
-                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors" />
+                <div
+                  onClick={() => setLightboxIndex(i)}
+                  className="relative h-64 rounded-xl overflow-hidden group cursor-pointer shadow-md hover:shadow-xl transition-all duration-300"
+                >
+                  <Image src={img} alt={`Gallery ${i + 1}`} fill className="object-cover group-hover:scale-110 transition-transform duration-500" unoptimized />
+                  <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                    <div className="w-12 h-12 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center text-white shadow-lg">
+                      <HiZoomIn className="w-6 h-6" />
+                    </div>
+                  </div>
                 </div>
               </AnimatedSection>
             ))}
@@ -190,6 +215,78 @@ export default function ProjectDetailPage() {
           </AnimatedSection>
         </div>
       </section>
+
+      {/* Lightbox Modal */}
+      <AnimatePresence>
+        {lightboxIndex !== null && galleryImages[lightboxIndex] && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setLightboxIndex(null)}
+            className="fixed inset-0 z-50 bg-black/95 backdrop-blur-xl flex items-center justify-center p-4 sm:p-8 select-none"
+          >
+            {/* Close button */}
+            <button
+              onClick={() => setLightboxIndex(null)}
+              className="absolute top-6 right-6 z-50 p-3 bg-white/10 hover:bg-white/20 text-white rounded-full transition-colors"
+              aria-label="Close modal"
+            >
+              <HiX className="w-6 h-6" />
+            </button>
+
+            {/* Image counter */}
+            <div className="absolute top-6 left-6 z-50 text-white/90 font-mono text-sm bg-white/10 px-4 py-2 rounded-full backdrop-blur-md border border-white/10">
+              {lightboxIndex + 1} / {galleryImages.length}
+            </div>
+
+            {/* Navigation controls */}
+            {galleryImages.length > 1 && (
+              <>
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setLightboxIndex((prev) => (prev !== null ? (prev - 1 + galleryImages.length) % galleryImages.length : null));
+                  }}
+                  className="absolute left-4 sm:left-8 z-50 p-3 bg-white/10 hover:bg-white/20 text-white rounded-full transition-colors"
+                  aria-label="Previous image"
+                >
+                  <HiChevronLeft className="w-8 h-8" />
+                </button>
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setLightboxIndex((prev) => (prev !== null ? (prev + 1) % galleryImages.length : null));
+                  }}
+                  className="absolute right-4 sm:right-8 z-50 p-3 bg-white/10 hover:bg-white/20 text-white rounded-full transition-colors"
+                  aria-label="Next image"
+                >
+                  <HiChevronRight className="w-8 h-8" />
+                </button>
+              </>
+            )}
+
+            {/* Display active image */}
+            <motion.div
+              key={lightboxIndex}
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              transition={{ duration: 0.25 }}
+              onClick={(e) => e.stopPropagation()}
+              className="relative max-w-5xl max-h-[85vh] w-full h-full flex items-center justify-center"
+            >
+              <Image
+                src={galleryImages[lightboxIndex]}
+                alt={`Gallery full ${lightboxIndex + 1}`}
+                fill
+                className="object-contain"
+                unoptimized
+              />
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       <Footer />
     </>

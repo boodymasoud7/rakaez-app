@@ -34,5 +34,14 @@
     "description_ar": "نصائح استراتيجية حول اتجاهات السوق والفرص وتحسين محفظتك العقارية.",
     "icon": "HiLightBulb",
     "sort_order": 4
+  },
+  {
+    "id": "svc-5",
+    "title_en": "Interior & Exterior Finishes",
+    "title_ar": "التشطيبات والديكور",
+    "description_en": "Premium turnkey interior and exterior finishing services with top-tier materials and modern architectural craftsmanship.",
+    "description_ar": "خدمات تشطيبات وديكورات متكاملة بأرقى المواد وأحدث التصاميم المعمارية لتسليم عقارك بأعلى معايير الجودة والرفاهية.",
+    "icon": "HiSparkles",
+    "sort_order": 5
   }
 ]

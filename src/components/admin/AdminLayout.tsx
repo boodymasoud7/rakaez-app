@@ -59,8 +59,8 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
       <aside className={`fixed inset-y-0 ${locale === 'ar' ? 'right-0' : 'left-0'} z-50 w-64 admin-sidebar text-white transform transition-transform duration-300 lg:translate-x-0 ${sidebarOpen ? 'translate-x-0' : (locale === 'ar' ? 'translate-x-full' : '-translate-x-full')} lg:static lg:block`}>
         <div className="p-6 border-b border-white/10">
           <Link href={`/${locale}/admin`} className="flex items-center gap-3">
-            <div className="relative w-10 h-10">
-              <Image src="/images/logo.png" alt="Rakaez" fill className="object-contain" />
+            <div className="relative w-36 h-10">
+              <Image src="/images/logo-v2.png" alt="Rakaez" fill className="object-contain object-left rtl:object-right" />
             </div>
             <div>
               <h1 className="font-bold text-lg">{locale === 'ar' ? 'ركائز' : 'RAKAEZ'}</h1>

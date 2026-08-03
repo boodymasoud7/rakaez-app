@@ -29,17 +29,18 @@ export default function ProjectCard({ project, index = 0 }: ProjectCardProps) {
       <Link href={`/${locale}/projects/${project.slug}`}>
         <div className="relative bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 flex flex-col h-full">
           {/* Image */}
-          <div className="relative h-64 overflow-hidden flex-shrink-0">
+          <div className="relative h-80 sm:h-96 md:h-[400px] overflow-hidden flex-shrink-0 bg-gray-900">
             <Image
               src={project.cover_image || 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800'}
               alt={getLocalized(project, 'name', locale)}
               fill
-              className="object-cover transition-transform duration-700 group-hover:scale-110"
+              className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
+              unoptimized
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent z-10 pointer-events-none" />
 
             {/* Status Badge */}
-            <div className="absolute top-4 left-4 rtl:left-auto rtl:right-4">
+            <div className="absolute top-3 left-3 rtl:left-auto rtl:right-3 z-30">
               <span className={`px-3.5 py-1 rounded-full text-xs font-bold text-white backdrop-blur-md shadow-md ${
                 project.status === 'completed' ? 'bg-emerald-600/90' :
                 project.status === 'ongoing' ? 'bg-amber-600/90' : 'bg-primary/90'
