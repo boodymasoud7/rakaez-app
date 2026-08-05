@@ -36,6 +36,7 @@ export default function HomePage() {
   const heroImage = get('hero_image', locale) || '/images/hero-banner-v2.png';
   const aboutPreview = get('about_preview', locale) || t('home.aboutPreview');
   const aboutHeading = get('about_heading', locale) || (locale === 'ar' ? 'نبني مجتمعات تدوم' : 'Building Communities That Last');
+  const aboutTeamImage = get('about_team_image', locale) || '/images/story-team-v2.png';
 
   // Dynamic stats with fallback
   const statProjects = getNum('stat_projects') || 23;
@@ -146,7 +147,7 @@ export default function HomePage() {
             <AnimatedSection direction={isRTL ? 'right' : 'left'}>
               <div className="relative">
                 <Image
-                  src="/images/story-team.jpg"
+                  src={aboutTeamImage}
                   alt="About Rakaez"
                   width={819}
                   height={1024}

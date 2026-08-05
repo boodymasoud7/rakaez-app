@@ -51,6 +51,10 @@
     "en": "/images/hero-banner-v2.png",
     "ar": "/images/hero-banner-v2.png"
   },
+  "about_team_image": {
+    "en": "/images/story-team-v2.png",
+    "ar": "/images/story-team-v2.png"
+  },
   "about_heading": {
     "en": "Building Communities That Last",
     "ar": "نبني مجتمعات تدوم"

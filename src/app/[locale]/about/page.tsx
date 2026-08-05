@@ -75,7 +75,7 @@ export default function AboutPage() {
             <AnimatedSection delay={0.2}>
               <div className="relative">
                 <Image
-                  src="/images/story-team.jpg"
+                  src={get('about_team_image', locale) || '/images/story-team-v2.png'}
                   alt="Rakaez Team"
                   width={819}
                   height={1024}
