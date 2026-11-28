@@ -1,12 +1,8 @@
 {
-  "totalVisits": 1471,
-  "todayVisits": 64,
-  "todayDate": "2026-11-27",
+  "totalVisits": 1472,
+  "todayVisits": 1,
+  "todayDate": "2026-11-28",
   "dailyStats": [
-    {
-      "date": "2026-10-07",
-      "visits": 5
-    },
     {
       "date": "2026-10-11",
       "visits": 5
@@ -122,7 +118,11 @@
     {
       "date": "2026-11-27",
       "visits": 64
+    },
+    {
+      "date": "2026-11-28",
+      "visits": 1
     }
   ],
-  "lastUpdated": "2026-11-27T16:33:11.294Z"
+  "lastUpdated": "2026-11-28T10:44:46.372Z"
 }
